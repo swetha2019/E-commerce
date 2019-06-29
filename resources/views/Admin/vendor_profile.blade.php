@@ -264,13 +264,13 @@
 								</div>
 								<div class="drop setting"> <span class="drop-head"><i>30 days trial</i></span>
 									<ul class="drop-meta">
-										<li> <a href="#" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>
+										<li> <a href="" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>
 										<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
 										<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
 										<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
 										<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
 									</ul>
-									<span class="drop-bottom"><a href="{{ route('logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+									<span class="drop-bottom"><a href="{{ route('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
 							</div>
 						</div>
 					</div>
@@ -349,13 +349,13 @@
 									</div>
 									<div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
 										<ul class="drop-meta">
-											<li> <a href="#" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>
+											<li> <a href="" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
 										</ul>
-										<span class="drop-bottom"><a href="#" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+										<span class="drop-bottom"><a href="{{ route('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
                                     </div>
 									<ul class="seting-area">
 									<li class="langages">

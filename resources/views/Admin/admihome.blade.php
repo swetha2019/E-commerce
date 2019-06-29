@@ -256,13 +256,13 @@
 								</div>
 								<div class="drop setting"> <span class="drop-head"><i>30 days trial</i></span>
 									<ul class="drop-meta">
-										<li> <a href="#" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>
+   @foreach($detail as $admin)<li> <a href="admin_edit/{{$admin->id}}" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>@endforeach
 										<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
 										<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
 										<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
 										<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
 									</ul>
-									<span class="drop-bottom"><a href="{{ route('logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+									<span class="drop-bottom"><a href="{{ url('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
 							</div>
 						</div>
 					</div>
@@ -341,13 +341,14 @@
 									</div>
 									<div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
 										<ul class="drop-meta">
-											<li> <a href="#" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>
+											@foreach($detail as $admin)
+											<li> <a href="admin_edit/{{$admin->id}}" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>@endforeach
 											<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
 										</ul>
-										<span class="drop-bottom"><a href="#" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+										<span class="drop-bottom"><a href="{{ url('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
                                     </div>
 									<ul class="seting-area">
 									<li class="langages">
@@ -413,7 +414,7 @@
                           <div class="sub-area">
                             <ul>
                               <li><a href="#" title=""><i class="fa fa-briefcase"></i>Over View </a></li>
-                              <li><a href="edit_profile" title=""><i class="fa fa-gear"></i>Account Settings </a></li>
+       @foreach($detail as $admin) <li><a href="admin_edit/{{$admin->id}}" title=""><i class="fa fa-gear"></i>Account Settings </a></li>@endforeach
                               <li><a href="#" title=""><i class="fa fa-adjust"></i>Customers </a></li>
                             </ul>
                           </div>
@@ -425,7 +426,7 @@
 						  <div class="row">
 							<div class="col-md-6">
 							  <div class="about-info">
-								<h4>About Vendor:</h4>
+								<h4>This admin page </h4>
 							  </div>
 							</div>
 							<div class="col-md-6">
