@@ -43,9 +43,13 @@ Route::get('/changePassword','HomeController@showChangePasswordForm');
 
 
 //Admin login ---------------------------------------
-Route::get('admin','admin@index');
-Route::post('adminlogin','admin@adminlogin');
-Route::get('adminhome','admin@vendor_detail');
-Route::get('approved/{id}','admin@aPProved');
-Route::get('vendor_edit/{id}','admin@vendor_edit');
-Route::get('notification/{id}','admin@notification');
+Route::get('admin',['uses'=>'admin\admin_controller@index']);
+Route::post('adminlogin','admin\admin_controller@adminlogin');
+Route::get('adminhome','admin\admin_controller@vendor_detail');
+Route::get('approved/{id}','admin\admin_controller@aPProved');
+Route::get('vendor_edit/{id}','admin\admin_controller@vendor_edit');
+Route::get('notification/{id}','admin\admin_controller@notification');
+Route::get('admin_edit/{id}','admin\admin_controller@admin_edit')->name('admin_edit');
+Route::post('admin_update/{id}','admin\admin_controller@admin_update');//for update admin detail
+Route::post('admin_change_password/{id}','admin\admin_controller@admin_change_password');
+Route::get('admin_logout','admin\admin_controller@admin_logout');
