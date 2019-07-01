@@ -33,7 +33,7 @@ class admin_controller extends Controller
                     else 
                       {
                          $email=$request->input('email');
-                          $password=$request->input('password');
+                        $password=$request->input('password');
                           $data= db::table('vendor_registration')->where('email',$email)->Where('password',$password)->Where('usertype','admin')->pluck('id');
                         //print_r($data);
                           if(isset($data[0]))
@@ -128,7 +128,7 @@ class admin_controller extends Controller
                    }
               else 
                    { 
-		                    $admin_updateDetails['name']=$request->input('name');
+		                   $admin_updateDetails['name']=$request->input('name');
 		                   $admin_updateDetails['phone']=$request->input('nw_phone');
 		                   $admin_updateDetails['email']=$request->input('nw_email');
 		                   
