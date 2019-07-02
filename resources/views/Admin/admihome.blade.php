@@ -129,10 +129,13 @@
 
 										<ul class="drop-meta">
 											@foreach($count as $not)
+											<?php 
+								                  $temp = explode(' ',$not->created_at);
+								                ?>
 											<li> <i class="notifi-icon blue">{{$not->name}}</i>
 												<div class="notifi-meta">
 													<h4><a href="notification/{{$not->id}}" title=""> Send a request for join in Ecommerce</a></h4>
-													<span>02:34PM</span> </div>
+													<span>Date :{{$temp[0]}}</span><br> <span>time :{{$temp[1]}}</span> </div>
 											</li>
 											@endforeach
 											<!--<li> <i class="notifi-icon red">C</i>
@@ -252,7 +255,7 @@
 						<div class="col-lg-1">
 							<div class="user-head">
 								<div class="admin">
-									<div class="admin-avatar"><img src="template/images/resources/admin.png" alt=""> <!-- <i class="online"></i> --> </div>
+								 @foreach($detail as $admin)	<div class="admin-avatar"><img src="site_logo/{{$admin->logo}}" alt="" height="40px" width="40px"> <!-- <i class="online"></i> --> </div>@endforeach
 								</div>
 								<div class="drop setting"> <span class="drop-head"><i>30 days trial</i></span>
 									<ul class="drop-meta">
@@ -412,6 +415,13 @@
                         </div> -->
                         <div class="col-md-12">
                           <div class="sub-area">
+
+
+				       @if(session()->has('message'))
+				    <div class="alert alert-success" style="background-color: lightgreen; color: white">
+				        {{ session()->get('message') }}
+				    </div>
+				@endif
                             <ul>
                               <li><a href="#" title=""><i class="fa fa-briefcase"></i>Over View </a></li>
        @foreach($detail as $admin) <li><a href="admin_edit/{{$admin->id}}" title=""><i class="fa fa-gear"></i>Account Settings </a></li>@endforeach
@@ -446,6 +456,13 @@
                                             <h4>Venoder Details</h4>
                                             <span>New Requests from vendores</span>
                                             <ul class="widget-controls">
+                                            	<div class="t-search" >
+												<form method="post" action="{{url('/search')}}">
+													{{csrf_field()}}
+													<input type="text" placeholder="Enter Your Keyword" name="search"  style="background-color:#ba91db;">
+													<button type="submit"><i class="fa fa-search"></i></button>
+												</form>
+							                   </div>
 												<li title="Refresh" class="refresh-content"><i class="fa fa-refresh"></i></li>
 												<li title="Maximize" class="expand-content"><i class="icon-frame"></i></li>
 												<li title="More Options" class="more-option"><i class="ti-more-alt"></i></li>
@@ -474,7 +491,7 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                     <td><span>@if($fetch->approval_status==0)  <div style="color: red;">  deactive </div> @endif</span></td>
+                                                     <td><span>@if($fetch->approval_status==0)  <div style="color: red;"> Not Active Yet </div> @endif</span></td>
                                                     
                                                 
                                                      <td><span>@if($fetch->approval_status==0)<a href="approved/{{$fetch->id}}" class="btn btn-success"><span class="fa fa-user"></span> Approved</a> @endif </span></td>
@@ -483,8 +500,8 @@
 
 
                                                         <ul>
-                                                            <li><a href="Delete" class="del-btn"><i class="icon-trash"></i></a></li>
-                                                            <li><a href="/vendor_edit/{{$fetch->id}}" class="edit-btn"><i class="icon-pencil"></i></a></li>
+                                                           <li><a href="/Vendor_Delete/{{$fetch->id}}" ><i class="icon-trash"></i></a></li>
+                                                            <li><a href="/vendor_edit/{{$fetch->id}}" class="edit-btn"><i class="fa fa-navicon"></i></a></li>
                                                         </ul>
                                                     </td>
                                                 </tr>
@@ -514,7 +531,7 @@
                                                     <th><em>Phone Number</em></th>
                                                     <th><em>Email</em></th>
 													<th><em>Status</em></th>
-													<th colspan="2"><em>Action</em></th>
+													
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -532,11 +549,11 @@
                                                   <td><span>@if($fetch1->approval_status==1)  <div style="color: green;">  Active </div> @endif</span></td>
                                                    
                                                 
-                                                     <td><span>@if($fetch1->approval_status==1) <div style="color: red"> <a href="approved/{{$fetch1->id}}">Deactive</a> @endif </span></td>
+                                                     
                                                     <td>
                                                         <ul>
-                                                            <li><a href="Delete" class="del-btn"><i class="icon-trash"></i></a></li>
-                                                            <li><a href="/vendor_edit/{{$fetch1->id}}" class="edit-btn"><i class="icon-pencil"></i></a></li>
+                                                            <li><a href="Vendor_Delete/{{$fetch->id}}" ><i class="icon-trash"></i></a></li>
+                                                            <li><a href="/vendor_edit/{{$fetch1->id}}" class="edit-btn"><i class="fa fa-navicon"></i></a></li>
                                                         </ul>
                                                     </td>
                                                 </tr>

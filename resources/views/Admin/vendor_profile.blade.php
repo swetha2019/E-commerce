@@ -270,7 +270,7 @@
 										<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
 										<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
 									</ul>
-									<span class="drop-bottom"><a href="{{ route('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+									<span class="drop-bottom"><a href="{{ url('/admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
 							</div>
 						</div>
 					</div>
@@ -355,7 +355,7 @@
 											<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
 										</ul>
-										<span class="drop-bottom"><a href="{{ route('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+										<span class="drop-bottom"><a href="{{ url('/admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
                                     </div>
 									<ul class="seting-area">
 									<li class="langages">
