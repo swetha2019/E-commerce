@@ -17,6 +17,7 @@ class vendor_controll extends Controller
 {
    // $this->guard()->logout();
    auth()->logout();
+    Session::flush();
    return redirect('/');
 }
 		

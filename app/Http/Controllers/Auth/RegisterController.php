@@ -5,8 +5,10 @@ use DB;
 use Mail;
 use App\User;
 use Validator;
+use Hash;
 use Illuminate\Http\Request;
 use App\Mail\EmailVerification;
+use App\Mail\Registration_Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -69,7 +71,7 @@ class RegisterController extends Controller
         'name' => $data['name'],
         'phone'=>$data['phone'],
         'email' => $data['email'],
-        'password' => bcrypt($data['password']),
+        'password' =>bcrypt($data['password']),
         'email_token' => str_random(10),
         'usertype'=>'vendor'
         
@@ -105,16 +107,18 @@ class RegisterController extends Controller
                 $user = $this->create($request->all());
             $email = new EmailVerification(new User(['email_token' => $user->email_token, 'name' => $user->name]));
                 Mail::to($user->email)->send($email);
-                DB::commit();
-                 return view('email.verify');
+             $email2 = new Registration_Request(new User(['created_at' => $user->created_at, 'name' => $user->name]));
+              Mail::to('swethaprasad675@mail.com')->send($email2);
+             DB::commit();
+                 return view('auth.login')->with('message','Registeation is successfully ! Please check your email confirm email id');
                 //return back();
-
             }
              catch(Exception $e)
             {
                 DB::rollback(); 
                 return back();
             }
+            
         }
 }
 public function verify($token)
