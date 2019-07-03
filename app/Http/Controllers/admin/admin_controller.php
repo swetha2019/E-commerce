@@ -30,29 +30,40 @@ class admin_controller extends Controller
                   'email' => 'required|email',
                   'password' => 'required']); 
 
-                     if($validator->fails())
-                        {
-                         return  back()->withErrors($validator)->withInput($request->email);
-                        }
-                    else 
-                      {
-                         $email=$request->input('email');
+                  if($validator->fails())
+                   {
+                      return  back()->withErrors($validator)->withInput($request->email);
+                   }
+                  else 
+                    {
+                        $email=$request->input('email');
                         $password=$request->input('password');
-                          $data= db::table('vendor_registration')->where('email',$email)->Where('password',$password)->Where('usertype','admin')->pluck('id');
-                        //print_r($data);
-                          if(isset($data[0]))
-                          {
-                            $request->session()->put('userid',$data[0]);
-                            return redirect('adminhome');
-                          }
-                          else
-                          {
-                            return  back()->withErrors($validator);
-                          }
-
-                      }
-                    //  return view('test',$data);
+                        $data= db::table('vendor_registration')->where('email',$email)->Where('usertype','admin')->pluck('password');
+                         if(isset($data[0]))
+                         {
+                            $hased_password=$data[0];
+                            if(password_verify($password,$hased_password))
+                             {
+                                 $id= db::table('vendor_registration')->where('email',$email)->Where('usertype','admin')->pluck('id');
+                                 if(isset($id[0]))
+                                  {
+                                  $request->session()->put('userid',$id[0]);
+                                  return redirect('adminhome');
+                                  }
+                                  else
+                                  {
+                                  return  redirect('admin')->withErrors($validator);
+                                  }
+                              }
+                            }
+                          
+                         else
+                           {
+                             return back()->with('message','Login Faild ');
+                           }
                     
+                         
+                    }      
                                 
             }
 
@@ -210,7 +221,7 @@ class admin_controller extends Controller
               else
                    {
                      $password_detail['password']=$request->input('nw_password');
-                     $current_password=$request->input('old_password');
+                     $current_password=bcrypt($request->input('old_password'));
                      $data=db::table('vendor_registration')->where('password',$current_password)->Where('id',$id)->Where('usertype','admin')->pluck('password');
                          if(isset($data[0]))
                          {
@@ -253,4 +264,4 @@ class admin_controller extends Controller
   }
     }
    
-}
+
