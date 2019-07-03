@@ -55,7 +55,6 @@ Route::post('admin_change_password/{id}','admin\admin_controller@admin_change_pa
 Route::get('Vendor_Delete/{id}','admin\admin_controller@Vendor_Delete');
 
 Route::post('/search','admin\admin_controller@search');
-
 Route::get('admin_logout','admin\admin_controller@admin_logout');
 
 
