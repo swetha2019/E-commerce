@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="template/css/style.css">
     <link rel="stylesheet" href="template/css/color.css">
     <link rel="stylesheet" href="template/css/responsive.css">
+    	
+
 </head>
 <body>
 <!-- Start Page Loading -->
@@ -39,7 +41,7 @@
 					<nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
+                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Categories</span></a>
                                                 <ul>
                                                     <li><a href="template/index-2.html" title="">Dashboard 1</a></li>
                                                     <li><a href="template/index2.html" title="">Dashboard 2</a></li>
@@ -459,7 +461,7 @@
                                             	<div class="t-search" >
 												<form method="post" action="{{url('/search')}}">
 													{{csrf_field()}}
-													<input type="text" placeholder="Enter Your Keyword" name="search"  style="background-color:#ba91db;">
+													<input type="text" placeholder="Enter Your Keyword" name="search" id="search" onkeyup="search_data(this.value, 'result');" style="background-color:#ba91db;">
 													<button type="submit"><i class="fa fa-search"></i></button>
 												</form>
 							                   </div>
@@ -481,6 +483,7 @@
                                             </thead>
                                             <tbody>
                                             	@foreach($array as $fetch)
+                                            	<div id="search1">
                                                 <tr>
                                                     <td><i>VEN10{{$fetch->id}}</i></td>
                                                     <td><span>{{$fetch->name}}</span></td>
@@ -505,6 +508,7 @@
                                                         </ul>
                                                     </td>
                                                 </tr>
+                                            </div>
                                                 @endforeach
                                               
                                             </tbody>
@@ -656,6 +660,27 @@
 <script src="template/js/echart.min.js"></script> 
 <script src="template/js/jquery.sparkline.min.js"></script> 
 <script src="template/js/custom2.js"></script> 
-<script src="template/js/custom.js"></script><!-- scripts -->
+<script src="template/js/custom.js"></script>
+<script type="text/javascript">
+$('#search').on('keyup',function(){
+$value=$(this).val();
+$.ajax({
+type : 'get',
+url : '{{URL::to('search')}}',
+data:{'search':$value},
+success:function(data)
+{
+$('#search1').html(data);
+}
+});*/
+})
+</script>
+<script type="text/javascript">
+$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+</script>
+
+
+
+<!-- scripts -->
 </body>
 </html>
