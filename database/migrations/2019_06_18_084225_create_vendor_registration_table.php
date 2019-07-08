@@ -37,7 +37,9 @@ class CreateVendorRegistrationTable extends Migration
             $table->string('logo')->nullable();
             $table->string('image')->nullable();
             $table->string('usertype')->nullable();
-             $table->boolean('appruval_status')->default(0);
+             $table->boolean('approval_status')->default(0);
+              $table->boolean('notification')->default(0);
+
             $table->rememberToken();
             $table->timestamps();
         });
