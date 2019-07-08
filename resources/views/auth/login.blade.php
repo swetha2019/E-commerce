@@ -26,12 +26,20 @@
      
 <div class="panel-layout">
     <div class="container-fluid">
+
+            @if(session()->has('message'))
+        <div style="text-align: center">
+        {{session()->get('message')}}
+        </div>
+       @endif
        <div class="row">
         <div class="col-md-12">
         <div class="admin-lock vh100">
 
           <div class="admin-form">
-             @if ($errors->any())
+
+
+            @if ($errors->any())
     <div class="alert alert-danger" style=" color: green; font-weight:bold;">
         <ul>
             @foreach ($errors->all() as $error)
@@ -40,7 +48,7 @@
         </ul>
     </div>
 @endif
-              <div class="logo"><img src="template/images/logo2.png" alt=""></div>
+           <div class="logo"><img src="template/images/logo2.png" alt=""></div>
 
        
             <h4>Sign In Account</h4>

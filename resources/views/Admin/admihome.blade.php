@@ -43,7 +43,7 @@
                                         <ul class="parent-menu">
                                             <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Categories</span></a>
                                                 <ul>
-                                                    <li><a href="template/index-2.html" title="">Dashboard 1</a></li>
+                                                    <li><a href="categories_form" title="">Add categories</a></li>
                                                     <li><a href="template/index2.html" title="">Dashboard 2</a></li>
                                                     <li><a href="template/index3.html" title="">Dashboard 3</a></li>
                                                     <li><a href="template/index4.html" title="">Dashboard 4</a></li>
@@ -136,8 +136,8 @@
 								                ?>
 											<li> <i class="notifi-icon blue">{{$not->name}}</i>
 												<div class="notifi-meta">
-													<h4><a href="notification/{{$not->id}}" title=""> Send a request for join in Ecommerce</a></h4>
-													<span>Date :{{$temp[0]}}</span><br> <span>time :{{$temp[1]}}</span> </div>
+													<h4><a href="notification/{{$not->id}}" title=""> {{$not->name}} Send a request for join in Ecommerce</a></h4>
+													<span>Name :{{$temp[0]}}</span><br><span>Date :{{$temp[0]}}</span><br> <span>time :{{$temp[1]}}</span> </div>
 											</li>
 											@endforeach
 											<!--<li> <i class="notifi-icon red">C</i>
@@ -556,7 +556,7 @@
                                                      
                                                     <td>
                                                         <ul>
-                                                            <li><a href="Vendor_Delete/{{$fetch->id}}" ><i class="icon-trash"></i></a></li>
+                                                            <li><a href="Vendor_Delete/{{$fetch1->id}}" ><i class="icon-trash"></i></a></li>
                                                             <li><a href="/vendor_edit/{{$fetch1->id}}" class="edit-btn"><i class="fa fa-navicon"></i></a></li>
                                                         </ul>
                                                     </td>
@@ -661,22 +661,19 @@
 <script src="template/js/jquery.sparkline.min.js"></script> 
 <script src="template/js/custom2.js"></script> 
 <script src="template/js/custom.js"></script>
-<script type="text/javascript">
-$('#search').on('keyup',function(){
-$value=$(this).val();
-$.ajax({
-type : 'get',
-url : '{{URL::to('search')}}',
-data:{'search':$value},
-success:function(data)
-{
-$('#search1').html(data);
-}
-});*/
-})
-</script>
-<script type="text/javascript">
-$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+ <script type="text/javascript">
+    $(document).ready(function() {
+         $('#search').on('keyup',function() {
+         	 var $data=$(this).val();
+         	   $.ajax({
+                 url: "/search",
+                 method: "get",
+                data: {'search_value': $data  },
+             
+		    });
+
+         });
+    });
 </script>
 
 

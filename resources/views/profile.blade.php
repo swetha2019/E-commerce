@@ -6,10 +6,10 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <title>Web Admin panel</title>
-<link rel="icon" type="image/png" href="templatelate/images/fav.png">
-<link rel="stylesheet" href="templatelate/css/font-awesome.min.css">
-	<link rel="stylesheet" href="templatelate/css/themify-icons.css">
-    <link rel="stylesheet" href="templatelate/css/line-icons.css">
+<link rel="icon" type="image/png" href="template/images/fav.png">
+<link rel="stylesheet" href="template/css/font-awesome.min.css">
+	<link rel="stylesheet" href="template/css/themify-icons.css">
+    <link rel="stylesheet" href="template/css/line-icons.css">
 <link rel="stylesheet" href="template/css/bootstrap.min.css">
 <link rel="stylesheet" href="template/css/animate.min.css">
 <link rel="stylesheet" href="template/css/perfect-scrollbar.min.css">
@@ -380,11 +380,11 @@
                 <div class="profile">
                   <div class="row merged">
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                      <div class="profile-bg"> <img src="template/images/resources/profile-bg.jpg" alt="">
+                      <div class="profile-bg"> <img src="<?php echo $user = Auth::user()->image;?>" alt="">
                         <div class="admin-meta"> <img src="template/images/resources/profile-avatar.jpg" alt="">
                           <h5><?php echo $user = Auth::user()->name;?>
 </h5>
-                          <span>developer</span> </div>
+                          <span><?php echo $user = Auth::user()->email;?></span> </div>
                       </div>
                     </div>
                     <div class="col-md-8 col-sm-12 col-xs-12">
@@ -407,7 +407,7 @@
                           <div class="sub-area">
                             <ul>
                               <li><a href="#" title=""><i class="fa fa-briefcase"></i>Over View </a></li>
-                              <li><a href="/edit_profile" title=""><i class="fa fa-gear"></i>Account Settings </a></li>
+                              <li><a href="edit_profile" title=""><i class="fa fa-gear"></i>Account Settings </a></li>
                               <li><a href="#" title=""><i class="fa fa-adjust"></i>Customers </a></li>
                             </ul>
                           </div>
@@ -435,6 +435,8 @@
                     </div>
                   </div>
                 </div>
+                <?php if (count($sub_data)!='') { ?>
+                	
                 <div class="row">
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="widget">
@@ -663,6 +665,66 @@
                   <!-- quick action widget --> 
                 </div>
               </div>
+              <?php 
+                }else{ ?>
+              
+
+              <form  method="post" action="{{ ('/subscription')}}">
+                     {{ csrf_field() }} 
+                <div class="col-lg-4 col-sm-12">
+		<div class="widget rmndr-bg">
+		  <div class="widget-title">
+			<h4>Trial Pack</h4>
+			<i class="rmndr-icn fa fa-bookmark"></i> </div>
+		  <div class="widget-peding">
+			<div class="reminder">
+			  <h2><a href="#" title="">$200</a></h2>
+			  <input type="hidden" name="pack_name" value="Trial pack">
+			  <input type="hidden" name="pack_amount" value="$200">
+			  <p>Pick the day. Enjoy it - to the hilt. The Day as it comes. People as they come to the poingt and follow twitter </p>
+			  <button type="submit" title="" class="btn-st rd-30 rd-clr">Subscribe <i class="fa fa-thumbs-o-up"></i></button> </div>
+		  </div>
+		</div>
+	  </div>
+	</form>
+	<form  method="post" action="{{ ('/subscription')}}">
+                     {{ csrf_field() }} 
+	  <div class="col-lg-4 col-sm-12">
+		<div class="widget rmndr-bg">
+		  <div class="widget-title">
+			<h4>Monthly Pack</h4>
+			<i class="rmndr-icn fa fa-bookmark"></i> </div>
+		  <div class="widget-peding">
+			<div class="reminder">
+			  <h2><a href="#" title="">$500</a></h2>
+			  <input type="hidden" name="pack_name" value="Monthly pack">
+			  <input type="hidden" name="pack_amount" value="$500">
+			  <p>Pick the day. Enjoy it - to the hilt. The Day as it comes. People as they come to the poingt and follow twitter </p>
+			  <button type="submit" title="" class="btn-st rd-30 rd-clr">Subscribe  <i class="fa fa-thumbs-o-up"></i></button>  </div>
+		  </div>
+		</div>
+	  </div>
+	</form>
+	  <form  method="post" action="{{ ('/subscription')}}">
+                     {{ csrf_field() }} 
+	  <div class="col-lg-4 col-sm-12">
+		<div class="widget rmndr-bg">
+		  <div class="widget-title">
+			<h4>Yearly Pack</h4>
+			<i class="rmndr-icn fa fa-bookmark"></i> </div>
+		  <div class="widget-peding">
+			<div class="reminder">
+			  <h2><a href="#" title="">$900</a></h2>
+			  <input type="hidden" name="pack_name" value="Yearly pack">
+			  <input type="hidden" name="pack_amount" value="$900">
+			  <p>Pick the day. Enjoy it - to the hilt. The Day as it comes. People as they come to the poingt and follow twitter </p>
+			  <button type="submit" title="" class="btn-st rd-30 rd-clr">Subscribe  <i class="fa fa-thumbs-o-up"></i></button> </div>
+		  </div>
+		</div>
+	  </div>
+	</form>
+<?php } ?>
+	
               <div class="bottombar"> 
 					<span>© 2019. Dewwater. All Rights Reserved.</span>
 				</div>
