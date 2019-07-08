@@ -72,12 +72,14 @@ class admin_controller extends Controller
 
             if($request->session()->has('userid'))
                 {
+                  $search = $request->id;
                   $id=$request->session()->get('userid');
                   $usertype="admin";
                   $admin_detail['detail']=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
 
                   $newvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',0)->where('verified',1)->get();
                   $recentvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',1)->where('verified',1)->get();
+
             $count=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',0)->Where('notification',0)->get();
 
                 	return view('Admin.admihome',$admin_detail)->with('array',$newvendor)->with('array2',$recentvendor)->with('count',$count);
@@ -85,7 +87,7 @@ class admin_controller extends Controller
                } 
              else
                {
-                   return  back()->withErrors($validator);
+                   return  back();
                }  
             }
 
@@ -182,19 +184,7 @@ class admin_controller extends Controller
 						    {
 						    	return back()->with('message','please choose profile picture');
 						    }
-						  if ($request->hasFile('logo')) 
-
-							  {
-							    $logo = $request->file('logo');
-									$logo_name = 'logo'.'_'.$logo->getClientOriginalName();
-									$logo_destinationPath = public_path('/site_logo');
-									$logo->move($logo_destinationPath, $logo_name);
-									$admin_updateDetails['logo']=$logo_name;
-						    }
-              else
-						    {
-						    	return back()->with('message','please choose profile picture');
-						    }
+						  
               try 
 						    {
 						    	 db::table('vendor_registration')->where('id',$id)->Where('usertype','admin')->update($admin_updateDetails);
@@ -221,8 +211,8 @@ class admin_controller extends Controller
               else
                    {
                      $password_detail['password']=$request->input('nw_password');
-                     $current_password=bcrypt($request->input('old_password'));
-                     $data=db::table('vendor_registration')->where('password',$current_password)->Where('id',$id)->Where('usertype','admin')->pluck('password');
+                     $current_password=$request->input('old_password');
+                     $data=db::table('vendor_registration')->Where('id',$id)->Where('usertype','admin')->pluck('password');
                          if(isset($data[0]))
                          {
 		                      try 
@@ -250,18 +240,44 @@ class admin_controller extends Controller
 
     }
     public function search(Request $request)
-    {
-      $key_word = $request->input('search');
-    $search_value['detail'] = DB::table('vendor_registration')->where('name','LIKE','%'.$key_word.'%')->orWhere('email','LIKE','%'.$key_word.'%')->get();
-    if(count($user) > 0)
-    {
-       return view('admin.adminhome',$search_value);
-    }
-    else
-    {
-     return back()->with('message','');
-    }
+     {
+         if($request->ajax())
+                 {
+                  $output="";
+
+                   $posts = DB::table('vendor_registration')->where('name','LIKE','%'.$id.'%')->orWhere('email','LIKE','%'.$id.'%')->get();
+                   return view('Admin.livesearchajax')->withPosts($posts);
+
+                 if($posts)
+                  {
+
+                    foreach ($posts as $key => $posts) {
+                    $output.='<tr>'.
+                    '<td>'.$posts->id.'</td>'.
+                    '<td>'.$posts->name.'</td>'.
+                    '<td>'.$posts->phone.'</td>'.
+                    '<td>'.$posts->email.'</td>'.
+                    '</tr>';
+                 }
+                 return Response($output);
+
+               }
+             }
+          /*if (is_null($search))
+            {
+              return back();
+            }
+            else
+            {
+          $posts = DB::table('vendor_registration')->where('name','LIKE','%'.$id.'%')->orWhere('email','LIKE','%'.$id.'%')->get();
+            return view('Admin.livesearchajax')->withPosts($posts);
+            }*/
+     }
+     public function categories_form()
+     {
+      return view('Admin.categories_form');
+     }
   }
-    }
    
 
+        
