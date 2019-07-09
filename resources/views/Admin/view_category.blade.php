@@ -8,7 +8,7 @@
 <title>Web Admin panel</title>
 <link rel="icon" type="template/image/png" href="images/fav.png">
 <link rel="stylesheet" href="template/css/font-awesome.min.css">
-	<link rel="stylesheet" href="template/css/themify-icons.css">
+  <link rel="stylesheet" href="template/css/themify-icons.css">
     <link rel="stylesheet" href="template/css/line-icons.css">
 <link rel="stylesheet" href="template/css/bootstrap.min.css">
 <link rel="stylesheet" href="template/css/animate.min.css">
@@ -344,87 +344,68 @@
                 </div>
                 <div class="gap no-gap">
                     <div class="inner-bg">
-                      <div class="element-title">
-                        <h4>CATEGORIES</h4>
-                        <span>Please fill the form bellow.</span> </div>
-                      <div class="add-prod-from">
+                     
 
-							       @if(session()->has('message'))
-							    <div class="alert alert-success" style="background-color: lightgreen; color: white">
-							        {{ session()->get('message') }}
-							    </div>
-							@endif
+                     @if(session()->has('message'))
+                  <div class="alert alert-success" style="background-color: lightgreen; color: white">
+                      {{ session()->get('message') }}
+                  </div>
+              @endif
                            @if ($errors->any())
                              <div class="alert alert-danger" style=" color: green; font-weight:bold;">
                                 <ul>
-						            @foreach ($errors->all() as $error)
-						                <li>{{ $error }}</li>
-						            @endforeach
-						        </ul>
-						    </div>
-						@endif
-						  <div class="row">
-							<div class="col-md-6">
-								<form action="add_categories" method="post">
-									{{ csrf_field() }} 
-							  <label>Categories</label>
-							  <input type="text" placeholder="Category Name" name="category_name">
-							<br><br><br><br>
-							<div class="col-md-12">
-							  <div class="buttonz">
-								<button type="submit" name="save">save</button>
-								<button type="submit" name="cancel">cancel</button>
-							  </div>
-							</div>
-						</form>
-                      	</div>
-					  </div>	  
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+             <div class="little-heading">
+               <div class="element-title">
+                        <h4>CATEGORIES</h4>
+                        <span>Detail view of Categories</span> </div>
+                    </div>
+                    <div class="widget">
+                      <table class="prj-tbl striped table-responsive">
+                        <thead class="color">
+                          <tr>
+                            <th><i class="all-slct"></i></th>
+                            <th><em>Categories Id</em></th>
+                            <th><em>Categories Name</em></th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @if(count($category))
+                              
+                           @foreach($category as $categry)
+                          <tr>
+                            <td><i class="sngl-slct"></i></td>
+                            <td><span>Catgory_{{$categry->category_id}}</span></td>
+                            <td>{{$categry->category_name}}</td>
+                            
+                          </tr>
+                          @endforeach
+                          @endif
+                        </tbody>
+                      </table>
+                    </div>
+
+
+
+                        
+            </div>    
                     </div>
                 </div>
               </div>
-                <div class="gap no-gap">
-                    <div class="inner-bg">
-                      <div class="element-title">
-                        <h4>Sub categories</h4>
-                        <span>Please fill the form bellow.</span> </div>
-                      <div class="add-prod-from">
-                      	<form action="add_subcategories" method="post">
-                      		{{csrf_field()}}
-						  <div class="row">
-							
-							
-							  <label>category</label>
-							  <select  name="category_id" >
-							  	<option value="">---choose one----</option>
-							  @if(count($category))
-							  	{
-							  	@foreach($category as $categry)
-								<option value="{{$categry->category_id}}">{{$categry->category_name}}</option>
-								@endforeach
-							    }
-							    @endif
-							  </select>
-							</div>
-                           <div class="col-md-6">
-							  <label>Sub Categories</label>
-							  <input type="text" placeholder="sub categories" name="subcategory_name">
-							</div>		
-							
-							<div class="col-md-12">
-							  <div class="buttonz">
-								<button type="submit">save</button>
-								<button type="submit">cancel</button>
-							  </div>
-							</div>
-                      	</div>
-                      </form>
-					  </div>	  
+               
+            </div>    
                     </div>
                 </div>
               </div>
               <div class="bottombar"> 
-					<span>© 2019. Dewwater. All Rights Reserved.</span>
-				</div>
+          <span>© 2019. Dewwater. All Rights Reserved.</span>
+        </div>
               <!-- bottombar --> 
             </div>
           </div>

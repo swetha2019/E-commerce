@@ -372,18 +372,7 @@
 				  <form enctype="multipart/form-data"  method="post" action="{{ url('admin_update/'.$detail->id)}}">
                      {{ csrf_field() }} 
                      
-                <div class="pnl-bdy billing-sec">
-                    	<div class="row">
-                    	 <div class="col-md-6 col-sm-6 field">
-                        <label>Name<span>*</span> </label>
-                        <input value="{{$detail->name}}" name="name" type="text" placeholder="First Name">
-                         @if ($errors->has('name'))
-    					<div class="error">{{ $errors->first('name') }}</div>
-						@endif
-
-                      </div> 
-                      </div>
-
+               
 
 <div class="col-md-6 col-sm-6 field">
                         <label>New Phone Number <span>*</span> </label>
@@ -403,19 +392,7 @@
 
 
 
-                      	 <div class="col-md-12 col-sm-12 field"> 
-							<span class="upload-image">upload image</span>
-						  <label class="fileContainer"> <span>upload</span>
-							<input type="file" name="image">
-						</label>
-					</div>
-
- <div class="col-md-12 col-sm-12 field"> 
-							<span class="upload-logo">upload logo</span>
-						  <label class="fileContainer"> <span>upload</span>
-							<input type="file" name="logo">
-						</label>
-					</div>
+                      	 
 
                        <button type="submit">Update Now</button>
                      

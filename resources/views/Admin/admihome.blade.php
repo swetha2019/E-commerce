@@ -44,7 +44,7 @@
                                             <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Categories</span></a>
                                                 <ul>
                                                     <li><a href="categories_form" title="">Add categories</a></li>
-                                                    <li><a href="template/index2.html" title="">Dashboard 2</a></li>
+                                                    <li><a href="view_categories" title="">View categories</a></li>
                                                     <li><a href="template/index3.html" title="">Dashboard 3</a></li>
                                                     <li><a href="template/index4.html" title="">Dashboard 4</a></li>
                                                     <li><a href="template/index5.html" title="">Dashboard 5</a></li>
@@ -63,6 +63,13 @@
                                                     <li><a href="template/product-order.html">product-order</a></li>
                                                     <li><a href="template/product-add.html">add product</a></li>
                                                     <li><a href="template/product-cart.html">product cart</a></li>
+                                                </ul>
+                                            </li>
+                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="template/product.html" title="">User</a></li>
+                                                    <li><a href="template/product-detail.html">Add new user</a></li>
+                                                    <li><a href="template/product-order.html">view user detail</a></li>
                                                 </ul>
                                             </li>
                                             <li class="menu-item-has-children"> <a title="#"><i class="fa fa-bookmark-o"></i><span>Previous Orders</span></a>
