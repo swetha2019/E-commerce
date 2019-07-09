@@ -167,28 +167,16 @@ class admin_controller extends Controller
                    }
               else 
                    { 
-		                   $admin_updateDetails['name']=$request->input('name');
+		                  
 		                   $admin_updateDetails['phone']=$request->input('nw_phone');
 		                   $admin_updateDetails['email']=$request->input('nw_email');
 		                   
-		          if ($request->hasFile('image')) 
+		        
 
-							  {
-							        $image = $request->file('image');
-									$name = time().'_'.$image->getClientOriginalName();
-									$destinationPath = public_path('/admin_profile');
-									$image->move($destinationPath, $name);
-								    $admin_updateDetails['image']=$name;
-						    }
-						  else
-						    {
-						    	return back()->with('message','please choose profile picture');
-						    }
-						  
               try 
 						    {
 						    	 db::table('vendor_registration')->where('id',$id)->Where('usertype','admin')->update($admin_updateDetails);
-		                         return back()->with('message',"Updation is Completed");
+		               return back()->with('message',"Updation is Completed");
 						    } 
 						  catch (Exception $e)
 						     {
@@ -273,9 +261,53 @@ class admin_controller extends Controller
             return view('Admin.livesearchajax')->withPosts($posts);
             }*/
      }
-     public function categories_form()
+     public function categories_form(Request $request)
      {
-      return view('Admin.categories_form');
+      $category=db::table('tbl_categories')->get();
+      return view('Admin.categories_form')->with('category',$category);
+     }
+     public function add_categories(Request $request)
+     {
+       $data=db::table('tbl_categories')->get();
+       $validator = Validator::make($request->all(),
+                    [ 'category_name' => 'required|unique:tbl_categories']);
+        if($validator->fails())
+              {
+                return  back()->withErrors($validator);
+               }
+        else
+             {
+                $data['category_name']=$request->input('category_name');
+                db::table('tbl_categories')->insert($data);
+                return back()->with('message','New category was added');
+                $data=db::table('tbl_categories')->get();
+             }
+
+     }
+     public function add_subcategories(Request $request)
+     {
+        $validator = Validator::make($request->all(),
+        [ 'category_id' => 'required',
+          'subcategory_name'=>'required|unique:tbl_sub_category']);
+        if($validator->fails())
+              {
+                return  back()->withErrors($validator);
+               }
+          else
+               {
+                echo $data['category_id']=$request->input('category_id');
+                 echo $data['subcategory_name']=$request->input('subcategory_name');
+                 db::table('tbl_sub_category')->insert($data);
+                 return back()->with('message','New Sub Category was added');
+                 $data=db::table('tbl_categories')->get();
+               }
+
+     }
+      public function view_categories(Request $request)
+     {
+      $category['category']=db::table('tbl_categories')->get();
+      return view('Admin.view_category',$category);
+
      }
   }
    
