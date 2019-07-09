@@ -43,6 +43,7 @@ Route::get('/changePassword','HomeController@showChangePasswordForm');
 
 
 //Admin login ---------------------------------------
+//Admin login ---------------------------------------
 Route::get('admin',['uses'=>'admin\admin_controller@index']);
 Route::post('adminlogin','admin\admin_controller@adminlogin');
 Route::get('adminhome','admin\admin_controller@vendor_detail');
@@ -53,7 +54,11 @@ Route::get('admin_edit/{id}','admin\admin_controller@admin_edit')->name('admin_e
 Route::post('admin_update/{id}','admin\admin_controller@admin_update');//for update admin detail
 Route::post('admin_change_password/{id}','admin\admin_controller@admin_change_password');
 Route::get('Vendor_Delete/{id}','admin\admin_controller@Vendor_Delete');
-Route::get('categories_form','admin\admin_controller@categories_form');
+Route::get('categories_form','admin\admin_controller@categories_form');//for display the categories
+Route::post('add_categories','admin\admin_controller@add_categories');//add categories
+Route::post('add_subcategories','admin\admin_controller@add_subcategories');//for adding sub categories
+Route::get('view_categories','admin\admin_controller@view_categories');
+
 Route::post('/search','admin\admin_controller@search');
 Route::get('admin_logout','admin\admin_controller@admin_logout');
 
@@ -61,6 +66,7 @@ Route::get('/test',function()
 {
 	return view('test');
 });
+
 //vendor routes
 Route::get('/delete','HomeController@delete');
 Route::get('/logout','HomeController@logout')->name('logout');
