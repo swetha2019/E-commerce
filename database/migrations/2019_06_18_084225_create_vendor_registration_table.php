@@ -52,6 +52,6 @@ class CreateVendorRegistrationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vendor_registration');
+       // Schema::dropIfExists('vendor_registration');
     }
 }
