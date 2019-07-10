@@ -396,14 +396,20 @@
 							  <label>category</label>
 							  <select  name="category_id" >
 							  	<option value="">---choose one----</option>
-							  @if(count($category))
+                                    <option value="">---choose one----</option>
+                                        <option value="">---choose one----</option>
+                                            <option value="">---choose one----</option>
+                                                <option value="">---choose one----</option>
+                                                    <option value="">---choose one----</option>
+                                                </select>
+							  <!--@if(count($category))
 							  	{
 							  	@foreach($category as $categry)
 								<option value="{{$categry->category_id}}">{{$categry->category_name}}</option>
 								@endforeach
 							    }
 							    @endif
-							  </select>
+							  </select>-->
 							</div>
                            <div class="col-md-6">
 							  <label>Sub Categories</label>

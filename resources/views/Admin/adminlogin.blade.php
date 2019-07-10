@@ -66,7 +66,7 @@
                   <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                    <label for="remember">Remember Me 
              @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" href="">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
@@ -79,7 +79,6 @@
 
 
 
-            <span>Don't have an account? <a href="signup" title="">Sign up</a></span> </div>
              <div class="col-md-6">
 
                                     

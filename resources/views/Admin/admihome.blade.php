@@ -45,7 +45,7 @@
                                                 <ul>
                                                     <li><a href="categories_form" title="">Add categories</a></li>
                                                     <li><a href="view_categories" title="">View categories</a></li>
-                                                    <li><a href="template/index3.html" title="">Dashboard 3</a></li>
+                                                    <li><a href="view_subcategory" title="">View sub category</a></li>
                                                     <li><a href="template/index4.html" title="">Dashboard 4</a></li>
                                                     <li><a href="template/index5.html" title="">Dashboard 5</a></li>
                                                 </ul>

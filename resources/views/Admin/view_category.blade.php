@@ -372,6 +372,7 @@
                             <th><i class="all-slct"></i></th>
                             <th><em>Categories Id</em></th>
                             <th><em>Categories Name</em></th>
+                            <th colspan="2"><em>Action</em></th>
                             
                           </tr>
                         </thead>
@@ -383,8 +384,16 @@
                             <td><i class="sngl-slct"></i></td>
                             <td><span>Catgory_{{$categry->category_id}}</span></td>
                             <td>{{$categry->category_name}}</td>
-                            
-                          </tr>
+                            <td>
+                             <ul>
+                                 <li><a href="Catgory_delete/{{$categry->category_id}}" ><i class="icon-trash"></i></a></li>
+                                <!-- <li><a href="Catgory_subcategory/{{$categry->category_id}}" class="edit-btn"><i class="fa fa-forward"></i></a></li>-->
+                                 <a href="javascript:onclickFunction('{{$categry->category_id}}')">a</a>
+
+
+                            </ul>
+                            </td>
+                            </tr>
                           @endforeach
                           @endif
                         </tbody>
@@ -487,7 +496,32 @@
 <script src="template/js/custom2.js"></script> 
 <script src="template/js/flatweather.min.js"></script> 
 <script src="template/js/html5lightbox.js"></script> 
-<script src="template/js/custom.js"></script><!-- scripts -->
+<script src="template/js/custom.js"></script>
+<script type="text/javascript">
+    
+</script>
+
+<script>
+  function onclickFunction(aId)
+  {
+   // alert(aId);
+    $.ajax({
+        type: "get",
+        url: "getmsg",
+        data: {aId:aId},
+        success: function (data){
+            alert("aaaa");
+        },
+        error: function (){
+            alert("ffffff");
+        }
+    });
+    return false;
+}
+
+</script>
+
+<!-- scripts -->
 
 </body>
 </html>
