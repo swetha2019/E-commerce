@@ -58,14 +58,12 @@ Route::get('categories_form','admin\admin_controller@categories_form');//for dis
 Route::post('add_categories','admin\admin_controller@add_categories');//add categories
 Route::post('add_subcategories','admin\admin_controller@add_subcategories');//for adding sub categories
 Route::get('view_categories','admin\admin_controller@view_categories');
-
-Route::post('/search','admin\admin_controller@search');
+Route::get('Catgory_delete/{id}','admin\admin_controller@Catgory_delete');
+Route::get('Catgory_edit/{id}','admin\admin_controller@Catgory_edit');
+//Route::post('/search','admin\admin_controller@search');
+Route::get('view_subcategory','admin\admin_controller@view_subcategory');
 Route::get('admin_logout','admin\admin_controller@admin_logout');
-
-Route::get('/test',function()
-{
-	return view('test');
-});
+Route::get('getmsg','controller@getmsg');
 
 //vendor routes
 Route::get('/delete','HomeController@delete');
