@@ -62,8 +62,14 @@ Route::get('Catgory_delete/{id}','admin\admin_controller@Catgory_delete');
 Route::get('Catgory_edit/{id}','admin\admin_controller@Catgory_edit');
 //Route::post('/search','admin\admin_controller@search');
 Route::get('view_subcategory','admin\admin_controller@view_subcategory');
+Route::get('adminuser_form','admin\admin_controller@adminuser_form');
+route::post('add_user','admin\admin_controller@add_user');
 Route::get('admin_logout','admin\admin_controller@admin_logout');
 Route::get('getmsg','controller@getmsg');
+Route::get('view_user','admin\admin_controller@view_user');
+//user edit page-->
+Route::get('adminuser_edit/{id}','admin\admin_controller@adminuser_edit');
+Route::get('adminuser_edit/{id}','admin\admin_controller@adminuser_delete');
 
 //vendor routes
 Route::get('/delete','HomeController@delete');
