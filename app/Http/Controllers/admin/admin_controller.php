@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Input;
 use App\Mail\approval_mail;
 
-
+   use App\admin_user;
    use Hash;
    use Crypt;
    use Validator;
@@ -38,14 +38,14 @@ class admin_controller extends Controller
                               {
                                   $email=$request->input('email');
                                   $password=$request->input('password');
-                                  $data= db::table('vendor_registration')->where('email',$email)->Where('usertype','admin')->pluck('password');
+                                  $data= db::table('vendor_registration')->where('email',$email)->Where('usertype','admin')->orWhere('usertype','admin_user')->pluck('password');
                                    if(isset($data[0]))
                                    {
                                       $hased_password=$data[0];
                                       if(password_verify($password,$hased_password))
                                        {
-                                           $id= db::table('vendor_registration')->where('email',$email)->Where('usertype','admin')->pluck('id');
-                                           if(isset($id[0]))
+                                        $id= db::table('vendor_registration')->where('email',$email)->Where('usertype')->pluck('id');
+                                        if(isset($id[0]))
                                             {
                                             $request->session()->put('userid',$id[0]);
                                             return redirect('adminhome');
@@ -55,13 +55,18 @@ class admin_controller extends Controller
                                             return  redirect('admin')->withErrors($validator);
                                             }
                                         }
+                                         else
+                                     {
+                                        return  redirect('admin')->with('message','Login Faild ');
+                                     }
                                       }
                                     
                                    else
                                      {
-                                       return back()->with('message','Login Faild ');
+                                        return  redirect('admin')->with('message','Login Faild ');
                                      }
                               
+                                   
                                    
                               }      
                                           
@@ -323,6 +328,52 @@ class admin_controller extends Controller
                     {
                       $category=db::table('tbl_categories')->get();
                       return view('Category_edit')->with('category',$category);
+                    }
+    public function adminuser_form(Request $request)
+                    {
+                      return view('admin.adminuser_form')->with('message','Add new user');
+                    }
+    public function add_user(Request $request)
+                    {
+                            $validator=validator::make($request->all(),[
+                              'admin_user'=>'required',
+                              'admin_phone'=>'required',
+                              'admin_email'=>'required',
+                              'admin_password'=>'required|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/'
+                            ]);
+                            if($validator->fails())
+                            {
+                            return back()->withErrors($validator);
+                            } 
+
+                            else
+                            {
+                                 echo $user['name']=$request->input('admin_user');
+                                 $user['email']=$request->input('admin_email');
+                                 $user['phone']=$request->input('admin_phone');
+                                 $user['password']=$request->input('admin_password');
+                                 $user['usertype']='admin_user';
+                                   admin_user::add_user($user);
+                                   return back()->with('message','New user added as admin');
+                            }
+                     
+
+                    }
+    public function view_user(Request $request)
+                    {
+                     $user_detail=admin_user::select_user();
+                  // dd($user_detail);
+                      return view('admin.adminuser_detail')->with('user_detail',$user_detail);
+                    }
+    
+    public function adminuser_delete(Request $request,$id)
+                    {
+                       $user_detail=admin_user::delete_user();
+                      return back()->with('message','Delete Completed');
+
+
+                   // db::table('tbl_categories')->where('category_id',$id)->delete();
+
                     }
   }
    
