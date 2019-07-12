@@ -1,47 +1,55 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>Web Admin panel</title>
+<link rel="icon" type="{{ url('/') }}/template/image/png" href="images/fav.png">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/animate.min.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/style.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/color.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/responsive.css">
+</head>
+<body>
+<!-- Start Page Loading -->
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+<div class="panel-layout">
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
+      <div class="col-md-12">
+        <div class="admin-lock vh100"> 
+          <div class="admin-form">
+            <div class="logo"><img src="{{ url('/') }}/template/images/logo2.png" alt=""></div>
+            <h4>Forgot Password </h4>
+            <span>Enter your Registered email </span>
+            <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
+              <label><i class="fa fa-envelope"></i></label>
+             <input type="text" placeholder="Email Address" name="email">
+             <br>
+              @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+              <button type="submit">retrieve password</button>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
-@endsection
+<script src="{{ url('/') }}/template/js/jquery.js"></script> 
+<script src="{{ url('/') }}/template/js/bootstrap.min.js"></script>
+<script src="{{ url('/') }}/template/js/custom.js"></script>
+</body>
+</html>

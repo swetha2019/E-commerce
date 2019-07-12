@@ -42,29 +42,36 @@
                                     <div class="logo"><a title="" href="index-2.html"><img alt="" src="template/images/logo2.png"></a></div>
                                     <nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
-                                        <ul class="parent-menu">
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
-                                                <ul>
-                                                    <li><a href="index-2.html" title="">Dashboard 1</a></li>
-                                                    <li><a href="index2.html" title="">Dashboard 2</a></li>
-                                                    <li><a href="index3.html" title="">Dashboard 3</a></li>
-                                                    <li><a href="index4.html" title="">Dashboard 4</a></li>
-                                                    <li><a href="index5.html" title="">Dashboard 5</a></li>
-                                                </ul>
-                                            </li>
+                                         <ul class="parent-menu">
                                             <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Categories</span></a>
                                                 <ul>
                                                     <li><a href="categories_form" title="">Add categories</a></li>
                                                     <li><a href="view_categories" title="">View categories</a></li>
-                                                    <li><a href="template/index3.html" title="">Dashboard 3</a></li>
-                                                    <li><a href="template/index4.html" title="">Dashboard 4</a></li>
-                                                    <li><a href="template/index5.html" title="">Dashboard 5</a></li>
+                                                    <li><a href="view_subcategory" title="">View sub category</a></li>
+                                                    <li><a href="{{ url('/') }}/template/index4.html" title="">Dashboard 4</a></li>
+                                                    <li><a href="{{ url('/') }}/template/index5.html" title="">Dashboard 5</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
+                                           <!--  <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="index-boxed.html" title="">boxed layout</a></li>
-                                                    <li><a href="overlap-sidebar.html">overlap sliderbar</a></li>
+                                                    <li><a href="#newvendor" title="">New Vendores</a></li>
+                                                    <li><a href="#vendor"> Recently used Vendores</a></li>
+                                                </ul>
+                                            </li>-->
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-detail.html">product-detail</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
+                                                </ul>
+                                            </li>
+                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
+                                                    <li><a href="adminuser_form">Add new user</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-order.html">view user detail</a></li>
                                                 </ul>
                                             </li>
                                            
@@ -389,13 +396,14 @@
                                  <li><a href="Catgory_delete/{{$categry->category_id}}" ><i class="icon-trash"></i></a></li>
                                 <!-- <li><a href="Catgory_subcategory/{{$categry->category_id}}" class="edit-btn"><i class="fa fa-forward"></i></a></li>-->
                                  <a href="javascript:onclickFunction('{{$categry->category_id}}')">a</a>
-
-
+                                 <div id="sub"></div>
+                                 
                             </ul>
                             </td>
                             </tr>
                           @endforeach
                           @endif
+                          
                         </tbody>
                       </table>
                     </div>
@@ -509,10 +517,19 @@
         type: "get",
         url: "getmsg",
         data: {aId:aId},
-        success: function (data){
-            alert("aaaa");
+        success: function (response)
+       {     alert(response);
+            //var data1=JSON.parse(data);
+            
+           /* var toAppend='<div>';
+            $.each(data1,function(k,fetch)
+               {
+                toAppend += fetch.id;
+               });
+             $('#sub').html(toAppend);*/
         },
-        error: function (){
+        error: function ()
+        {
             alert("ffffff");
         }
     });

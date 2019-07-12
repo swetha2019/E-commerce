@@ -50,43 +50,43 @@
                                                     <li><a href="categories_form" title="">Add categories</a></li>
                                                     <li><a href="view_categories" title="">View categories</a></li>
                                                     <li><a href="view_subcategory" title="">View sub category</a></li>
-                                                    <li><a href="template/index4.html" title="">Dashboard 4</a></li>
-                                                    <li><a href="template/index5.html" title="">Dashboard 5</a></li>
+                                                    <li><a href="{{ url('/') }}/template/index4.html" title="">Dashboard 4</a></li>
+                                                    <li><a href="{{ url('/') }}/template/index5.html" title="">Dashboard 5</a></li>
                                                 </ul>
                                             </li>
-                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
+                                           <!--  <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
                                                 <ul class="mega">
                                                     <li><a href="#newvendor" title="">New Vendores</a></li>
                                                     <li><a href="#vendor"> Recently used Vendores</a></li>
                                                 </ul>
-                                            </li>
+                                            </li>-->
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="template/product.html" title="">product</a></li>
-                                                    <li><a href="template/product-detail.html">product-detail</a></li>
-                                                    <li><a href="template/product-order.html">product-order</a></li>
-                                                    <li><a href="template/product-add.html">add product</a></li>
-                                                    <li><a href="template/product-cart.html">product cart</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-detail.html">product-detail</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
                                                 </ul>
                                             </li>
                                              <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="template/product.html" title="">User</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
                                                     <li><a href="adminuser_form">Add new user</a></li>
-                                                    <li><a href="view_user">view user detail</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-order.html">view user detail</a></li>
                                                 </ul>
                                             </li>
                                             <li class="menu-item-has-children"> <a title="#"><i class="fa fa-bookmark-o"></i><span>Previous Orders</span></a>
                                                 <ul>
-                                                    <li><a href="template/accordion-n-tabs.html">accordions & tabs</a></li>
-                                                    <li><a href="template/elements.html">elements</a></li>
-                                                    <li><a href="template/invoices.html">invoices</a></li>
-                                                    <li><a href="template/tabels.html">tabels styles</a></li>
+                                                    <li><a href="{{ url('/') }}/template/accordion-n-tabs.html">accordions & tabs</a></li>
+                                                    <li><a href="{{ url('/') }}/template/elements.html">elements</a></li>
+                                                    <li><a href="{{ url('/') }}/template/invoices.html">invoices</a></li>
+                                                    <li><a href="{{ url('/') }}/template/tabels.html">tabels styles</a></li>
                                                     <li><a href="typography.html">typography</a></li>
-                                                    <li><a href="template/megamenu.html">mega menu styles</a></li>
-                                                    <li><a href="template/socials-btns.html">social buttons</a></li>
-                                                    <li><a href="template/testimonials.html">testimonials styles</a></li>
-													<li><a href="template/calendar.html">event calendar</a></li>
+                                                    <li><a href="{{ url('/') }}/template/megamenu.html">mega menu styles</a></li>
+                                                    <li><a href="{{ url('/') }}/template/socials-btns.html">social buttons</a></li>
+                                                    <li><a href="{{ url('/') }}/template/testimonials.html">testimonials styles</a></li>
+													<li><a href="{{ url('/') }}/template/calendar.html">event calendar</a></li>
                                                 </ul>
                                             </li>
 											
@@ -374,70 +374,62 @@
     </div>
 @endif
 				 
-@foreach($category as $detail)
 
-				  <form enctype="multipart/form-data"  method="post" action="{{ url('admin_update/'.$detail->id)}}">
+
+				  <form enctype="multipart/form-data" method="post" action="add_user">
                      {{ csrf_field() }} 
                      
-               
+                <div class="pnl-bdy billing-sec">
+                    	
+                    	 <div class="col-md-6 col-sm-6 field">
+                        <label>Name<span>*</span> </label>
+                        <input value="" name="admin_user" type="text" placeholder="First Name">
+                         @if ($errors->has('admin_user'))
+    					<div class="error">{{ $errors->first('admin_user') }}</div>
+						@endif
+
+                      
+                      </div>
+
 
 <div class="col-md-6 col-sm-6 field">
-                        <label>Category <span>*</span> </label>
-                        <input placeholder="Enter Your New Phone Number" value="{{$detail->phone}}" name="nw_phone" type="text">
-                        @if ($errors->has('nw_phone'))
-    					<div class="error">{{ $errors->first('nw_phone') }}</div>
+                        <label>New Phone Number <span>*</span> </label>
+                        <input placeholder="Enter Your New Phone Number" value="" name="admin_phone" type="text">
+                        @if ($errors->has('admin_phone'))
+    					<div class="error">{{ $errors->first('admin_phone') }}</div>
+						@endif
+                      </div>
+
+<div class="col-md-6 col-sm-6 field">
+                        <label>New Email id <span>*</span> </label>
+                        <input placeholder="Enter Your New Phone Number" value="" name="admin_email" type="text">
+                        @if ($errors->has('admin_email'))
+    					<div class="error">{{ $errors->first('admin_email') }}</div>
+						@endif
+                      </div>
+
+<div class="col-md-6 col-sm-6 field">
+                        <label>Sample Password<span>*</span> </label>
+                        <input placeholder="password" value="" name="admin_password" type="password">
+                        @if ($errors->has('admin_password'))
+    					<div class="error">{{ $errors->first('admin_password') }}</div>
 						@endif
                       </div>
 
 
 
+                      	
 
-
-                      	 
-
+ 
                        <button type="submit">Update Now</button>
                      
                   </form>
                   
                 <!--change password -->
                 <div align="centre" id="cnge_pwd">
-                    <div class="element-title" >
-                    <h4>------Password ----</h4>
-                    <span>Change your Password</span> 
-  				  </div>
-  				  <form action="{{ url('admin_change_password/'.$detail->id)}}" method="post">  
-  				          {{ csrf_field() }} 
-                    	<div class="row">
-		                       <div class="col-md-6 col-sm-6 field">
-		                        <label>Old Passwod <span>*</span> </label>
-		                        <input placeholder="Enter current Password" name="old_password" type="password">
-		                        @if ($errors->has('old_password'))
-		    					<div class="error">{{ $errors->first('old_password') }}</div>
-								@endif
-		                      </div> 
-		                 </div> 
-                       <div class="row">           	
-			                     <div class="col-md-6 col-sm-6 field">
-			                        <label>New password <span>*</span> </label>
-			                        <input placeholder="Enter Your New Password " value="" name="nw_password" type="password">
-			                        @if ($errors->has('nw_password'))
-			    					<div class="error">{{ $errors->first('nw_password') }}</div>
-									@endif
-			                      </div>
-			             </div>
-			             <div class="row"> 
-		                       <div class="col-md-6 col-sm-6 field">
-		                        <label>Confirm password <span>*</span> </label>
-		                        <input placeholder="Enter Your New Password " value="" name="confirm_password" type="password">
-		                        @if ($errors->has('confirm_password'))
-		    					<div class="error">{{ $errors->first('confirm_password') }}</div>
-								@endif
-		                      </div>
-		                  </div>
-                      <button type="submit">Change Password</button>
-                  
-         </form>              
-</div>
+                    
+  				                
+                 </div>
                
                     
                       
@@ -445,7 +437,7 @@
                   </div>
                     </div>
                   
-                    @endforeach
+                    
                 </div>
               </div>
               <div class="bottombar"> 

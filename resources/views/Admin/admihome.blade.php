@@ -68,8 +68,8 @@
                                              <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
                                                 <ul class="mega">
                                                     <li><a href="template/product.html" title="">User</a></li>
-                                                    <li><a href="template/product-detail.html">Add new user</a></li>
-                                                    <li><a href="template/product-order.html">view user detail</a></li>
+                                                    <li><a href="adminuser_form">Add new user</a></li>
+                                                    <li><a href="view_user">view user detail</a></li>
                                                 </ul>
                                             </li>
                                             <li class="menu-item-has-children"> <a title="#"><i class="fa fa-bookmark-o"></i><span>Previous Orders</span></a>
@@ -396,6 +396,7 @@
                     <li>Admin</li>
                   </ul>
                 </div>
+                 
                 <div class="profile">
                   <div class="row merged">
                     <div class="col-md-4 col-sm-12 col-xs-12">
@@ -460,6 +461,45 @@
                     </div>
                   </div>
                 </div>
+                <div class="info-section">
+                                        <div class="panel-widget style2">
+                                            <div class="b-meta">
+                                                <img src="images/icon-5.png" alt="">
+                                                <div class="info-meta">
+                                                    <span>Sales Earnings</span>
+                                                    <h4><ins>$</ins>0.00</h4>
+                                                    <i>10%</i>
+                                                </div>
+                                                <div class="spark">
+                                                    <div class="sparkline_line"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-widget style2">
+                                            <div class="b-meta"> <img src="{{ url('/') }}/template/images/icon-6.png" alt="">
+                                                <div class="info-meta">
+                                                    <span>total sales</span>
+                                                    <h4>4512</h4>
+                                                    <i>20%</i>
+                                                </div>
+                                                <div class="spark">
+                                                    <div class="sparkline_three"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-widget style2">
+                                            <div class="b-meta"> <img src="{{ url('/') }}/template/images/icon-8.png" alt="">
+                                                <div class="info-meta">
+                                                    <span>Today's Visits</span>
+                                                    <h4>158</h4>
+                                                    <i>30%</i>
+                                                </div>
+                                                <div class="spark">
+                                                    <div class="sparkline22"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                <div class="widget">
                                         <div class="widget-title no-margin">
                                             <h4>Venoder Details</h4>

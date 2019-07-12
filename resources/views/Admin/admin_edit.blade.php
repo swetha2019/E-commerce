@@ -44,22 +44,22 @@
 					<div class="logo"><a title="" href="{{ url('/') }}/template/index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
 					<nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
-                                        <ul class="parent-menu">
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
+                                       <ul class="parent-menu">
+                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Categories</span></a>
                                                 <ul>
-                                                    <li><a href="{{ url('/') }}/template/index-2.html" title="">Dashboard 1</a></li>
-                                                    <li><a href="{{ url('/') }}/template/index2.html" title="">Dashboard 2</a></li>
-                                                    <li><a href="{{ url('/') }}/template/index3.html" title="">Dashboard 3</a></li>
+                                                    <li><a href="categories_form" title="">Add categories</a></li>
+                                                    <li><a href="view_categories" title="">View categories</a></li>
+                                                    <li><a href="view_subcategory" title="">View sub category</a></li>
                                                     <li><a href="{{ url('/') }}/template/index4.html" title="">Dashboard 4</a></li>
                                                     <li><a href="{{ url('/') }}/template/index5.html" title="">Dashboard 5</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>New Orders</span></a>
+                                           <!--  <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="{{ url('/') }}/template/index-boxed.html" title="">New Products</a></li>
-                                                    <li><a href="{{ url('/') }}/template/overlap-sidebar.html">All Products</a></li>
+                                                    <li><a href="#newvendor" title="">New Vendores</a></li>
+                                                    <li><a href="#vendor"> Recently used Vendores</a></li>
                                                 </ul>
-                                            </li>
+                                            </li>-->
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
@@ -67,6 +67,13 @@
                                                     <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
                                                     <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
                                                     <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
+                                                </ul>
+                                            </li>
+                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
+                                                    <li><a href="adminuser_form">Add new user</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-order.html">view user detail</a></li>
                                                 </ul>
                                             </li>
                                             <li class="menu-item-has-children"> <a title="#"><i class="fa fa-bookmark-o"></i><span>Previous Orders</span></a>
@@ -372,7 +379,18 @@
 				  <form enctype="multipart/form-data"  method="post" action="{{ url('admin_update/'.$detail->id)}}">
                      {{ csrf_field() }} 
                      
-               
+                <div class="pnl-bdy billing-sec">
+                    	<div class="row">
+                    	 <div class="col-md-6 col-sm-6 field">
+                        <label>Name<span>*</span> </label>
+                        <input value="{{$detail->name}}" name="name" type="text" placeholder="First Name">
+                         @if ($errors->has('name'))
+    					<div class="error">{{ $errors->first('name') }}</div>
+						@endif
+
+                      </div> 
+                      </div>
+
 
 <div class="col-md-6 col-sm-6 field">
                         <label>New Phone Number <span>*</span> </label>
@@ -393,6 +411,8 @@
 
 
                       	 
+
+ 
 
                        <button type="submit">Update Now</button>
                      
