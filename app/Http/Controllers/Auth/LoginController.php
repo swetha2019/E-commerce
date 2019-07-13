@@ -45,7 +45,7 @@ public function credentials(Request $request)
   $remember_me = $request->has('remember') ? true : false;
 
 
-    if(is_numeric($request->get('email')) || auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $remember_me))
+    if(is_numeric($request->get('email')) || auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password'),'usertype'=>'vendor'], $remember_me))
             {
                   
               return ['phone'=>$request->get('email'),'password'=>$request->get('password'),'verified' => 1];

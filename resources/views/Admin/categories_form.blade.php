@@ -355,47 +355,193 @@
                     <li>Dashbord</li>
                   </ul>
                 </div>
-                <div class="gap no-gap">
-                    <div class="inner-bg">
-                      <div class="element-title">
-                        <h4>CATEGORIES</h4>
-                        <span>Please fill the form bellow.</span> </div>
-                      <div class="add-prod-from">
 
-							       @if(session()->has('message'))
-							    <div class="alert alert-success" style="background-color: lightgreen; color: white">
-							        {{ session()->get('message') }}
-							    </div>
-							@endif
+            </div>
+<div class="gap no-gap">
+    <div class="inner-bg">
+
+
+
+
+
+        <div class="tab-style">
+                      <ul class="tab nav nav-tabs tab-btns">
+                        <li class="nav-item"><a class="active" href="#link1" data-toggle="tab">Main Category</a></li>
+                        <li class="nav-item"><a href="#link2" data-toggle="tab">Sub Category</a></li>
+                        <li class="nav-item"><a href="#link3" data-toggle="tab">Child Ctegory</a></li>
+                        <li class="nav-item"><a href="#link4" data-toggle="tab">tab 3</a></li>
+                      </ul>
+                      <div class="tab-content">
+                        <div class="tab-pane active fade show" id="link1">
+                          <div class="tab-meta">
+                           <div class="add-prod-from">
+
+                                   @if(session()->has('message'))
+                                <div class="alert alert-success" style="background-color: lightgreen; color: white">
+                                    {{ session()->get('message') }}
+                                </div>
+                            @endif
                            @if ($errors->any())
                              <div class="alert alert-danger" style=" color: green; font-weight:bold;">
                                 <ul>
-						            @foreach ($errors->all() as $error)
-						                <li>{{ $error }}</li>
-						            @endforeach
-						        </ul>
-						    </div>
-						@endif
-						  <div class="row">
-							<div class="col-md-6">
-								<form action="add_categories" method="post">
-									{{ csrf_field() }} 
-							  <label>Categories</label>
-							  <input type="text" placeholder="Category Name" name="category_name">
-							<br><br><br><br>
-							<div class="col-md-12">
-							  <div class="buttonz">
-								<button type="submit" name="save">save</button>
-								<button type="submit" name="cancel">cancel</button>
-							  </div>
-							</div>
-						</form>
-                      	</div>
-					  </div>	  
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                          <div class="row">
+                            <div class="col-md-6">
+                               <form action="add_subcategories" method="post">
+                                    {{ csrf_field() }} 
+                              <label>Categories</label>
+                              <input type="text" placeholder="Category Name" name="category_name" style="border-color: rgb(107, 213, 234)">
+                            <br><br><br><br>
+                            <div class="col-md-12">
+                              <div class="buttonz">
+                                <button type="submit" name="save" >Add Category</button>
+                                <button type="submit" name="cancel">cancel</button>
+                              </div>
+                            </div>
+                        </form>
+                        </div>
+                      </div>      
                     </div>
-                </div>
-              </div>
-                <div class="gap no-gap">
+                          </div>
+                        </div>
+
+
+
+                        <div class="tab-pane fade" id="link2">
+                          <div class="tab-meta">
+                            <div class="add-prod-from">
+
+                                @if(session()->has('message'))
+                                    <div class="alert alert-success" style="background-color: lightgreen; color: white">
+                                     {{ session()->get('message') }}
+                                    </div>
+                                @endif
+                           @if($errors->any())
+                             <div class="alert alert-danger" style=" color: green; font-weight:bold;">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                          <div class="row">
+                            <div class="col-md-6">
+                            <form action="add_subcategories" method="post">
+                             {{ csrf_field() }} 
+                              <label>Category <span>*</span> </label>
+                              <select  name="category_id" style="border-color: rgb(107, 213, 234) >
+                                
+                               @if(count($category))
+                                 {
+                                   @foreach($category as $categry)
+                                    <option value="{{$categry->category_id}}">{{$categry->category_name}}</option>
+                                   @endforeach
+                                  }
+                               @endif
+                              </select>
+                            <br><br><br><br>
+                         <div class="col-md-6 col-sm-6 field">
+                        <label>Sub Categories <span>*</span> </label>
+                        <input type="text" placeholder="sub categories" name="subcategory_name" style="border-color: rgb(107, 213, 234)">
+                        @if ($errors->has('subcategory_name'))
+                        <div class="error">{{ $errors->first('subcategory_name') }}</div>
+                        @endif
+                      </div>
+                            <div class="col-md-12">
+                              <div class="buttonz">
+                                <button type="submit" name="save" onclick="#link2">Add Sub Category</button>
+                                <button type="submit" name="cancel">cancel</button>
+                              </div>
+                            </div>
+                        </form>
+                        </div>
+                      </div>      
+                    </div>
+                                  </div>
+                                </div>
+                                <div class="tab-pane fade" id="link3">
+                                  <div class="tab-meta">
+                                    <div class="add-prod-from">
+
+                                        @if(session()->has('message'))
+                                            <div class="alert alert-success" style="background-color: lightgreen; color: white">
+                                             {{ session()->get('message') }}
+                                            </div>
+                                        @endif
+                                   @if($errors->any())
+                                     <div class="alert alert-danger" style=" color: green; font-weight:bold;">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                    <form action="childcategory" method="post">
+                                     {{ csrf_field() }} 
+                                     <label>Category <span>*</span> </label>
+                                      <select  name="category_id" id="category" style="border-color: rgb(107, 213, 234)" >
+                                        <option value="">---select------</option>
+                                       @if(count($category))
+                                         {
+                                           @foreach($category as $categry)
+                                            <option value="{{$categry->category_id}}">{{$categry->category_name}}</option>
+                                           @endforeach
+                                          }
+                                       @endif
+                                      </select>
+                                    <br><br><br><br>
+                                     <label>Sub Category <span>*</span> </label>
+                                                                           
+                                     <div id="sub"></div>
+
+
+                                      <br><br><br>
+                                 <div class="col-md-6 col-sm-6 field">
+                                <label>Child Categories <span>*</span> </label>
+                                <input type="text" placeholder="child categories" name="childcategory" style="border-color: rgb(107, 213, 234)">
+                                @if ($errors->has('childcategory'))
+                                <div class="error">{{ $errors->first('childcategory') }}</div>
+                                @endif
+                              </div>
+                                    <div class="col-md-12">
+                                      <div class="buttonz">
+                                        <button type="submit" name="save" onclick="#link3">Add child Category</button>
+                                        <button type="submit" name="cancel">cancel</button>
+                                      </div>
+                                        </div>
+                                      </form>
+                                   </div>
+                                 </div>      
+                               </div>
+                              </div>
+                            </div>
+                        <div class="tab-pane fade" id="link4">
+                          <div class="tab-meta">
+                            <p> High lorm ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat
+                              ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. High lorm ipsum dolor sit amet
+                              adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+                              tation ullamcorper. </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    </div>
+
+</div>
+
+
+               
+
+                <!--<div class="gap no-gap">
                     <div class="inner-bg">
                       <div class="element-title">
                         <h4>Sub categories</h4>
@@ -415,31 +561,35 @@
                                                 <option value="">---choose one----</option>
                                                     <option value="">---choose one----</option>
                                                 </select>
-							  <!--@if(count($category))
+							 <! @if(count($category))
 							  	{
 							  	@foreach($category as $categry)
 								<option value="{{$categry->category_id}}">{{$categry->category_name}}</option>
 								@endforeach
 							    }
 							    @endif
-							  </select>-->
+							  </select>->
 							</div>
                            <div class="col-md-6">
+                            <div class="row">
 							  <label>Sub Categories</label>
 							  <input type="text" placeholder="sub categories" name="subcategory_name">
+                            </div>
 							</div>		
-							
+							 <div class="row">
 							<div class="col-md-12">
 							  <div class="buttonz">
+                               
 								<button type="submit">save</button>
 								<button type="submit">cancel</button>
+
 							  </div>
 							</div>
                       	</div>
                       </form>
 					  </div>	  
                     </div>
-                </div>
+                </div>-->
               </div>
               <div class="bottombar"> 
 					<span>© 2019. Dewwater. All Rights Reserved.</span>
@@ -526,6 +676,33 @@
 <script src="template/js/flatweather.min.js"></script> 
 <script src="template/js/html5lightbox.js"></script> 
 <script src="template/js/custom.js"></script><!-- scripts -->
+<script type="text/javascript">
+    $('#category').on('change',function()
+    {
+  
+     var category_id = $(this).val();    
+   if(category_id)
+       {    
+       // alert(category_id);
 
+        $.ajax(
+        {
+           type:"GET",
+           url:"{{url('subcategory_select')}}?category_id="+category_id,
+           success:function(res)
+           {       
+                         
+                $('select[name="sub"]').empty();
+                $.each(res, function(key, value) {
+                    alert(value.subcategory_name);
+                    $('#sub').append('<select><option value="'+ value +'">'+ value.subcategory_name +'</option><select>');
+                    });    
+           }
+        });
+    } 
+   });
+
+</script>
 </body>
+
 </html>

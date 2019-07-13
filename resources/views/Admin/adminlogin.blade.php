@@ -39,7 +39,12 @@
             @endforeach
         </ul>
     </div>
-@endif
+
+@if(session()->has('message'))
+        <div style="text-align: center">
+        {{session()->get('message')}}
+        </div>
+       @endif
 			  <div class="logo"><img src="template/images/logo2.png" alt=""></div>
 
        

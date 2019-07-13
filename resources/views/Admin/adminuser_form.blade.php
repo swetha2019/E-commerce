@@ -383,7 +383,7 @@
                     	
                     	 <div class="col-md-6 col-sm-6 field">
                         <label>Name<span>*</span> </label>
-                        <input value="" name="admin_user" type="text" placeholder="First Name">
+                        <input value="" name="admin_user" type="text" placeholder=" Name">
                          @if ($errors->has('admin_user'))
     					<div class="error">{{ $errors->first('admin_user') }}</div>
 						@endif

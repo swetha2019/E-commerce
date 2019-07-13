@@ -31,4 +31,12 @@ class Controller extends BaseController
 						    echo "2nd";
 						    }
     }
+    public function subcategory_select(Request $request)
+    {
+       $sub = DB::table("tbl_sub_category")
+                    ->where("category_id",$request->category_id)
+                    ->select('subcategory_name')->get();
+        return response()->json($sub);
+    }
+
 }

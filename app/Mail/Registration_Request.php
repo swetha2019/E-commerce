@@ -31,6 +31,6 @@ class Registration_Request extends Mailable
      */
     public function build()
     {
-        return $this->view('email.Register_request');
+        return $this->view('email.register_request');
     }
 }

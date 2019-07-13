@@ -44,7 +44,7 @@ class admin_controller extends Controller
                                       $hased_password=$data[0];
                                       if(password_verify($password,$hased_password))
                                        {
-                                        $id= db::table('vendor_registration')->where('email',$email)->Where('usertype')->pluck('id');
+                                        $id= db::table('vendor_registration')->where('email',$email)->Where('usertype','admin')->pluck('id');
                                         if(isset($id[0]))
                                             {
                                             $request->session()->put('userid',$id[0]);
@@ -269,6 +269,7 @@ class admin_controller extends Controller
      public function categories_form(Request $request)
                  {
                   $category=db::table('tbl_categories')->get();
+
                   return view('Admin.categories_form')->with('category',$category);
                  }
      public function add_categories(Request $request)
@@ -304,7 +305,7 @@ class admin_controller extends Controller
                                        echo $data['subcategory_name']=$request->input('subcategory_name');
                                        db::table('tbl_sub_category')->insert($data);
                                        return back()->with('message','New Sub Category was added');
-                                       $data=db::table('tbl_categories')->get();
+                                     //  $data=db::table('tbl_categories')->get();
                                      }
 
                            }
@@ -326,8 +327,8 @@ class admin_controller extends Controller
                     }
      public function view_subcategory(Request $request)
                     {
-                      $category=db::table('tbl_categories')->get();
-                      return view('Category_edit')->with('category',$category);
+                     $sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
+                    return view('admin.sub_category_view')->with('sub_category',$sub_category);
                     }
     public function adminuser_form(Request $request)
                     {
@@ -361,8 +362,8 @@ class admin_controller extends Controller
                     }
     public function view_user(Request $request)
                     {
-                     $user_detail=admin_user::select_user();
-                  // dd($user_detail);
+                     $usertype='admin_user';
+                        $user_detail=db::table('vendor_registration')->where('usertype',$usertype)->get(); 
                       return view('admin.adminuser_detail')->with('user_detail',$user_detail);
                     }
     
@@ -374,6 +375,13 @@ class admin_controller extends Controller
 
                    // db::table('tbl_categories')->where('category_id',$id)->delete();
 
+                    }
+    public function subcategory_select(Request $request)
+                    {
+                       $sub = DB::table("tbl_sub_category")
+                                    ->where("category_id",$request->category_id)
+                                    ->select('subcategory_name')->get();
+                        return response()->json($sub);
                     }
   }
    

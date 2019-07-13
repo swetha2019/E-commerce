@@ -369,33 +369,36 @@
             @endif
              <div class="little-heading">
                <div class="element-title">
-                        <h4>CATEGORIES</h4>
-                        <span>Detail view of Categories</span> </div>
+                        <h4>SUB CATEGORIES</h4>
+                        <span>Detail view of Sub Categories</span> </div>
                     </div>
                     <div class="widget">
                       <table class="prj-tbl striped table-responsive">
                         <thead class="color">
                           <tr>
                             <th><i class="all-slct"></i></th>
-                            <th><em>Categories Id</em></th>
-                            <th><em>Categories Name</em></th>
+                            <th><em>Sub Category Id</em></th>
+                            <th><em>Category Name</em></th>
+                             <th><em>Sub category Name</em></th>
                             <th colspan="2"><em>Action</em></th>
                             
                           </tr>
                         </thead>
                         <tbody>
-                            @if(count($category)>0)
+                            @if(count($sub_category)>0)
                               
-                           @foreach($category as $categry)
+                           @foreach($sub_category as $sub_categori)
                           <tr>
                             <td><i class="sngl-slct"></i></td>
-                            <td><span>Catgory_{{$categry->category_id}}</span></td>
-                            <td>{{$categry->category_name}}</td>
+                            <td><span>Catgory_{{$sub_categori->category_id}}</span></td>
+                            <td>{{$sub_categori->category_name}}</td>
+                            <td>{{$sub_categori->subcategory_name}}</td>
+
                             <td>
                              <ul>
-                                 <li><a href="Catgory_delete/{{$categry->category_id}}" ><i class="icon-trash"></i></a></li>
-                                <!-- <li><a href="Catgory_subcategory/{{$categry->category_id}}" class="edit-btn"><i class="fa fa-forward"></i></a></li>-->
-                                 <a href="javascript:onclickFunction('{{$categry->category_id}}')">a</a>
+                                 <li><a href="Catgory_delete/{{$sub_categori->category_id}}" ><i class="icon-trash"></i></a></li>
+                                <!-- <li><a href="Catgory_subcategory/{{$sub_categori->category_id}}" class="edit-btn"><i class="fa fa-forward"></i></a></li>-->
+                                 <a href="javascript:onclickFunction('{{$sub_categori->category_id}}')">a</a>
                                  <div id="sub"></div>
                                  
                             </ul>

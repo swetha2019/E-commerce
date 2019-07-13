@@ -27,7 +27,7 @@
 <div class="panel-layout">
     <div class="container-fluid">
 
-            @if(session()->has('message'))
+        @if(session()->has('message'))
         <div style="text-align: center">
         {{session()->get('message')}}
         </div>
