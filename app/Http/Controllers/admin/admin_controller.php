@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use App\Mail\approval_mail;
 
    use App\admin_user;
+    use App\model_category;
    use Hash;
    use Crypt;
    use Validator;
@@ -269,14 +270,21 @@ class admin_controller extends Controller
      public function categories_form(Request $request)
                  {
                   $category=db::table('tbl_categories')->get();
+                  $sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
 
-                  return view('Admin.categories_form')->with('category',$category);
+                  $child_category= db::table('tbl_child_category_one')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_one.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_one.category_id')->get();
+
+                  $child_category2= db::table('tbl_chid_category_two')->join('tbl_child_category_one','tbl_child_category_one.child_category_id','=','tbl_child_category_two.child_category_id')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_two.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_two.category_id')->get();
+                  
+
+dd($child_category2);
+                  //return view('Admin.categories_form')->with('category',$category)->with('sub_category',$sub_category)->with('child_category',$child_category)->with('child_category2',$child_category2);
                  }
      public function add_categories(Request $request)
                {
                  
                  $validator = Validator::make($request->all(),
-                              [ 'category_name' => 'required|unique:tbl_categories']);
+                [ 'category_name' => 'required|unique:tbl_categories']);
                   if($validator->fails())
                         {
                           return  back()->withErrors($validator);
@@ -290,6 +298,15 @@ class admin_controller extends Controller
                        }
 
                }
+
+    public function add_subcategory(Request $request)
+                 {
+                  $category=db::table('tbl_categories')->get();
+                  //$sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
+
+                  return view('Admin.add_sub_category')->with('category',$category);
+                 }
+
      public function add_subcategories(Request $request)
                            {
                               $validator = Validator::make($request->all(),
@@ -309,12 +326,12 @@ class admin_controller extends Controller
                                      }
 
                            }
-      public function view_categories(Request $request)
+      /*public function view_categories(Request $request)
                    {
                     $category['category']=db::table('tbl_categories')->get();
                     return view('Admin.view_category',$category);
 
-                   }
+                   }*/
      public function Catgory_delete(Request $request,$id)
                     {
                       db::table('tbl_categories')->where('category_id',$id)->delete();
@@ -325,11 +342,11 @@ class admin_controller extends Controller
                       $category=db::table('tbl_categories')->where('category_id',$id)->get();
                       return view('Category_edit')->with('category',$category);
                     }
-     public function view_subcategory(Request $request)
+    /* public function view_subcategory(Request $request)
                     {
                      $sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
                     return view('admin.sub_category_view')->with('sub_category',$sub_category);
-                    }
+                    }*/
     public function adminuser_form(Request $request)
                     {
                       return view('admin.adminuser_form')->with('message','Add new user');
@@ -380,8 +397,82 @@ class admin_controller extends Controller
                     {
                        $sub = DB::table("tbl_sub_category")
                                     ->where("category_id",$request->category_id)
-                                    ->select('subcategory_name')->get();
+                                    ->get();
                         return response()->json($sub);
+                    }
+    public function childcategory(Request $request)
+                    {
+                      $validator=validator::make($request->all(),[
+                        'category_id'=>'required',
+                        'subcategory_id'=>'required',
+                        'childcategory'=>'required'
+                      ]);
+                      if($validator->fails())
+                        {
+                        return back()->withErrors($validator); 
+                        }
+                       else
+                        {
+                        $data['category_id']=$request->input('category_id');
+                       $data['subcategory_id']=$request->input('subcategory_id');
+                       $data['childcategory_name']=$request->input('childcategory');
+                       model_category::child_category($data);
+
+                        }
+                    }
+     public function child_select(Request $request)
+                    {
+                     $detail_child= DB::table("tbl_child_category_one")
+                                    ->where("subcategory_id",$request->subcategory_id)
+                                    ->get();
+                     return response()->json($detail_child);
+                     return back()->with('message',"New child category was added");
+                    }
+     public function add_Childcategory(Request $request)
+                 {
+                  $childcategory=db::table('tbl_categories')->get();
+                  //$sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
+
+                  return view('Admin.add_child_category')->with('category',$childcategory);
+                 }
+    public function add_Childcategory2(Request $request)
+                 {
+                  $childcategory=db::table('tbl_categories')->get();
+                  //$sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
+
+                  return view('Admin.add_child_category2')->with('category',$childcategory);
+                 }
+
+
+
+
+    public function childcategorytwo(Request $request)
+                    {
+                      $validator=validator::make($request->all(),[
+                        'category_id'=>'required',
+                        'subcategory_id'=>'required',
+                        'childcategory_id'=>'required',
+                        'childcategory2'=>'required'
+                      ]);
+                      if($validator->fails())
+                        {
+                        return back()->withErrors($validator); 
+                        }
+                       else
+                        {
+                        $data['category_id']=$request->input('category_id');
+                       $data['subcategory_id']=$request->input('subcategory_id');
+                       $data['child_category_id']=$request->input('childcategory_id');
+                       $data['child_category_id']=$request->input('childcategory_id');
+                       $data['childcategory2_name']=$request->input('childcategory2');
+                       DB::table('tbl_child_category_two')->insert($data);
+                       return back()->with('message',"New child category was added");
+                       //model_category::child_category($data);
+                        }
+                    }
+    public function back(Request $request)
+                    {
+                      return redirect('categories_form');
                     }
   }
    
