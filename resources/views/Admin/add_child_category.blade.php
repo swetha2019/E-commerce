@@ -6,20 +6,20 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <title>Web Admin panel</title>
-<link rel="icon" type="{{ url('/') }}/template/image/png" href="images/fav.png">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{{ url('/') }}/template/css/themify-icons.css">
-    <link rel="stylesheet" href="{{ url('/') }}/template/css/line-icons.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/bootstrap.min.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/animate.min.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/perfect-scrollbar.min.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/jquery.datepicker.min.css">
+<link rel="icon" type="template/image/png" href="images/fav.png">
+<link rel="stylesheet" href="template/css/font-awesome.min.css">
+	<link rel="stylesheet" href="template/css/themify-icons.css">
+    <link rel="stylesheet" href="template/css/line-icons.css">
+<link rel="stylesheet" href="template/css/bootstrap.min.css">
+<link rel="stylesheet" href="template/css/animate.min.css">
+<link rel="stylesheet" href="template/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="template/css/jquery.datepicker.min.css">
 <!-- calander -->
-<link rel="stylesheet" href="{{ url('/') }}/template/css/flatweather.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/nice-select.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/style.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/color.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/responsive.css">
+<link rel="stylesheet" href="template/css/flatweather.css">
+<link rel="stylesheet" href="template/css/nice-select.css">
+<link rel="stylesheet" href="template/css/style.css">
+<link rel="stylesheet" href="template/css/color.css">
+<link rel="stylesheet" href="template/css/responsive.css">
 <style type="text/css">
 
 </style>
@@ -39,8 +39,8 @@
           <header>
                             <div class="side-menus">
                                 <div class="side-header">
-                                    <div class="logo"><a title="" href="index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
-                                   <nav class="slide-menu">
+                                    <div class="logo"><a title="" href="index-2.html"><img alt="" src="template/images/logo2.png"></a></div>
+                                  <nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
                                             <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
@@ -86,7 +86,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <div class="logo"><a href="index-2.html" title=""><img src="{{ url('/') }}/template/images/logo.png" alt=""></a></div>
+                                        <div class="logo"><a href="index-2.html" title=""><img src="template/images/logo.png" alt=""></a></div>
                                     </div>
                                     <div class="col-lg-9">
                                         <ul class="notify-area">
@@ -94,63 +94,7 @@
                                                 <div class="nav-icon3"> <span></span> <span></span> <span></span> <span></span> </div>
                                                 <i class="fa fa-navicon nav-icon3"></i>
                                             </li>
-                                           <!-- <li class="notifications"><a href="#" title=""><i class="fa fa-bell-o"></i></a><span class="red-bg">02</span>
-                                                <div class="drop notify"> <span class="drop-head">Notifications</span>
-                                                    <ul class="drop-meta">
-                                                        <li> <i class="notifi-icon blue">N</i>
-                                                            <div class="notifi-meta">
-                                                                <h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-                                                                <span>02:34PM</span> </div>
-                                                        </li>
-                                                        <li> <i class="notifi-icon red">C</i>
-                                                            <div class="notifi-meta">
-                                                                <h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-                                                                <span>02:34PM</span> </div>
-                                                        </li>
-                                                        <li> <i class="notifi-icon yellow">A</i>
-                                                            <div class="notifi-meta">
-                                                                <h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-                                                                <span>02:34PM</span> </div>
-                                                        </li>
-                                                        <li> <i class="notifi-icon blue">N</i>
-                                                            <div class="notifi-meta">
-                                                                <h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-                                                                <span>02:34PM</span> </div>
-                                                        </li>
-                                                    </ul>
-                                                    <span class="drop-bottom"><a href="#" title="">View More Notifications</a></span> </div>
-                                            </li>
-                                            <li class="messages"><a href="#" title=""><i class="fa fa-envelope-o"></i></a><span class="blue-bg">10</span>
-                                                <div class="drop messages"> <span class="drop-head">3 New Message <i class="fa fa-pencil-square-o"></i></span>
-                                                    <ul class="drop-meta">
-                                                        <li> <i class="notifi-icon"><img src="images/resources/user-mesg.jpg" alt=""></i>
-                                                            <div class="notifi-meta"> <span>02:34PM</span>
-                                                                <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-                                                            </div>
-                                                        </li>
-                                                        <li> <i class="notifi-icon"><img src="images/resources/user-mesg2.jpg" alt=""></i>
-                                                            <div class="notifi-meta"> <span>02:34PM</span>
-                                                                <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-                                                            </div>
-                                                        </li>
-                                                        <li> <i class="notifi-icon"><img src="images/resources/user-mesg3.jpg" alt=""></i>
-                                                            <div class="notifi-meta"> <span>02:34PM</span>
-                                                                <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-                                                            </div>
-                                                        </li>
-                                                        <li> <i class="notifi-icon"><img src="images/resources/user-mesg.jpg" alt=""></i>
-                                                            <div class="notifi-meta"> <span>02:34PM</span>
-                                                                <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-                                                            </div>
-                                                        </li>
-                                                        <li> <i class="notifi-icon"><img src="images/resources/user-mesg2.jpg" alt=""></i>
-                                                            <div class="notifi-meta"> <span>02:34PM</span>
-                                                                <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                    <span class="drop-bottom"><a href="#" title="">View More messages</a></span> </div>
-                                            </li>{{ url('/') }}/template/-->
+                                          
                                             <li class="mega"><a href="#" title="">mega</a>
                                                 <div class="mega-menu">
                                                     <div class="row mega-style1">
@@ -349,83 +293,82 @@
                     <li>Dashbord</li>
                   </ul>
                 </div>
-                <div class="gap no-gap">
-                    <div class="inner-bg">
-                     
 
-                     @if(session()->has('message'))
-                  <div class="alert alert-success" style="background-color: lightgreen; color: white">
-                      {{ session()->get('message') }}
-                  </div>
-              @endif
-                           @if ($errors->any())
+            </div>
+<div class="gap no-gap">
+    <div class="inner-bg">
+
+       <div>
+
+                          <div class="add-prod-from">
+
+                                @if(session()->has('message'))
+                                    <div class="alert alert-success" style="background-color: lightgreen; color: white">
+                                     {{ session()->get('message') }}
+                                    </div>
+                                @endif
+                           @if($errors->any())
                              <div class="alert alert-danger" style=" color: green; font-weight:bold;">
                                 <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-             <div class="little-heading">
-               <div class="element-title">
-                        <h4>SUB CATEGORIES</h4>
-                        <span>Detail view of Sub Categories</span> </div>
-                    </div>
-                    <div class="widget">
-                      <table class="prj-tbl striped table-responsive">
-                        <thead class="color">
-                          <tr>
-                            <th><i class="all-slct"></i></th>
-                            <th><em>Sub Category Id</em></th>
-                            <th><em>Category Name</em></th>
-                             <th><em>Sub category Name</em></th>
-                            <th colspan="2"><em>Action</em></th>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                          <div class="row">
+                            <div class="col-md-6">
                             
-                          </tr>
-                        </thead>
-                        <tbody>
-                            @if(count($sub_category)>0)
-                              
-                           @foreach($sub_category as $sub_categori)
-                          <tr>
-                            <td><i class="sngl-slct"></i></td>
-                            <td><span>Catgory_{{$sub_categori->category_id}}</span></td>
-                            <td>{{$sub_categori->category_name}}</td>
-                            <td>{{$sub_categori->subcategory_name}}</td>
+                                    <form action="childcategory" method="post">
+                                     {{ csrf_field() }} 
+                                     <label>Category <span>*</span> </label>
+                                      <select  name="category_id" id="category" style="border-color: rgb(107, 213, 234)" >
+                                        <option value="">---select------</option>
+                                       @if(count($category))
+                                         {
+                                           @foreach($category as $categry)
+                                            <option value="{{$categry->category_id}}">{{$categry->category_name}}</option>
+                                           @endforeach
+                                          }
+                                       @endif
+                                      </select>
+                                    <br><br><br><br>
+                                     <label>Sub Category <span>*</span> </label>
+                                                              
+                                     <div id="sub"></div>
+                                    
+                                     <br>
+                                 <div class="col-md-12 col-sm-12 field">
+                                <label>Child Categories <span>*</span> </label>
+                                <input type="text" placeholder="child categories" name="childcategory" style="border-color: rgb(107, 213, 234)">
+                                @if ($errors->has('childcategory'))
+                                <div class="error">{{ $errors->first('childcategory') }}</div>
+                                @endif
+                              </div>
 
-                            <td>
-                             <ul>
-                                 <li><a href="Catgory_delete/{{$sub_categori->category_id}}" ><i class="icon-trash"></i></a></li>
-                                <!-- <li><a href="Catgory_subcategory/{{$sub_categori->category_id}}" class="edit-btn"><i class="fa fa-forward"></i></a></li>-->
-                                 <a href="javascript:onclickFunction('{{$sub_categori->category_id}}')">a</a>
-                                 <div id="sub"></div>
-                                 
-                            </ul>
-                            </td>
-                            </tr>
-                          @endforeach
-                          @endif
-                          
-                        </tbody>
-                      </table>
+                                    <div class="col-md-12"><br><br><br>
+                                      <div class="buttonz">
+                                        <button type="submit" name="save" onclick="#link3">Add child Category</button>
+                                        <button name="cancel"><a href="back" title="">BACK</a></button>
+                                      </div>
+                                        </div>
+                                      </form>
+                        </div>
+                      </div>      
                     </div>
 
 
 
-                        
-            </div>    
-                    </div>
-                </div>
-              </div>
+                       
+
+
                
-            </div>    
-                    </div>
-                </div>
+
+               
               </div>
               <div class="bottombar"> 
-          <span>© 2019. Dewwater. All Rights Reserved.</span>
-        </div>
+					<span>© 2019. Dewwater. All Rights Reserved.</span>
+				</div>
               <!-- bottombar --> 
             </div>
           </div>
@@ -497,51 +440,105 @@
                 </div>
             </form>
         </div><!-- side panel -->
-<script src="{{ url('/') }}/template/js/jquery.js"></script> 
-<script src="{{ url('/') }}/template/js/bootstrap.min.js"></script> 
-<script src="{{ url('/') }}/template/js/perfect-scrollbar.jquery.min.js"></script> 
-<script src="{{ url('/') }}/template/js/chart.min.js"></script> 
-<script src="{{ url('/') }}/template/js/echart.min.js"></script> 
-<script src="{{ url('/') }}/template/js/jquery.sparkline.min.js"></script> 
-<script src="{{ url('/') }}/template/js/nice-select.js"></script> 
-<script src="{{ url('/') }}/template/js/custom2.js"></script> 
-<script src="{{ url('/') }}/template/js/flatweather.min.js"></script> 
-<script src="{{ url('/') }}/template/js/html5lightbox.js"></script> 
-<script src="{{ url('/') }}/template/js/custom.js"></script>
+<script src="template/js/jquery.js"></script> 
+<script src="template/js/bootstrap.min.js"></script> 
+<script src="template/js/perfect-scrollbar.jquery.min.js"></script> 
+<script src="template/js/chart.min.js"></script> 
+<script src="template/js/echart.min.js"></script> 
+<script src="template/js/jquery.sparkline.min.js"></script> 
+<script src="template/js/nice-select.js"></script> 
+<script src="template/js/custom2.js"></script> 
+<script src="template/js/flatweather.min.js"></script> 
+<script src="template/js/html5lightbox.js"></script> 
+<script src="template/js/custom.js"></script><!-- scripts -->
 <script type="text/javascript">
-    
-</script>
+    $('#category').on('change',function()
+    {
+  
+     var category_id = $(this).val();    
+   if(category_id)
+       {    
+       // alert(category_id);
 
-<script>
-  function onclickFunction(aId)
-  {
-   // alert(aId);
-    $.ajax({
-        type: "get",
-        url: "getmsg",
-        data: {aId:aId},
-        success: function (response)
-       {     alert(response);
-            //var data1=JSON.parse(data);
-            
-           /* var toAppend='<div>';
-            $.each(data1,function(k,fetch)
-               {
-                toAppend += fetch.id;
-               });
-             $('#sub').html(toAppend);*/
-        },
-        error: function ()
+        $.ajax(
         {
-            alert("ffffff");
-        }
-    });
-    return false;
-}
+           type:"GET",
+           url:"{{url('subcategory_select')}}?category_id="+category_id,
+           success:function(res)
+           {       
+                         
+                $('#sub').empty();
+               
+                 var toAppend = '<select name="subcategory_id" >';
+                    $.each(res, function(key, value)
+                    {
+                          toAppend += '<option value="'+value.subcategory_id+'">'+value.subcategory_name+'</option>';
+                    });
+                    $('#sub').html(toAppend);
+           }
+        });
+    } 
+   });
+
+
+
+$('#category1').on('change',function()
+    {
+   
+     var category_id = $(this).val();
+
+   if(category_id)
+       {    
+       // alert(category_id);
+
+        $.ajax(
+        {
+           type:"GET",
+           url:"{{url('subcategory_select')}}?category_id="+category_id,
+           success:function(res)
+           {       
+                         
+                $('#sub1').empty();
+               
+                 var toAppend = '<select name="subcategory_id" ><option value"">select</option>';
+                    $.each(res, function(key, value)
+                    {
+                          toAppend += '<option value="'+value.subcategory_id+'">'+value.subcategory_name+'</option>';
+                    });
+                    $('#sub1').html(toAppend);
+           }
+        });
+    } 
+   });
+$('#sub1').on('change',function()
+    {
+  
+     var subcategory_id1 = $('select[name="subcategory_id"]').val();   
+     //alert(subcategory_id1);
+     if(subcategory_id1)
+         {    
+           alert(subcategory_id1);
+           $.ajax(
+         {
+           type:"GET",
+           url:"{{url('child_select')}}?subcategory_id="+subcategory_id1,
+           success:function(resl)
+           {       
+                         
+                $('#child').empty();
+               
+                 var toAppend = '<select name="subcategory_id" >';
+                    $.each(resl, function(key, value)
+                    {
+                          toAppend += '<option value="'+value.child_category_id+'">'+value.childcategory_name+'</option>';
+                    });
+                    $('#child').html(toAppend);
+           }
+        });
+    } 
+   });
 
 </script>
-
-<!-- scripts -->
-
 </body>
+
 </html>

@@ -41,78 +41,39 @@
 					<nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Categories</span></a>
-                                                <ul>
-                                                    <li><a href="categories_form" title="">Add categories</a></li>
-                                                    <li><a href="view_categories" title="">View categories</a></li>
-                                                    <li><a href="view_subcategory" title="">View sub category</a></li>
-                                                    <li><a href="template/index4.html" title="">Dashboard 4</a></li>
-                                                    <li><a href="template/index5.html" title="">Dashboard 5</a></li>
-                                                </ul>
+                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
+                                                
                                             </li>
-                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
+                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="#newvendor" title="">New Vendores</a></li>
-                                                    <li><a href="#vendor"> Recently used Vendores</a></li>
+                                                    <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
+                                                    <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
                                                 </ul>
                                             </li>
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="template/product.html" title="">product</a></li>
-                                                    <li><a href="template/product-detail.html">product-detail</a></li>
-                                                    <li><a href="template/product-order.html">product-order</a></li>
-                                                    <li><a href="template/product-add.html">add product</a></li>
-                                                    <li><a href="template/product-cart.html">product cart</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-detail.html">product-detail</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
                                                 </ul>
                                             </li>
                                              <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="template/product.html" title="">User</a></li>
-                                                    <li><a href="adminuser_form">Add new user</a></li>
-                                                    <li><a href="view_user">view user detail</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
+                                                    <li><a href="{{url('adminuser_form')}}">Add new user</a></li>
+                                                    <li><a href="{{ url('view_user') }}">view user detail</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-bookmark-o"></i><span>Previous Orders</span></a>
-                                                <ul>
-                                                    <li><a href="template/accordion-n-tabs.html">accordions & tabs</a></li>
-                                                    <li><a href="template/elements.html">elements</a></li>
-                                                    <li><a href="template/invoices.html">invoices</a></li>
-                                                    <li><a href="template/tabels.html">tabels styles</a></li>
-                                                    <li><a href="typography.html">typography</a></li>
-                                                    <li><a href="template/megamenu.html">mega menu styles</a></li>
-                                                    <li><a href="template/socials-btns.html">social buttons</a></li>
-                                                    <li><a href="template/testimonials.html">testimonials styles</a></li>
-													<li><a href="template/calendar.html">event calendar</a></li>
-                                                </ul>
-                                            </li>
-											<!-- <li><a href="template/inbox.html" title=""><i class="fa fa-inbox"></i><span>inbox</span><ins>5</ins></a></li>
-                                            <li><a href="template/charts.html" title=""><i class="fa fa-bar-chart"></i><span>charts</span></a></li>
-                                            <li> <a href="template/maps.html" title=""><i class="fa fa-globe"></i><span>Google maps</span></a> </li>
-											<li class="menu-item-has-children"> 
-												<a title=""><i class="fa fa-flag"></i><span>Icons</span></a>
-                                                <ul>
-                                                    <li><a href="template/icons.html">Font Awesome</a></li>
-                                                    <li><a href="template/icons2.html">Themify Icons</a></li>
-                                                </ul>
-                                            </li> -->
-											<!-- <li class="menu-item-has-children active"> <a title=""><i class="fa fa-inbox"></i><span>Pages</span></a>
-                                                <ul class="mega" style="display: block;">
-                                                    <li><a class="active" href="template/profile.html">profile</a></li>
-                                                    <li><a href="template/edit-profile.html">edit profile</a></li>
-                                                    <li><a href="template/login.html">login</a></li>
-                                                    <li><a href="template/register.html">register</a></li>
-                                                    <li><a href="template/forgot-pass.html">forgot password</a></li>
-                                                </ul>
-                                            </li> -->
-                                            <!-- <li class="menu-item-has-children"> <a title=""><i class="fa fa-external-link"></i><span>extras</span></a>
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="template/404.html">404 error page</a></li>
-                                                    <li><a href="template/505.html">505 error page</a></li>
-                                                    <li><a href="template/maintenance.html">maintenance</a></li>
-                                                    <li><a href="template/coming-soon.html">coming soon </a></li>
-                                                    
+                                                    <li><a href="index-boxed.html" title="">boxed layout</a></li>
+                                                    <li><a href="overlap-sidebar.html">overlap sliderbar</a></li>
                                                 </ul>
-                                            </li> -->
+                                            </li>
+                                           
+                                            </li>
                                         </ul>
                                     </nav>
 				</div>
@@ -143,7 +104,7 @@
 								                ?>
 											<li> <i class="notifi-icon blue">{{$not->name}}</i>
 												<div class="notifi-meta">
-													<h4><a href="notification/{{$not->id}}" title=""> {{$not->name}} Send a request for join in Ecommerce</a></h4>
+													<h4><a href="{{url('notification',$not->id)}}" title=""> {{$not->name}} Send a request for join in Ecommerce</a></h4>
 													<span>Name :{{$temp[0]}}</span><br><span>Date :{{$temp[0]}}</span><br> <span>time :{{$temp[1]}}</span> </div>
 											</li>
 											@endforeach
@@ -264,11 +225,11 @@
 						<div class="col-lg-1">
 							<div class="user-head">
 								<div class="admin">
-								 @foreach($detail as $admin)	<div class="admin-avatar"><img src="site_logo/{{$admin->logo}}" alt="" height="40px" width="40px"> <!-- <i class="online"></i> --> </div>@endforeach
+								 @foreach($detail as $admin)	<div class="admin-avatar"><img src="{{url('site_logo',$admin->logo)}}" alt="" height="40px" width="40px"> <!-- <i class="online"></i> --> </div>@endforeach
 								</div>
 								<div class="drop setting"> <span class="drop-head"><i>30 days trial</i></span>
 									<ul class="drop-meta">
-   @foreach($detail as $admin)<li> <a href="admin_edit/{{$admin->id}}" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>@endforeach
+   @foreach($detail as $admin)<li> <a href="{{url('admin_edit',$admin->id)}}" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>@endforeach
 										<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
 										<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
 										<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
@@ -354,7 +315,7 @@
 									<div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
 										<ul class="drop-meta">
 											@foreach($detail as $admin)
-											<li> <a href="admin_edit/{{$admin->id}}" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>@endforeach
+											<li> <a href="{{url('admin_edit',$admin->id)}}" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>@endforeach
 											<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
@@ -434,7 +395,7 @@
 				@endif
                             <ul>
                               <li><a href="#" title=""><i class="fa fa-briefcase"></i>Over View </a></li>
-       @foreach($detail as $admin) <li><a href="admin_edit/{{$admin->id}}" title=""><i class="fa fa-gear"></i>Account Settings </a></li>@endforeach
+       @foreach($detail as $admin) <li><a href="{{url('admin_edit',$admin->id)}}" title=""><i class="fa fa-gear"></i>Account Settings </a></li>@endforeach
                               <li><a href="#" title=""><i class="fa fa-adjust"></i>Customers </a></li>
                             </ul>
                           </div>
@@ -544,14 +505,14 @@
                                                      <td><span>@if($fetch->approval_status==0)  <div style="color: red;"> Not Active Yet </div> @endif</span></td>
                                                     
                                                 
-                                                     <td><span>@if($fetch->approval_status==0)<a href="approved/{{$fetch->id}}" class="btn btn-success"><span class="fa fa-user"></span> Approved</a> @endif </span></td>
+                                                     <td><span>@if($fetch->approval_status==0)<a href="{{url('approved',$fetch->id)}}" class="btn btn-success"><span class="fa fa-user"></span> Approved</a> @endif </span></td>
                                                     <td>
 
 
 
                                                         <ul>
-                                                           <li><a href="/Vendor_Delete/{{$fetch->id}}" ><i class="icon-trash"></i></a></li>
-                                                            <li><a href="/vendor_edit/{{$fetch->id}}" class="edit-btn"><i class="fa fa-navicon"></i></a></li>
+                                                           <li><a href="url(Vendor_Delete',$fetch->id)}}" ><i class="icon-trash"></i></a></li>
+                                                            <li><a href="url('vendor_edit',$fetch->id)}}" class="edit-btn"><i class="fa fa-navicon"></i></a></li>
                                                         </ul>
                                                     </td>
                                                 </tr>

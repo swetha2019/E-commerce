@@ -303,46 +303,49 @@
                                             
                                         </div>
                                         <div class="main-table">
-                                            <table class="table table-hover table-responsive">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Id Number</th>
-                                                        <th>User Name</th>
-                                                        <th>User Type</th>
-                                                        <th>Priority</th>
-                                                        <th>Action</th>
-                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach($user_detail as $user)
-                                                    <tr>
-                                                        <td><span class="sr">Admin-{{$user->id}}</span></td>
-                                                        <td>
-                                                            <div class="project-title">
-                                                                <h5>{{$user->name}}</h5>
-                                                                <a href="#" title="">delete</a> <a href="#" title="">edit</a> </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="owner-pic"> <img src="{{ url('/') }}/template/images/resources/owner.jpg" alt=""> </div>
-                                                            <div class="owner-info">
-                                                                <h6>{{$user->usertype}} </h6>
-                                                                <span>16 Feb 2016</span> </div>
-                                                        </td>
-                                                        <td><span class="priority high">high</span></td>
-                                                        
-                                                       <td>
-                             <ul>
-                                 <li><a href="{{ url('adminuser_delete/'.$user->id)}}" ><i class="icon-trash"></i></a></li>
-                                                                  
-                                 
-                                 
-                            </ul>
-                            </td>
-                                                    </tr>
-                                                    @endforeach
-                                                   
-                                                </tbody>
-                                            </table>
+                                            <table class="prj-tbl bordered table-responsive" id=newvendor>
+                                            <thead>
+                                                <tr>
+                                                    <th><em>Venoder Id</em></th>
+                                                    <th><em>Vendor Name</em></th>
+                                                    <th><em>Phone Number</em></th>
+                                                    <th><em>Email</em></th>
+                                                    <th><em>Status</em></th>
+                                                    <th colspan="2"><em>Action</em></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($array as $fetch)
+                                                <div id="search1">
+                                                <tr>
+                                                    <td><i>VEN10{{$fetch->id}}</i></td>
+                                                    <td><span>{{$fetch->name}}</span></td>
+                                                    <td><i>{{$fetch->phone}}</i></td>
+                                                    <td>
+                                                        <div class="prg-br">
+                                                            {{$fetch->email}}
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                     <td><span>@if($fetch->approval_status==0)  <div style="color: red;"> Not Active Yet </div> @endif</span></td>
+                                                    
+                                                
+                                                     <td><span>@if($fetch->approval_status==0)<a href="approved/{{$fetch->id}}" class="btn btn-success"><span class="fa fa-user"></span> Approved</a> @endif </span></td>
+                                                    <td>
+
+
+
+                                                        <ul>
+                                                           <li><a href="/Vendor_Delete/{{$fetch->id}}" ><i class="icon-trash"></i></a></li>
+                                                            <li><a href="/vendor_edit/{{$fetch->id}}" class="edit-btn"><i class="fa fa-navicon"></i></a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </div>
+                                                @endforeach
+                                              
+                                            </tbody>
+                                        </table>
                                         </div>
                                     </div>
                                     <!-- ongoing projects widget -->

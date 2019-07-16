@@ -44,22 +44,16 @@
 					<div class="logo"><a title="" href="{{ url('/') }}/template/index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
 					<nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
-                                         <ul class="parent-menu">
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Categories</span></a>
-                                                <ul>
-                                                    <li><a href="categories_form" title="">Add categories</a></li>
-                                                    <li><a href="view_categories" title="">View categories</a></li>
-                                                    <li><a href="view_subcategory" title="">View sub category</a></li>
-                                                    <li><a href="{{ url('/') }}/template/index4.html" title="">Dashboard 4</a></li>
-                                                    <li><a href="{{ url('/') }}/template/index5.html" title="">Dashboard 5</a></li>
+                                        <ul class="parent-menu">
+                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
+                                                
+                                            </li>
+                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
+                                                    <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
                                                 </ul>
                                             </li>
-                                           <!--  <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
-                                                <ul class="mega">
-                                                    <li><a href="#newvendor" title="">New Vendores</a></li>
-                                                    <li><a href="#vendor"> Recently used Vendores</a></li>
-                                                </ul>
-                                            </li>-->
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
@@ -72,24 +66,18 @@
                                              <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
-                                                    <li><a href="adminuser_form">Add new user</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-order.html">view user detail</a></li>
+                                                    <li><a href="{{url('adminuser_form')}}">Add new user</a></li>
+                                                    <li><a href="{{ url('view_user') }}">view user detail</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-bookmark-o"></i><span>Previous Orders</span></a>
-                                                <ul>
-                                                    <li><a href="{{ url('/') }}/template/accordion-n-tabs.html">accordions & tabs</a></li>
-                                                    <li><a href="{{ url('/') }}/template/elements.html">elements</a></li>
-                                                    <li><a href="{{ url('/') }}/template/invoices.html">invoices</a></li>
-                                                    <li><a href="{{ url('/') }}/template/tabels.html">tabels styles</a></li>
-                                                    <li><a href="typography.html">typography</a></li>
-                                                    <li><a href="{{ url('/') }}/template/megamenu.html">mega menu styles</a></li>
-                                                    <li><a href="{{ url('/') }}/template/socials-btns.html">social buttons</a></li>
-                                                    <li><a href="{{ url('/') }}/template/testimonials.html">testimonials styles</a></li>
-													<li><a href="{{ url('/') }}/template/calendar.html">event calendar</a></li>
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="index-boxed.html" title="">boxed layout</a></li>
+                                                    <li><a href="overlap-sidebar.html">overlap sliderbar</a></li>
                                                 </ul>
                                             </li>
-											
+                                           
+                                            </li>
                                         </ul>
                                     </nav>
                                     				</div>
@@ -108,108 +96,7 @@
 								<div class="nav-icon3"> <span></span> <span></span> <span></span> <span></span> </div>
 								<i class="fa fa-navicon nav-icon3"></i>
 							</li>
-							<!-- <li class="notifications"><a href="#" title=""><i class="fa fa-bell-o"></i></a><span class="red-bg">02</span>
-								<div class="drop notify"> <span class="drop-head">Notifications</span>
-									<ul class="drop-meta">
-										<li> <i class="notifi-icon blue">N</i>
-											<div class="notifi-meta">
-												<h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-												<span>02:34PM</span> </div>
-										</li>
-										<li> <i class="notifi-icon red">C</i>
-											<div class="notifi-meta">
-												<h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-												<span>02:34PM</span> </div>
-										</li>
-										<li> <i class="notifi-icon yellow">A</i>
-											<div class="notifi-meta">
-												<h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-												<span>02:34PM</span> </div>
-										</li>
-										<li> <i class="notifi-icon blue">N</i>
-											<div class="notifi-meta">
-												<h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-												<span>02:34PM</span> </div>
-										</li>
-									</ul>
-									<span class="drop-bottom"><a href="#" title="">View More Notifications</a></span> </div>
-							</li> -->
-							<!-- <li class="messages"><a href="#" title=""><i class="fa fa-envelope-o"></i></a><span class="blue-bg">10</span>
-								<div class="drop messages"> <span class="drop-head">3 New Message <i class="fa fa-pencil-square-o"></i></span>
-									<ul class="drop-meta">
-										<li> <i class="notifi-icon"><img src="images/resources/user-mesg.jpg" alt=""></i>
-											<div class="notifi-meta"> <span>02:34PM</span>
-												<h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-											</div>
-										</li>
-										<li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg2.jpg" alt=""></i>
-											<div class="notifi-meta"> <span>02:34PM</span>
-												<h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-											</div>
-										</li>
-										<li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg3.jpg" alt=""></i>
-											<div class="notifi-meta"> <span>02:34PM</span>
-												<h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-											</div>
-										</li>
-										<li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg.jpg" alt=""></i>
-											<div class="notifi-meta"> <span>02:34PM</span>
-												<h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-											</div>
-										</li>
-										<li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg2.jpg" alt=""></i>
-											<div class="notifi-meta"> <span>02:34PM</span>
-												<h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-											</div>
-										</li>
-									</ul>
-									<span class="drop-bottom"><a href="#" title="">View More messages</a></span> </div>
-							</li> -->
-							<<!-- li class="mega"><a href="#" title="">mega</a>
-								<div class="mega-menu">
-									<div class="row mega-style1">
-										<div class="col-lg-4">
-											<div class="mega-post-info"> <span>envato market</span>
-												<ul>
-													<li><a href="#" title="">Envato Market</a></li>
-													<li><a href="#" title="">terms</a></li>
-													<li><a href="#" title="">licenses</a></li>
-													<li><a href="#" title="">market API</a></li>
-													<li><a href="#" title="">Become an affiliate</a></li>
-													<li><a href="#" title="">help</a></li>
-													<li><a href="#" title="">Themes and {{ url('/') }}/templatelates</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="mega-post-info"> <span>Themeforest</span>
-												<ul>
-													<li><a href="#" title="">Envato Market</a></li>
-													<li><a href="#" title="">terms</a></li>
-													<li><a href="#" title="">licenses</a></li>
-													<li><a href="#" title="">market API</a></li>
-													<li><a href="#" title="">Become an affiliate</a></li>
-													<li><a href="#" title="">help</a></li>
-													<li><a href="#" title="">Themes and {{ url('/') }}/templatelates</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="mega-post-info"> <span>Evato Element</span>
-												<ul>
-													<li><a href="#" title="">Envato Market</a></li>
-													<li><a href="#" title="">terms</a></li>
-													<li><a href="#" title="">licenses</a></li>
-													<li><a href="#" title="">market API</a></li>
-													<li><a href="#" title="">Become an affiliate</a></li>
-													<li><a href="#" title="">help</a></li>
-													<li><a href="#" title="">Themes and {{ url('/') }}/templatelates</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</li> -->
+							
 						</ul>
 						<div class="t-search">
 							<form method="post">

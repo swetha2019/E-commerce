@@ -8,33 +8,37 @@
 <title>Web Admin panel</title>
 <link rel="icon" type="image/png" href="{{ url('/') }}/template/images/fav.png">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/font-awesome.min.css">
-	<link rel="stylesheet" href="{{ url('/') }}/template/css/themify-icons.css">
-    <link rel="stylesheet" href="{{ url('/') }}/template/css/line-icons.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/themify-icons.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/line-icons.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/animate.min.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/nice-select.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/perfect-scrollbar.min.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/jquery.datepicker.min.css">
 <!-- calander -->
+<link rel="stylesheet" href="{{ url('/') }}/template/css/flatweather.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/style.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/color.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/responsive.css">
-
-
-
 <style type="text/css">
-.lab
-{
-	color: #42d4f5;
-	font-weight: bold;
-	font-size: 14px;
-}	
+	#lab
+	{
+		color:rgb(15, 13, 13);
+		font-weight: bold;
+		font-size: 14px;
+	}
+	#lab1
+	{
+		color:rgb(38, 35, 35);
 
-
+		
+	}
 </style>
 </head>
 <body>
-	@foreach($array as $fetch)
-	<!-- Start Page Loading -->
+    @foreach($array as $fetch)
+        
+<!-- Start Page Loading -->
     <div id="loader-wrapper">
       <div id="loader"></div>
       <div class="loader-section section-left"></div>
@@ -52,21 +56,15 @@
 					<nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Categories</span></a>
-                                                <ul>
-                                                    <li><a href="categories_form" title="">Add categories</a></li>
-                                                    <li><a href="view_categories" title="">View categories</a></li>
-                                                    <li><a href="view_subcategory" title="">View sub category</a></li>
-                                                    <li><a href="{{ url('/') }}/template/index4.html" title="">Dashboard 4</a></li>
-                                                    <li><a href="{{ url('/') }}/template/index5.html" title="">Dashboard 5</a></li>
+                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
+                                                
+                                            </li>
+                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
+                                                    <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
                                                 </ul>
                                             </li>
-                                           <!--  <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
-                                                <ul class="mega">
-                                                    <li><a href="#newvendor" title="">New Vendores</a></li>
-                                                    <li><a href="#vendor"> Recently used Vendores</a></li>
-                                                </ul>
-                                            </li>-->
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
@@ -79,212 +77,70 @@
                                              <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
-                                                    <li><a href="adminuser_form">Add new user</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-order.html">view user detail</a></li>
+                                                    <li><a href="{{url('adminuser_form')}}">Add new user</a></li>
+                                                    <li><a href="{{ url('view_user') }}">view user detail</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-bookmark-o"></i><span>Previous Orders</span></a>
-                                                <ul>
-                                                    <li><a href="{{ url('/') }}/template/accordion-n-tabs.html">accordions & tabs</a></li>
-                                                    <li><a href="{{ url('/') }}/template/elements.html">elements</a></li>
-                                                    <li><a href="{{ url('/') }}/template/invoices.html">invoices</a></li>
-                                                    <li><a href="{{ url('/') }}/template/tabels.html">tabels styles</a></li>
-                                                    <li><a href="typography.html">typography</a></li>
-                                                    <li><a href="{{ url('/') }}/template/megamenu.html">mega menu styles</a></li>
-                                                    <li><a href="{{ url('/') }}/template/socials-btns.html">social buttons</a></li>
-                                                    <li><a href="{{ url('/') }}/template/testimonials.html">testimonials styles</a></li>
-													<li><a href="{{ url('/') }}/template/calendar.html">event calendar</a></li>
-                                                </ul>
-                                            </li>
-											<!-- <li><a href="{{ url('/') }}/template/inbox.html" title=""><i class="fa fa-inbox"></i><span>inbox</span><ins>5</ins></a></li>
-                                            <li><a href="{{ url('/') }}/template/charts.html" title=""><i class="fa fa-bar-chart"></i><span>charts</span></a></li>
-                                            <li> <a href="{{ url('/') }}/template/maps.html" title=""><i class="fa fa-globe"></i><span>Google maps</span></a> </li>
-											<li class="menu-item-has-children"> 
-												<a title=""><i class="fa fa-flag"></i><span>Icons</span></a>
-                                                <ul>
-                                                    <li><a href="{{ url('/') }}/template/icons.html">Font Awesome</a></li>
-                                                    <li><a href="{{ url('/') }}/template/icons2.html">Themify Icons</a></li>
-                                                </ul>
-                                            </li> -->
-											<!-- <li class="menu-item-has-children active"> <a title=""><i class="fa fa-inbox"></i><span>Pages</span></a>
-                                                <ul class="mega" style="display: block;">
-                                                    <li><a class="active" href="{{ url('/') }}/template/profile.html">profile</a></li>
-                                                    <li><a href="{{ url('/') }}/template/edit-profile.html">edit profile</a></li>
-                                                    <li><a href="{{ url('/') }}/template/login.html">login</a></li>
-                                                    <li><a href="{{ url('/') }}/template/register.html">register</a></li>
-                                                    <li><a href="{{ url('/') }}/template/forgot-pass.html">forgot password</a></li>
-                                                </ul>
-                                            </li> -->
-                                            <!-- <li class="menu-item-has-children"> <a title=""><i class="fa fa-external-link"></i><span>extras</span></a>
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="{{ url('/') }}/template/404.html">404 error page</a></li>
-                                                    <li><a href="{{ url('/') }}/template/505.html">505 error page</a></li>
-                                                    <li><a href="{{ url('/') }}/template/maintenance.html">maintenance</a></li>
-                                                    <li><a href="{{ url('/') }}/template/coming-soon.html">coming soon </a></li>
-                                                    
+                                                    <li><a href="index-boxed.html" title="">boxed layout</a></li>
+                                                    <li><a href="overlap-sidebar.html">overlap sliderbar</a></li>
                                                 </ul>
-                                            </li> -->
+                                            </li>
+                                           
+                                            </li>
                                         </ul>
                                     </nav>
-				</div>
+                                    				</div>
 			</div>
 		</header>
-			<!-- side header -->
-			<div class="topbar">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-lg-2">
-							<div class="logo"><a href="{{ url('/') }}/template/index-2.html" title=""><img src="{{ url('/') }}/template/images/logo.png" alt=""></a></div>
+		<!-- side header -->
+		<div class="topbar">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-2">
+						<div class="logo"><a href="{{ url('/') }}/template/index-2.html" title=""><img src="{{ url('/') }}/template/images/logo.png" alt=""></a></div>
+					</div>
+					<div class="col-lg-9">
+						<ul class="notify-area">
+							<li>
+								<div class="nav-icon3"> <span></span> <span></span> <span></span> <span></span> </div>
+								<i class="fa fa-navicon nav-icon3"></i>
+							</li>
+							
+						</ul>
+						<div class="t-search">
+							<form method="post">
+								<input type="text" placeholder="Enter Your Keyword">
+								<button type="submit"><i class="fa fa-search"></i></button>
+							</form>
 						</div>
-						<div class="col-lg-9">
-							<ul class="notify-area">
-								<li>
-									<div class="nav-icon3"> <span></span> <span></span> <span></span> <span></span> </div>
-									<i class="fa fa-navicon nav-icon3"></i>
-								</li>
-								<li class="notifications"><!-- <a href="#" title=""><i class="fa fa-bell-o"></i></a><span class="red-bg">02</span> -->
-									<div class="drop notify"> <span class="drop-head">Notifications</span>
-										<ul class="drop-meta">
-											<li> <i class="notifi-icon blue">N</i>
-												<div class="notifi-meta">
-													<h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-													<span>02:34PM</span> </div>
-											</li>
-											<li> <i class="notifi-icon red">C</i>
-												<div class="notifi-meta">
-													<h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-													<span>02:34PM</span> </div>
-											</li>
-											<li> <i class="notifi-icon yellow">A</i>
-												<div class="notifi-meta">
-													<h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-													<span>02:34PM</span> </div>
-											</li>
-											<li> <i class="notifi-icon blue">N</i>
-												<div class="notifi-meta">
-													<h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
-													<span>02:34PM</span> </div>
-											</li>
-										</ul>
-										<span class="drop-bottom"><a href="#" title="">View More Notifications</a></span> </div>
-								</li>
-								<li class="messages"><a href="#" title=""><!-- <i class="fa fa-envelope-o"></i></a><span class="blue-bg">10</span> -->
-									<div class="drop messages"> <span class="drop-head">3 New Message <i class="fa fa-pencil-square-o"></i></span>
-										<ul class="drop-meta">
-											<li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg.jpg" alt=""></i>
-												<div class="notifi-meta"> <span>02:34PM</span>
-													<h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-												</div>
-											</li>
-											<li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg2.jpg" alt=""></i>
-												<div class="notifi-meta"> <span>02:34PM</span>
-													<h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-												</div>
-											</li>
-											<li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg3.jpg" alt=""></i>
-												<div class="notifi-meta"> <span>02:34PM</span>
-													<h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-												</div>
-											</li>
-											<li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg.jpg" alt=""></i>
-												<div class="notifi-meta"> <span>02:34PM</span>
-													<h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-												</div>
-											</li>
-											<li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg2.jpg" alt=""></i>
-												<div class="notifi-meta"> <span>02:34PM</span>
-													<h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
-												</div>
-											</li>
-										</ul>
-										<span class="drop-bottom"><a href="#" title="">View More messages</a></span> </div>
-								</li>
-								<li class="mega"><!-- <a href="#" title="">mega</a> -->
-									<div class="mega-menu">
-										<div class="row mega-style1">
-											<div class="col-lg-4">
-												<div class="mega-post-info"> <span>envato market</span>
-													<ul>
-														<li><a href="#" title="">Envato Market</a></li>
-														<li><a href="#" title="">terms</a></li>
-														<li><a href="#" title="">licenses</a></li>
-														<li><a href="#" title="">market API</a></li>
-														<li><a href="#" title="">Become an affiliate</a></li>
-														<li><a href="#" title="">help</a></li>
-														<li><a href="#" title="">Themes and templates</a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="col-lg-4">
-												<div class="mega-post-info"> <span>Themeforest</span>
-													<ul>
-														<li><a href="#" title="">Envato Market</a></li>
-														<li><a href="#" title="">terms</a></li>
-														<li><a href="#" title="">licenses</a></li>
-														<li><a href="#" title="">market API</a></li>
-														<li><a href="#" title="">Become an affiliate</a></li>
-														<li><a href="#" title="">help</a></li>
-														<li><a href="#" title="">Themes and templates</a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="col-lg-4">
-												<div class="mega-post-info"> <span>Evato Element</span>
-													<ul>
-														<li><a href="#" title="">Envato Market</a></li>
-														<li><a href="#" title="">terms</a></li>
-														<li><a href="#" title="">licenses</a></li>
-														<li><a href="#" title="">market API</a></li>
-														<li><a href="#" title="">Become an affiliate</a></li>
-														<li><a href="#" title="">help</a></li>
-														<li><a href="#" title="">Themes and templates</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-							</ul>
-							<div class="t-search">
-								<form method="post">
-									<input type="text" placeholder="Enter Your Keyword">
-									<button type="submit"><i class="fa fa-search"></i></button>
-								</form>
+						<ul class="seting-area">
+							
+							</li>
+							<!-- <li class="setting-panel"><a href="#" title=""><i class="icon-equalizer"></i></a></li> -->
+						</ul>
+					</div>
+					<div class="col-lg-1">
+						<div class="user-head">
+							<div class="admin">
+								<div class="admin-avatar"><img src="{{ url('/') }}/template/images/resources/admin.png" alt=""> <i class="online"></i> </div>
 							</div>
-							<!-- <ul class="seting-area">
-								<li class="langages">
-									<a href="#" title="">Eng</a>
-									<ul class="drop language">
-										<li class="lang-selected"><a href="#"><i class="fa fa-check"></i> Eng</a></li>
-										<li><a href="#">Rus</a></li>
-										<li><a href="#">Jap</a></li>
-										<li><a href="#">Arb</a></li>
-									</ul>
-								</li>
-								<li class="setting-panel"><a href="#" title=""><i class="icon-equalizer"></i></a></li>
-							</ul> -->
-						</div>
-						<div class="col-lg-1">
-							<div class="user-head">
-								<div class="admin">
-									<div class="admin-avatar"><img src="{{ url('/') }}/template/images/resources/admin.png" alt=""> <!-- <i class="online"></i> --> </div>
-								</div>
-								<div class="drop setting"> <span class="drop-head"><i>30 days trial</i></span>
-									<ul class="drop-meta">
-										<li> <a href="" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>
-										<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
-										<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
-										<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
-										<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
-									</ul>
-									<span class="drop-bottom"><a href="{{ url('/admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
-							</div>
+							<div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
+								<ul class="drop-meta">
+									<!-- <li> <a href="#" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li> -->
+									<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
+									<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
+									<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
+									<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
+								</ul>
+								<span class="drop-bottom"><a href="{{ url('logout')}}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
           <div class="main-content">
-            
             <div class="responsive-header">
                                 <div class="logo-area">
                                     <ul class="notify-area">
@@ -320,7 +176,7 @@
                                         <li class="messages"><a href="#" title=""><i class="fa fa-envelope-o"></i></a><span class="blue-bg">10</span>
                                             <div class="drop messages"> <span class="drop-head">3 New Message <i class="fa fa-pencil-square-o"></i></span>
                                                 <ul class="drop-meta">
-                                                    <li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg.jpg" alt=""></i>
+                                                    <li> <i class="notifi-icon"><img src="images/resources/user-mesg.jpg" alt=""></i>
                                                         <div class="notifi-meta"> <span>02:34PM</span>
                                                             <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
                                                         </div>
@@ -356,13 +212,13 @@
 									</div>
 									<div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
 										<ul class="drop-meta">
-											<li> <a href="" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>
+											<li> <a href="#" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
 											<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
 										</ul>
-										<span class="drop-bottom"><a href="{{ url('/admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+										<span class="drop-bottom"><a href="{{ url('logout')}}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
                                     </div>
 									<ul class="seting-area">
 									<li class="langages">
@@ -386,333 +242,118 @@
                             </div>
             <!-- responsive header -->
             <div class="panel-body">
-                            
               <div class="content-area">
                 <div class="sub-bar">
                   <div class="sub-title">
-                    <h4>{{$fetch->name}} </h4>
-                    <span>Company Details</span>
+                    <h4>Dashboard:</h4>
+                    <span>Welcome To web Admin Panel!</span>
                   </div>
                   <ul class="bread-crumb">
                     <li><a href="{{url('adminhome')}}" title="">Home</a></li>
-                    <li>Dashbord</li>
+                    
                   </ul>
                 </div>
-                <div class="profile">
-                  <div class="row merged">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                      <div class="profile-bg"> <img src="{{ url('/') }}/template/images/resources/profile-bg.jpg" alt="">
-                        <div class="admin-meta"> <img src="{{ url('/') }}/{{$fetch->image}}" alt="">
-                          <h5>{{$fetch->name}}</h5>
-                          <span>{{$fetch->place}}</span> </div>
-                      </div>
-                    </div>
-                    <div class="col-md-8 col-sm-12 col-xs-12">
-                      <div class="row">
-                        <!-- <div class="col-md-6 col-sm-6">
-                          <ul class="follow-btns">
-                            <li class="active"><a class="follow" href="#" title="">follow</a></li>
-                            <li><a class="message" href="#" title="">message</a></li>
-                          </ul>
-                        </div> -->
-                        <!-- <div class="col-md-6 col-sm-6">
-                          <ul class="profile-socials">
-                            <li><a class="facebook" href="#" title=""><i class="fa fa-facebook"></i></a></li>
-                            <li><a class="twitter" href="#" title=""><i class="fa fa-twitter"></i></a></li>
-                            <li><a class="vk" href="#" title=""><i class="fa fa-vk"></i></a></li>
-                            <li><a class="tumblr" href="#" title=""><i class="fa fa-tumblr"></i></a></li>
-                          </ul>
-                        </div> -->
-                        <div class="col-md-12">
-                          <div class="sub-area">
-                            <ul>
-                              <li><a href="#" title=""><i class="fa fa-briefcase"></i>Over View </a></li>
-                              <li><a href="/edit_profile" title=""><i class="fa fa-gear"></i>Account Settings </a></li>
-                              <li><a href="#" title=""><i class="fa fa-adjust"></i>Customers </a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="about">
-						  <div class="row">
-							<div class="col-md-6">
-							  <div class="about-info">
-								<h4>About Vendor:</h4>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut consectet uer adipiscing elit laoreet dolore magna.</p>
-							  </div>
-							</div>
-							<div class="col-md-6">
-							  <ul class="vlaue-show">
-								<li> <span>37</span> <a href="#" title="">Products</a> </li>
-								<li> <span>59</span> <a href="#" title="">New Orders</a> </li>
-								<li> <span>60</span> <a href="#" title="">Customers</a> </li>
-							  </ul>
-							</div>
-						</div> 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="widget">
-                      <div class="widget-title">
-                        <h4>your Products</h4>
-                        <ul class="widget-controls">
-							<li title="Refresh" class="refresh-content"><i class="fa fa-refresh"></i></li>
-							<li title="Maximize" class="expand-content"><i class="icon-frame"></i></li>
-							<li title="More Options" class="more-option"><i class="ti-more-alt"></i></li>
-						</ul>
-                      </div>
-                      <div class="widget-peding">
+                <div class="inner-bg">
+                  <div class="element-title" align="center">
+                    <h4>Vendor profile</h4>
+                    <span>your Deatils</span> 
+                    
+				  </div>
+				  
 
-
-                      	 <div class="pnl-bdy billing-sec">
-                    	<div class="row">
-                         <div class="col-md-6 col-sm-6 field">
-                        <label class="lab">Registration No<span>*</span> </label>
-                        <labe>{{$fetch->comp_reg_number	}}</labe>
-                       
-
-                      </div> 
-                      <div class="col-md-6 col-sm-6 field">
-                        <label class="lab">Your Name <span>*</span> </label>
-                        <labe>{{$fetch->name}}</labe>
-                         
-                      </div>
-                      <div class="col-md-12 col-sm-12 field">
-                        <label class="lab">Contact Number<span>*</span> </label>
-                       <labe>{{$fetch->phone}}</labe>
-                       
-                      </div>
-                      <div class="col-md-12 col-sm-12 field">
-                        <label class="lab">Email id<span>*</span> </label>
-                        <labe>{{$fetch->email}}</labe><!-- @if ($errors->has('name'))
-    					<div class="error">{{ $errors->first('name') }}</div>
-						@endif -->
-                      </div>
-                      
-                       <div class="col-md-6 col-sm-6 field">
-                        <label class="lab">Place <span>*</span> </label>
-                        <labe>{{$fetch->place}}</labe>
-                       
-                      </div>
-                      
-                     <div class="col-md-6 col-sm-6 field">
-                        <label class="lab">District <span>*</span> </label>
-                        <labe>{{$fetch->district}}</labe>
-                       
-                      </div>
-
-                      <div class="col-md-6 col-sm-12 field">
-                        <label class="lab">State / Province <span>*</span> </label>
-                        
-                        	<labe>{{$fetch->state}}</labe>
-                        
-                      </div>
-
-                      <div class="col-md-6 col-sm-6 field">
-                        <label class="lab">Country <span>*</span> </label>
-                        <select name="country">
-                                  					
-         					<label>{{$fetch->country}}</label>>
-         					
-                        </select>
-                                    </div> 
+				  
                      
-                      
-                       <div class="col-md-6 col-sm-12 field">
-                        <label class="lab">Zip / Postal Code <span>*</span> </label>
-                        <labe>{{$fetch->pincode}}</labe>
-                      
-                      </div>
-                       
-                      
-                      
-                      <div class="col-md-12 col-sm-12 field">
-                        <label class="lab">Landmark<span>*</span> </label>
-                        <labe>{{$fetch->landmark}}</labe>
-                       
-                      </div>
-                      <div class="col-md-12 col-sm-12 field">
-                        <label class="lab">Fax<span>*</span> </label>
-                       <labe>{{$fetch->fax}}</labe>
+                <div class="pnl-bdy billing-sec">
+                    	<div class="row">
+
+                    		<div class="col-md-8 offset-md-2">
+                    		 <div class="col-md-6 col-sm-6 field">
+                        <label id="lab">Registration No<span>*</span> </label>
+                        <label id="lab2">{{$fetch->comp_reg_number}}</label>
                         
                       </div>
-                      <div class="col-md-12 col-sm-12 field">
-                        <label class="lab">Landline Number<span>*</span> </label>
-                        <labe>{{$fetch->landline_number}}</labe>
-                       
+
+
+                      <div class="col-md-6 col-sm-6 field">
+                        <label id="lab">Vendor Name <span>*</span> </label>
+                        <label id="lab2">{{$fetch->name}}</label>
+                        
                       </div>
-                      <div class="col-md-4 col-sm-12 field">
-                        <label class="lab">Website URL <span>*</span> </label>
-                        <input name="web_url" value="http://m.google.com/webinane" type="text">
+
+
+                      <div class="col-md-6 col-sm-16 field">
+                        <label id="lab">Contact Number<span>*</span> </label>
+                        <label id="lab2">{{$fetch->phone}}</label>
+                    </div>
+
+
+                      <div class="col-md-6 col-sm-6 field">
+                        <label id="lab">Email id<span>*</span> </label>
+                        <label id="lab2">{{$fetch->email}}</label>
+                          
                       </div>
-                      <div class="col-md-4 col-sm-6 field">
-                        <label class="lab">Add Facebook URL <span>*</span> </label>
-                        <input name="fb_url" value="http://m.facebook.com/webinane" type="text">
+
+                      <div class="col-md-6 col-sm-6 field">
+                        <label id="lab">State <span>*</span> </label>
+                        <label id="lab2">{{$fetch->state}}</label>
+                        
                       </div>
-                      <div class="col-md-4 col-sm-6 field">
-                        <label class="lab">Add Instagram URL <span>*</span> </label>
-                        <input name="insta_url" value="http://m.twitter.com/webinane" type="text">
+
+
+
+                      <div class="col-md-6 col-sm-6 field">
+                        <label id="lab">District<span>*</span> </label>
+                        <label id="lab2">{{$fetch->district}}</label>               	 
+                      </div>
+                      
+                      
+                      
+
+                      <div class="col-md-6 col-sm-6 field">
+                        <label id="lab">Country <span>*</span> </label>
+                        <label id="lab2">{{$fetch->country}}</label>
+                        
                       </div> 
-                  </div>
-              </div>
+                              
+                      
+                      
+                      <div class="col-md-6 col-sm-6 field">
+                        <label id="lab">Landmark<span>*</span> </label>
+                        <label id="lab2">{{$fetch->landmark}}</label>
+                      </div>
+
+                      <div class="col-md-6 col-sm-6 field">
+                        <label id="lab">Fax<span>*</span> </label>
+                        <label id="lab2">{{$fetch->fax}}</label>
+                      </div>
+
+                      <div class="col-md-6 col-sm-6 field">
+                        <label id="lab">Landline Number<span>*</span> </label>
+                        <label id="lab2">{{$fetch->landline_number}}</label>
+                      </div>
+
+                      <div class="col-md-4 col-sm-12 field">
+                        <label id="lab">Website URL <span>*</span> </label>
+                        <label id="lab2">{{$fetch->website}}</label>
+                      </div>
+
+                      <div class="col-md-4 col-sm-6 field">
+                        <label id="lab">Add Facebook URL <span>*</span> </label>
+                        <label id="lab2">{{$fetch->facebook_url}}</label>
+                    
+                      </div>
+
+                      <div class="col-md-4 col-sm-6 field">
+                        <label id="lab">Add Instagram URL <span>*</span> </label>
+                        <label id="lab2">{{$fetch->instagram_url}}</label>
                         
-                      </div>
-                    </div>
-                    <!-- user list --> 
+                      </div> 
+                      
+                     </div>
+				 
                   </div>
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="widget">
-                      <div class="widget-title">
-                        <h4>New Orders and Enquiries</h4>
-                        <ul class="widget-controls">
-							<li title="Refresh" class="refresh-content"><i class="fa fa-refresh"></i></li>
-							<li title="Maximize" class="expand-content"><i class="icon-frame"></i></li>
-							<li title="More Options" class="more-option"><i class="ti-more-alt"></i></li>
-						</ul>
-                      </div>
-                      <div class="widget-peding">
-                        <ul class="feeds">
-                          <li class="green"> <span class="date">25 Sec Ago</span>
-                            <h5>Nulla Vel Metus Scelerue Commodo</h5>
-                          </li>
-                          <li class="green"> <span class="date">05 Sec Ago</span>
-                            <h5>Completed Layout Examples</h5>
-                          </li>
-                          <li class="blue"> <span class="date">55 Sec Ago</span>
-                            <h5>New Updated Has Been Installed </h5>
-                          </li>
-                          <li class="yellow"> <span class="date">25 Min Ago</span>
-                            <h5>4 Friends Request Accepted</h5>
-                          </li>
-                          <li class="red"> <span class="date">2 Hour Ago</span>
-                            <h5>Daisy Has Joined Your Team</h5>
-                          </li>
-                          <li class="green"> <span class="date">25 Sec Ago</span>
-                            <h5>Nulla Vel Metus Scelerue Commodo</h5>
-                          </li>
-                          <li class="green"> <span class="date">05 Sec Ago</span>
-                            <h5>Completed Layout Examples</h5>
-                          </li>
-                          <li class="blue"> <span class="date">55 Sec Ago</span>
-                            <h5>New Updated Has Been Installed </h5>
-                          </li>
-                        </ul>
-                      </div>
                     </div>
-                    <!-- user list --> 
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="widget">
-                      <div class="widget-title">
-                        <h4>customer support</h4>
-                        <ul class="widget-controls">
-							<li title="Refresh" class="refresh-content"><i class="fa fa-refresh"></i></li>
-							<li title="Maximize" class="expand-content"><i class="icon-frame"></i></li>
-							<li title="More Options" class="more-option"><i class="ti-more-alt"></i></li>
-						</ul>
-                      </div>
-                      <div class="widget-peding">
-                        <ul class="q-comments support">
-                          <li>
-                            <div class="comenter"> <img src="{{ url('/') }}/template/images/resources/q-comment1.jpg" alt=""> </div>
-                            <div class="comment-detail">
-                              <h5>Michael Baker</h5>
-                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus sc risque ante sollicitudin commodo. </p>
-                            </div>
-                            <ul class="comment-date">
-                              <li><span>October 21, 2017</span></li>
-                              <li class="status mango"><span>open</span></li>
-                            </ul>
-                          </li>
-                          <li>
-                            <div class="comenter"> <img src="{{ url('/') }}/template/images/resources/q-comment1.jpg" alt=""> </div>
-                            <div class="comment-detail">
-                              <h5>Michael Baker</h5>
-                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus sc risque ante sollicitudin commodo. </p>
-                            </div>
-                            <ul class="comment-date">
-                              <li><span>October 21, 2017</span></li>
-                              <li class="status berry"><span>open</span></li>
-                            </ul>
-                          </li>
-                          <li>
-                            <div class="comenter"> <img src="{{ url('/') }}/template/images/resources/q-comment1.jpg" alt=""> </div>
-                            <div class="comment-detail">
-                              <h5>Michael Baker</h5>
-                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus sc risque ante sollicitudin commodo. </p>
-                            </div>
-                            <ul class="comment-date">
-                              <li><span>October 21, 2017</span></li>
-                              <li class="status carrot"><span>open</span></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <!-- user list --> 
-                  </div>
-                  <!-- customer support widget -->
-                  <div class="col-md-6">
-                    <div class="widget">
-                      <div class="widget-title">
-                        <h4>Quick Actions</h4>
-                        <ul class="widget-controls">
-							<li title="Refresh" class="refresh-content"><i class="fa fa-refresh"></i></li>
-							<li title="Maximize" class="expand-content"><i class="icon-frame"></i></li>
-							<li title="More Options" class="more-option"><i class="ti-more-alt"></i></li>
-						</ul>
-                      </div>
-                      <div class="widget-peding">
-                        <ul class="q-comments">
-                          <li>
-                            <div class="comenter"> <img src="{{ url('/') }}/template/images/resources/q-comment1.jpg" alt=""> </div>
-                            <div class="comment-detail">
-                              <h5>Michael Baker</h5>
-                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus sc risque ante sollicitudin commodo. </p>
-                            </div>
-                            <ul class="comment-date">
-                              <li class="mango"><span>October 21, 2017</span></li>
-                              <li><span>9:30-13:00</span></li>
-                            </ul>
-                            <div class="approv-reject"> <a class="approve active" href="#" title="">approved</a> <a class="rejected" href="#" title="">reject</a> </div>
-                          </li>
-                          <li>
-                            <div class="comenter"> <img src="{{ url('/') }}/template/images/resources/q-comment2.jpg" alt=""> </div>
-                            <div class="comment-detail">
-                              <h5>Natasha Kim</h5>
-                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus sc risque ante sollicitudin commodo. </p>
-                            </div>
-                            <ul class="comment-date">
-                              <li class="carrot"><span>October 21, 2017</span></li>
-                              <li><span>9:30-13:00</span></li>
-                            </ul>
-                            <div class="approv-reject"> <a class="approve" href="#" title="">approved</a> <a class="rejected active" href="#" title="">reject</a> </div>
-                          </li>
-                          <li>
-                            <div class="comenter"> <img src="{{ url('/') }}/template/images/resources/q-comment3.jpg" alt=""> </div>
-                            <div class="comment-detail">
-                              <h5>Jason Bourne</h5>
-                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus sc risque ante sollicitudin commodo. </p>
-                            </div>
-                            <ul class="comment-date">
-                              <li class="berry"><span>October 21, 2017</span></li>
-                              <li><span>9:30-13:00</span></li>
-                            </ul>
-                            <div class="approv-reject"> <a class="approve active" href="#" title="">approved</a> <a class="rejected" href="#" title="">reject</a> </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <!-- user list --> 
-                  </div>
-                  <!-- quick action widget --> 
+                    </form>
                 </div>
               </div>
               <div class="bottombar"> 
@@ -725,10 +366,10 @@
       </div>
     </div>
   </div>
-</div>
-<div class="side-panel">
+
+  <div class="side-panel">
             <h4 class="panel-title">General Setting</h4>
-            <form method="post">
+            <form>
                 <div class="setting-row">
                     <span>use night mode</span>
                     <input type="checkbox" id="nightmode1"/> 
@@ -756,7 +397,7 @@
                 </div>
             </form>
             <h4 class="panel-title">Account Setting</h4>
-            <form method="post">
+            <form>
                 <div class="setting-row">
                     <span>Sub users</span>
                     <input type="checkbox" id="switch66" /> 
@@ -789,14 +430,21 @@
                 </div>
             </form>
         </div><!-- side panel -->
+  
+</div>
 <script src="{{ url('/') }}/template/js/jquery.js"></script> 
 <script src="{{ url('/') }}/template/js/bootstrap.min.js"></script> 
 <script src="{{ url('/') }}/template/js/perfect-scrollbar.jquery.min.js"></script> 
 <script src="{{ url('/') }}/template/js/chart.min.js"></script> 
 <script src="{{ url('/') }}/template/js/echart.min.js"></script> 
+<script src="{{ url('/') }}/template/js/nice-select.js"></script> 
 <script src="{{ url('/') }}/template/js/jquery.sparkline.min.js"></script> 
 <script src="{{ url('/') }}/template/js/custom2.js"></script> 
-<script src="{{ url('/') }}/template/js/custom.js"></script><!-- scripts -->
+<script src="{{ url('/') }}/template/js/flatweather.min.js"></script> 
+<script src="{{ url('/') }}/template/js/html5lightbox.js"></script> 
+<script src="{{ url('/') }}/template/js/custom.js"></script>
+
+<!-- scripts -->
 @endforeach
 </body>
 </html>

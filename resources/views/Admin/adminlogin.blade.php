@@ -39,7 +39,7 @@
             @endforeach
         </ul>
     </div>
-
+   @endif
 @if(session()->has('message'))
         <div style="text-align: center">
         {{session()->get('message')}}

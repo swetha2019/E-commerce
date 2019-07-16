@@ -44,22 +44,16 @@
 					<div class="logo"><a title="" href="{{ url('/') }}/template/index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
 					<nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
-                                       <ul class="parent-menu">
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Categories</span></a>
-                                                <ul>
-                                                    <li><a href="categories_form" title="">Add categories</a></li>
-                                                    <li><a href="view_categories" title="">View categories</a></li>
-                                                    <li><a href="view_subcategory" title="">View sub category</a></li>
-                                                    <li><a href="{{ url('/') }}/template/index4.html" title="">Dashboard 4</a></li>
-                                                    <li><a href="{{ url('/') }}/template/index5.html" title="">Dashboard 5</a></li>
+                                        <ul class="parent-menu">
+                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
+                                                
+                                            </li>
+                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
+                                                    <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
                                                 </ul>
                                             </li>
-                                           <!--  <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
-                                                <ul class="mega">
-                                                    <li><a href="#newvendor" title="">New Vendores</a></li>
-                                                    <li><a href="#vendor"> Recently used Vendores</a></li>
-                                                </ul>
-                                            </li>-->
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
@@ -72,24 +66,18 @@
                                              <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
-                                                    <li><a href="adminuser_form">Add new user</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-order.html">view user detail</a></li>
+                                                    <li><a href="{{url('adminuser_form')}}">Add new user</a></li>
+                                                    <li><a href="{{ url('view_user') }}">view user detail</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-bookmark-o"></i><span>Previous Orders</span></a>
-                                                <ul>
-                                                    <li><a href="{{ url('/') }}/template/accordion-n-tabs.html">accordions & tabs</a></li>
-                                                    <li><a href="{{ url('/') }}/template/elements.html">elements</a></li>
-                                                    <li><a href="{{ url('/') }}/template/invoices.html">invoices</a></li>
-                                                    <li><a href="{{ url('/') }}/template/tabels.html">tabels styles</a></li>
-                                                    <li><a href="typography.html">typography</a></li>
-                                                    <li><a href="{{ url('/') }}/template/megamenu.html">mega menu styles</a></li>
-                                                    <li><a href="{{ url('/') }}/template/socials-btns.html">social buttons</a></li>
-                                                    <li><a href="{{ url('/') }}/template/testimonials.html">testimonials styles</a></li>
-													<li><a href="{{ url('/') }}/template/calendar.html">event calendar</a></li>
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="index-boxed.html" title="">boxed layout</a></li>
+                                                    <li><a href="overlap-sidebar.html">overlap sliderbar</a></li>
                                                 </ul>
                                             </li>
-											
+                                           
+                                            </li>
                                         </ul>
                                     </nav>
                                     				</div>

@@ -128,7 +128,7 @@ class admin_controller extends Controller
    public function vendor_edit(Request $request,$id)
                         {
                                  $data['array']=db::table('vendor_registration')->where('id',$id)->get();
-                                 return view('Admin.vendor_profile',$data);
+                                return view('Admin.vendor_profile',$data);
                         }
 
    public function notification(Request $request,$id)
@@ -274,11 +274,11 @@ class admin_controller extends Controller
 
                   $child_category= db::table('tbl_child_category_one')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_one.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_one.category_id')->get();
 
-                  $child_category2= db::table('tbl_chid_category_two')->join('tbl_child_category_one','tbl_child_category_one.child_category_id','=','tbl_child_category_two.child_category_id')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_two.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_two.category_id')->get();
+                  $child_category2= db::table('tbl_child_category_two')->join('tbl_child_category_one','tbl_child_category_one.child_category_id','=','tbl_child_category_two.child_category_id')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_two.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_two.category_id')->get();
                   
 
-dd($child_category2);
-                  //return view('Admin.categories_form')->with('category',$category)->with('sub_category',$sub_category)->with('child_category',$child_category)->with('child_category2',$child_category2);
+//d($child_category2);
+                  return view('Admin.categories_form')->with('category',$category)->with('sub_category',$sub_category)->with('child_category',$child_category)->with('child_category2',$child_category2);
                  }
      public function add_categories(Request $request)
                {
@@ -417,6 +417,7 @@ dd($child_category2);
                        $data['subcategory_id']=$request->input('subcategory_id');
                        $data['childcategory_name']=$request->input('childcategory');
                        model_category::child_category($data);
+                       return back()->with('message','chid category was added');
 
                         }
                     }
@@ -473,6 +474,15 @@ dd($child_category2);
     public function back(Request $request)
                     {
                       return redirect('categories_form');
+                    }
+    public function new_vendor(Request $request)
+                    {
+                    if($request->session()->has('userid'))
+                        {
+                  $newvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',0)->where('verified',1)->get();
+                  return view('Admin.new_vendor')->with('array',$newvendor);
+                     }
+
                     }
   }
    
