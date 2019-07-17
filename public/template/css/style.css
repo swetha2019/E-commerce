@@ -5482,7 +5482,7 @@ a.btn-st.black {
   background: #838383 none repeat scroll 0 0;
   color: #fff;
   line-height: 45px;
-  width: 110px;
+  width:;
 }
 
 .tab-style.style2 .tab-content .tab-meta {
@@ -11267,7 +11267,8 @@ span.pending {
 }
 
 .admin-lock.vh100 {
-  height: 100%;
+   height: 100vh;
+  
 }
 
 .admin-form {
