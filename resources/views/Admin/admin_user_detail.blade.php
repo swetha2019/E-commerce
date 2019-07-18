@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="{{ url('/') }}/template/css/color.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/responsive.css">
 <!-- <style type="text/css">
-	.drop{
-		overflow: scroll;
-	}
+    .drop{
+        overflow: scroll;
+    }
 </style> -->
 </head>
 <body>
@@ -39,10 +39,10 @@
       <div class="col-sm-12">
         <div class="main-page">
           <header>
-			<div class="side-menus">
-				<div class="side-header">
-					<div class="logo"><a title="" href="{{ url('/') }}/template/index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
-					<nav class="slide-menu">
+            <div class="side-menus">
+                <div class="side-header">
+                    <div class="logo"><a title="" href="{{ url('/') }}/template/index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
+                    <nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
                                             <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
@@ -80,62 +80,163 @@
                                             </li>
                                         </ul>
                                     </nav>
-                                    				</div>
-			</div>
-		</header>
-		<!-- side header -->
-		<div class="topbar">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-2">
-						<div class="logo"><a href="{{ url('/') }}/template/index-2.html" title=""><img src="{{ url('/') }}/template/images/logo.png" alt=""></a></div>
-					</div>
-					<div class="col-lg-9">
-						<ul class="notify-area">
-							<li>
-								<div class="nav-icon3"> <span></span> <span></span> <span></span> <span></span> </div>
-								<i class="fa fa-navicon nav-icon3"></i>
-							</li>
-							
-						</ul>
-						<div class="t-search">
-							<form method="post">
-								<input type="text" placeholder="Enter Your Keyword">
-								<button type="submit"><i class="fa fa-search"></i></button>
-							</form>
-						</div>
-						<ul class="seting-area">
-							<!-- <li class="langages">
-								<a href="#" title="">Eng</a>
-								<ul class="drop language">
-									<li class="lang-selected"><a href="#"><i class="fa fa-check"></i> Eng</a></li>
-									<li><a href="#">Rus</a></li>
-									<li><a href="#">Jap</a></li>
-									<li><a href="#">Arb</a></li>
-								</ul> -->
-							</li>
-							<!-- <li class="setting-panel"><a href="#" title=""><i class="icon-equalizer"></i></a></li> -->
-						</ul>
-					</div>
-					<div class="col-lg-1">
-						<div class="user-head">
-							<div class="admin">
-								<div class="admin-avatar"><img src="{{ url('/') }}/template/images/resources/admin.png" alt=""> <i class="online"></i> </div>
-							</div>
-							<div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
-								<ul class="drop-meta">
-									<!-- <li> <a href="#" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li> -->
-									<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
-									<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
-									<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
-									<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
-								</ul>
-								<span class="drop-bottom"><a href="{{ url('admin_logout')}}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                                                    </div>
+            </div>
+        </header>
+        <!-- side header -->
+        <div class="topbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="logo"><a href="{{ url('/') }}/template/index-2.html" title=""><img src="{{ url('/') }}/template/images/logo.png" alt=""></a></div>
+                    </div>
+                    <div class="col-lg-9">
+                        <ul class="notify-area">
+                            <li>
+                                <div class="nav-icon3"> <span></span> <span></span> <span></span> <span></span> </div>
+                                <i class="fa fa-navicon nav-icon3"></i>
+                            </li>
+                            <!-- <li class="notifications"><a href="#" title=""><i class="fa fa-bell-o"></i></a><span class="red-bg">02</span>
+                                <div class="drop notify"> <span class="drop-head">Notifications</span>
+                                    <ul class="drop-meta">
+                                        <li> <i class="notifi-icon blue">N</i>
+                                            <div class="notifi-meta">
+                                                <h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
+                                                <span>02:34PM</span> </div>
+                                        </li>
+                                        <li> <i class="notifi-icon red">C</i>
+                                            <div class="notifi-meta">
+                                                <h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
+                                                <span>02:34PM</span> </div>
+                                        </li>
+                                        <li> <i class="notifi-icon yellow">A</i>
+                                            <div class="notifi-meta">
+                                                <h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
+                                                <span>02:34PM</span> </div>
+                                        </li>
+                                        <li> <i class="notifi-icon blue">N</i>
+                                            <div class="notifi-meta">
+                                                <h4><a href="#" title="">Nulla Vel Metus Scelerisque Ante Commodo. </a></h4>
+                                                <span>02:34PM</span> </div>
+                                        </li>
+                                    </ul>
+                                    <span class="drop-bottom"><a href="#" title="">View More Notifications</a></span> </div>
+                            </li> -->
+                            <!-- <li class="messages"><a href="#" title=""><i class="fa fa-envelope-o"></i></a><span class="blue-bg">10</span>
+                                <div class="drop messages"> <span class="drop-head">3 New Message <i class="fa fa-pencil-square-o"></i></span>
+                                    <ul class="drop-meta">
+                                        <li> <i class="notifi-icon"><img src="images/resources/user-mesg.jpg" alt=""></i>
+                                            <div class="notifi-meta"> <span>02:34PM</span>
+                                                <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
+                                            </div>
+                                        </li>
+                                        <li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg2.jpg" alt=""></i>
+                                            <div class="notifi-meta"> <span>02:34PM</span>
+                                                <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
+                                            </div>
+                                        </li>
+                                        <li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg3.jpg" alt=""></i>
+                                            <div class="notifi-meta"> <span>02:34PM</span>
+                                                <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
+                                            </div>
+                                        </li>
+                                        <li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg.jpg" alt=""></i>
+                                            <div class="notifi-meta"> <span>02:34PM</span>
+                                                <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
+                                            </div>
+                                        </li>
+                                        <li> <i class="notifi-icon"><img src="{{ url('/') }}/template/images/resources/user-mesg2.jpg" alt=""></i>
+                                            <div class="notifi-meta"> <span>02:34PM</span>
+                                                <h4><a href="#" title="">Hi Teddy, Just wanted to let you...</a></h4>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <span class="drop-bottom"><a href="#" title="">View More messages</a></span> </div>
+                            </li> -->
+                            <<!-- li class="mega"><a href="#" title="">mega</a>
+                                <div class="mega-menu">
+                                    <div class="row mega-style1">
+                                        <div class="col-lg-4">
+                                            <div class="mega-post-info"> <span>envato market</span>
+                                                <ul>
+                                                    <li><a href="#" title="">Envato Market</a></li>
+                                                    <li><a href="#" title="">terms</a></li>
+                                                    <li><a href="#" title="">licenses</a></li>
+                                                    <li><a href="#" title="">market API</a></li>
+                                                    <li><a href="#" title="">Become an affiliate</a></li>
+                                                    <li><a href="#" title="">help</a></li>
+                                                    <li><a href="#" title="">Themes and {{ url('/') }}/templatelates</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="mega-post-info"> <span>Themeforest</span>
+                                                <ul>
+                                                    <li><a href="#" title="">Envato Market</a></li>
+                                                    <li><a href="#" title="">terms</a></li>
+                                                    <li><a href="#" title="">licenses</a></li>
+                                                    <li><a href="#" title="">market API</a></li>
+                                                    <li><a href="#" title="">Become an affiliate</a></li>
+                                                    <li><a href="#" title="">help</a></li>
+                                                    <li><a href="#" title="">Themes and {{ url('/') }}/templatelates</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="mega-post-info"> <span>Evato Element</span>
+                                                <ul>
+                                                    <li><a href="#" title="">Envato Market</a></li>
+                                                    <li><a href="#" title="">terms</a></li>
+                                                    <li><a href="#" title="">licenses</a></li>
+                                                    <li><a href="#" title="">market API</a></li>
+                                                    <li><a href="#" title="">Become an affiliate</a></li>
+                                                    <li><a href="#" title="">help</a></li>
+                                                    <li><a href="#" title="">Themes and {{ url('/') }}/templatelates</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+                        <div class="t-search">
+                            <form method="post">
+                                <input type="text" placeholder="Enter Your Keyword">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <ul class="seting-area">
+                            <!-- <li class="langages">
+                                <a href="#" title="">Eng</a>
+                                <ul class="drop language">
+                                    <li class="lang-selected"><a href="#"><i class="fa fa-check"></i> Eng</a></li>
+                                    <li><a href="#">Rus</a></li>
+                                    <li><a href="#">Jap</a></li>
+                                    <li><a href="#">Arb</a></li>
+                                </ul> -->
+                            </li>
+                            <!-- <li class="setting-panel"><a href="#" title=""><i class="icon-equalizer"></i></a></li> -->
+                        </ul>
+                    </div>
+                    <div class="col-lg-1">
+                        <div class="user-head">
+                            <div class="admin">
+                                <div class="admin-avatar"><img src="{{ url('/') }}/template/images/resources/admin.png" alt=""> <i class="online"></i> </div>
+                            </div>
+                            <div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
+                                <ul class="drop-meta">
+                                    <!-- <li> <a href="#" title=""><i class="fa fa-eyedropper"></i>Edit Profile</a> </li> -->
+                                    <li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
+                                    <li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
+                                    <li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
+                                    <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
+                                </ul>
+                                <span class="drop-bottom"><a href="{{ url('admin_logout')}}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
           <div class="main-content">
             <div class="responsive-header">
                                 <div class="logo-area">
@@ -201,33 +302,33 @@
                                                 <span class="drop-bottom"><a href="#" title="">View More messages</a></span> </div>
                                         </li>
                                     </ul>
-									
+                                    
                                     <div class="user-head">
-									<div class="admin">
-										<div class="admin-avatar"> <img src="{{ url('/') }}/template/images/resources/admin.png" alt=""> <i class="online"></i> </div>
-									</div>
-									<div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
-										<ul class="drop-meta">
-											
-											<li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
-											<li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
-											<li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
-											<li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
-										</ul>
-										<span class="drop-bottom"><a href="admin_logout" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+                                    <div class="admin">
+                                        <div class="admin-avatar"> <img src="{{ url('/') }}/template/images/resources/admin.png" alt=""> <i class="online"></i> </div>
                                     </div>
-									<ul class="seting-area">
-									<li class="langages">
-										<a title="" href="#">Eng</a>
-										<ul class="drop language">
-											<li class="lang-selected"><a href="#"><i class="fa fa-check"></i> Eng</a></li>
-											<li><a href="#">Rus</a></li>
-											<li><a href="#">Jap</a></li>
-											<li><a href="#">Arb</a></li>
-										</ul>
-									</li>
-									<li class="setting-panel"><a title="" href="#"><i class="icon-equalizer"></i></a></li>
-								</ul>
+                                    <div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
+                                        <ul class="drop-meta">
+                                            
+                                            <li> <a href="#" title=""><i class="fa fa-envelope-o"></i>My Inbox</a> </li>
+                                            <li> <a href="#" title=""><i class="fa fa-adjust"></i>task</a> </li>
+                                            <li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
+                                            <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
+                                        </ul>
+                                        <span class="drop-bottom"><a href="admin_logout" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+                                    </div>
+                                    <ul class="seting-area">
+                                    <li class="langages">
+                                        <a title="" href="#">Eng</a>
+                                        <ul class="drop language">
+                                            <li class="lang-selected"><a href="#"><i class="fa fa-check"></i> Eng</a></li>
+                                            <li><a href="#">Rus</a></li>
+                                            <li><a href="#">Jap</a></li>
+                                            <li><a href="#">Arb</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="setting-panel"><a title="" href="#"><i class="icon-equalizer"></i></a></li>
+                                </ul>
                                 </div>
                                 <div class="t-search">
                                     <form method="post">
@@ -250,60 +351,41 @@
                   </ul>
                 </div>
                 <div class="inner-bg">
-                  <div class="element-title">
-                    <h4>New Admin</h4>
-                    <span>Add admin user</span> 
+                  <div class="element-title" align="center">
+                    <h4>Edit Admin-user</h4>
+                   
                     
-				  </div>
-				   @if(session()->has('message'))
+                  </div>
+                   @if(session()->has('message'))
     <div class="alert alert-success" style="background-color: lightgreen; color: white">
         {{ session()->get('message') }}
     </div>
 @endif
-			 
-			  <form enctype="multipart/form-data" method="post" action="{{url('add_user')}}">
+                 
+@foreach($user_detail as $detail)
+<div class="col-md-8 offset-md-2">
+
+                  <form enctype="multipart/form-data" method="post" action="{{url('edit_admin_user',$detail->id)}}">
                      {{ csrf_field() }} 
                      
-                <div class="pnl-bdy billing-sec">
-
-                    	 <div class="col-md-6 col-sm-6 field">
+                 <div class="pnl-bdy billing-sec">                    
+                 <div class="row">
+                         <div class="col-md-6 col-sm-6 field">
                         <label>Name<span>*</span> </label>
-                        <input value="" name="admin_user" type="text" placeholder="Name" value="{{ old('email') }}">
+                        <label>{{$detail->name}}</label>
                          @if ($errors->has('admin_user'))
-    					<div class="error">{{ $errors->first('admin_user') }}</div>
-						@endif
-
+                        <div class="error">{{ $errors->first('admin_user') }}</div>
+                        @endif
+                       </div>
                       
                       </div>
 
-
 <div class="col-md-6 col-sm-6 field">
-                        <label>New Phone Number <span>*</span> </label>
-                        <input placeholder="Enter Your New Phone Number" value="{{ old('email') }}" name="admin_phone" type="text">
-                        @if ($errors->has('admin_phone'))
-    					<div class="error">{{ $errors->first('admin_phone') }}</div>
-						@endif
-                      </div>
-
-<div class="col-md-6 col-sm-6 field">
-                        <label>New Email id <span>*</span> </label>
-                        <input placeholder="Enter Your New Phone Number" value="{{ old('email') }}" name="admin_email" type="text">
-                        @if ($errors->has('admin_email'))
-    					<div class="error">{{ $errors->first('admin_email') }}</div>
-						@endif
-                      </div>
-
-<div class="col-md-6 col-sm-6 field">
-                        <label>Sample Password<span>*</span> </label>
-                        <input placeholder="password" value="{{ old('email') }}" name="admin_password" type="password">
-                        @if ($errors->has('admin_password'))
-    					<div class="error">{{ $errors->first('admin_password') }}</div>
-						@endif
-                      </div>
-<div class="col-md-12 col-sm-12 field">
+    <div class="row">
                         <label>Roll For Admin<span>*</span> </label>
                         <select name="role">
-                            <option value="{{ old('email') }}">---select---</option>
+                            <option>---select---</option>
+                            <option>Super Admin</option>
                             <option>Admin</option>
                             <option>Editor</option>
                         </select>
@@ -311,16 +393,17 @@
                         <div class="error">{{ $errors->first('admin_phone') }}</div>
                         @endif
                       </div>
-
+                  </div>
+<div class="col-md-12 col-sm-12 field">
+    
                        <button type="submit">Add Now</button>
+                   </div>
                      
                   </form>
+              </div>
                   
                 <!--change password -->
-                <div align="centre" id="cnge_pwd">
-                    
-  				                
-                 </div>
+                
                
                     
                       
@@ -328,12 +411,12 @@
                   </div>
                     </div>
                   
-                    
+                    @endforeach
                 </div>
               </div>
               <div class="bottombar"> 
-					<span>© 2019. Dewwater. All Rights Reserved.</span>
-				</div>
+                    <span>© 2019. Dewwater. All Rights Reserved.</span>
+                </div>
               <!-- bottombar --> 
             </div>
           </div>

@@ -38,7 +38,7 @@
                             <div class="side-menus">
                                 <div class="side-header">
                                     <div class="logo"><a title="" href="index.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
-                                  @foreach($detail as $admin)
+                                   @foreach($detail as $admin)
                     @if($admin->role!="Editor")
                     <nav class="slide-menu">
                                         <span>{{$admin->role}}<i class="ti-layout"></i></span>
@@ -344,12 +344,12 @@
                                             
                                         </div>
                                         <div class="main-table">
-                                            <table class="prj-tbl bordered table-responsive" id=newvendor>
-                                         @if(session()->has('message'))
-                                            <div class="alert alert-success" style="background-color: lightgreen; color: white">
-                                                {{ session()->get('message') }}
-                                            </div>
-                                        @endif
+                                           <table class="prj-tbl bordered table-responsive" id=vendor>
+                                             @if(session()->has('message'))
+                                  <div class="alert alert-success" style="background-color: lightgreen; color: white">
+                                        {{ session()->get('message') }}
+                                  </div>
+                                @endif
                                             <thead>
                                                 <tr>
                                                     <th><em>Venoder Id</em></th>
@@ -357,45 +357,34 @@
                                                     <th><em>Phone Number</em></th>
                                                     <th><em>Email</em></th>
                                                     <th><em>Status</em></th>
-                                                    <th colspan="2"><em>Action</em></th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($array as $fetch)
-                                                <div id="search1">
+                                                @foreach($array2 as $fetch1)
                                                 <tr>
-                                                    <td><i>VEN10{{$fetch->id}}</i></td>
-                                                    <td><span>{{$fetch->name}}</span></td>
-                                                    <td><i>{{$fetch->phone}}</i></td>
+                                                    <td><i>VEN10{{$fetch1->id}}</i></td>
+                                                    <td><span>{{$fetch1->name}}</span></td>
+                                                    <td><i>{{$fetch1->phone}}</i></td>
                                                     <td>
                                                         <div class="prg-br">
-                                                            {{$fetch->email}}
+                                                            {{$fetch1->email}}
                                                             </div>
                                                         </div>
                                                     </td>
-                                                     <td><span>@if($fetch->approval_status==0)  <div style="color: red;"> Not Active Yet </div> @endif</span></td>
-                                                    
+                                                  <td><span>@if($fetch1->approval_status==1)  <div style="color: green;">  Active </div> @endif</span></td>
+                                                   
                                                 
-                                                     <td><span>@if($fetch->approval_status==0)
-                                                        @foreach($detail as $admin)
-                                                        @if($admin->role=="Super_Admin")
-                                                    <a href="approved/{{$fetch->id}}" class="btn btn-success"><span class="fa fa-user"></span> Approved</a>
-                                                    @endif
-                                                    @endforeach
-                                                     @endif </span></td>
+                                                     
                                                     <td>
-
-
-
                                                         <ul>
-                                                           <li><a href="/Vendor_Delete/{{$fetch->id}}" ><i class="icon-trash"></i></a></li>
-                                                            <li><a href="/vendor_edit/{{$fetch->id}}" class="edit-btn"><i class="fa fa-navicon"></i></a></li>
+                                                            <li><a href="Vendor_Delete/{{$fetch1->id}}" ><i class="icon-trash"></i></a></li>
+                                                            <li><a href="/vendor_edit/{{$fetch1->id}}" class="edit-btn"><i class="fa fa-navicon"></i></a></li>
                                                         </ul>
                                                     </td>
                                                 </tr>
-                                            </div>
                                                 @endforeach
-                                              
+                                               
                                             </tbody>
                                         </table>
                                         </div>
@@ -403,9 +392,14 @@
                                     <!-- ongoing projects widget -->
 
                                     
+
+
+
+
+
                                     <!-- three widgets -->
 
-                                    
+                                   
                                     <!-- line chart widget full -->
 
                                     

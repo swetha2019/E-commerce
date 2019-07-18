@@ -40,8 +40,10 @@
                             <div class="side-menus">
                                 <div class="side-header">
                                     <div class="logo"><a title="" href="index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
-                                    <nav class="slide-menu">
-                                        <span>Navigation <i class="ti-layout"></i></span>
+                                   @foreach($detail as $admin)
+                    @if($admin->role!="Editor")
+                    <nav class="slide-menu">
+                                        <span>{{$admin->role}}<i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
                                             <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
                                                 
@@ -61,13 +63,17 @@
                                                     <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
                                                 </ul>
                                             </li>
+                                            @if($admin->role=="Super_Admin")
                                              <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
+                                                
                                                 <ul class="mega">
                                                     <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
                                                     <li><a href="{{url('adminuser_form')}}">Add new user</a></li>
                                                     <li><a href="{{ url('view_user') }}">view user detail</a></li>
                                                 </ul>
+                                               
                                             </li>
+                                             @endif
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
                                                 <ul class="mega">
                                                     <li><a href="index-boxed.html" title="">boxed layout</a></li>
@@ -78,6 +84,41 @@
                                             </li>
                                         </ul>
                                     </nav>
+                                    @else
+                                    <nav class="slide-menu">
+                                        <span>{{$admin->role}}<i class="ti-layout"></i></span>
+                                        <ul class="parent-menu">
+                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
+                                                
+                                            </li>
+                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
+                                                    <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-detail.html">product-detail</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
+                                                </ul>
+                                            </li>
+                                             
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="index-boxed.html" title="">boxed layout</a></li>
+                                                    <li><a href="overlap-sidebar.html">overlap sliderbar</a></li>
+                                                </ul>
+                                            </li>
+                                           
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    @endif
+                         @endforeach
                                 </div>
                             </div>
                         </header>
@@ -317,8 +358,11 @@
                                                 <div class="little-heading">
                                    <div class="element-title">
                                             <h4 align="center">CATEGORIES</h4>
+                                             @foreach($detail as $admin)
+                                    @if($admin->role!="Editor")
                                             <a href="add_category" title="" class="btn-st drk-blu-clr">Add category</a>
-                                            
+                                            @endif
+                                    @endforeach
                                         </div>
                                         <div class="widget">
                                           <table class="prj-tbl striped table-responsive">
@@ -386,7 +430,11 @@
                          <div class="little-heading">
                            <div class="element-title">
                                     <h4 align="center">SUB CATEGORIES</h4>
+                                    @foreach($detail as $admin)
+                                    @if($admin->role!="Editor")
                                     <a href="add_subcategory" title="" class="btn-st drk-blu-clr">Add category</a>
+                                    @endif
+                                    @endforeach
                                      </div>
                                 </div>
                                 <div class="widget">
@@ -449,7 +497,12 @@
                                           <div class="content">
                                             <div class="simple-text">
                                                 <div class="little-heading">
-                                                  <a href="add_Childcategory" title="" class="btn-st bordr rd-30">Add category</a>
+                                                   @foreach($detail as $admin)
+                                    @if($admin->role!="Editor")
+                                    
+                                     <a href="add_Childcategory" title="" class="btn-st bordr rd-30">Add category</a>
+                                    @endif
+                                    @endforeach
                                                 </div>
                                               <div class="widget">
 
@@ -495,7 +548,11 @@
                                           <div class="content">
                                             <div class="simple-text">
                                              <div class="little-heading">
-                                                   <a href="add_Childcategory2" title="" class="btn-st bordr rd-30">Add Child Two</a>
+                                                 @foreach($detail as $admin)
+                                    @if($admin->role!="Editor")
+                                                <a href="add_Childcategory2" title="" class="btn-st bordr rd-30">Add Child Two</a>
+                                                @endif
+                                                @endforeach
                                                 </div>
                                                 <div class="widget">
                                                   <table class="prj-tbl striped table-responsive">
