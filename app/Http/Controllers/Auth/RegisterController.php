@@ -74,7 +74,7 @@ class RegisterController extends Controller
         'password' =>bcrypt($data['password']),
         'email_token' => str_random(10),
         'usertype'=>'vendor'
-        
+                 
         ]);
     }
 

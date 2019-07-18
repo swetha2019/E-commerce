@@ -38,5 +38,35 @@ class Controller extends BaseController
                     ->select('subcategory_name')->get();
         return response()->json($sub);
     }
+    
+    public function multi(Request $request)
+            {
+              if($request->hasfile('mul'))
+                 {
+
+                    foreach($request->file('mul') as $image)
+                    {
+                        $name=$image->getClientOriginalName();
+                        $image->move(public_path().'/images/', $name);  
+                        $data[] = $name; 
+                       $dat['image']= implode("//", $data);
+                  DB::table('image')->insert($dat);
+                    }
+                  
+                 }
+                
+            }
+            public function display(Request $request)
+            {
+             
+                $img= DB::table('image')->get();
+                
+                $ex=explode("//",$img);
+                foreach ($ex as $ke) {
+                  # code...
+                
+               echo $ke;
+              }
+            }
 
 }

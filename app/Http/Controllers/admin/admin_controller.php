@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Input;
 use App\Mail\approval_mail;
 
    use App\admin_user;
-    use App\model_category;
+   use App\model_category;
    use Hash;
    use Crypt;
    use Validator;
@@ -39,7 +39,9 @@ class admin_controller extends Controller
                               {
                                   $email=$request->input('email');
                                   $password=$request->input('password');
-                                  $data= db::table('vendor_registration')->where('email',$email)->Where('usertype','admin')->orWhere('usertype','admin_user')->pluck('password');
+                                  $data= db::table('vendor_registration')->where('email',$email)->Where('usertype','admin')->pluck('password');
+                                   // dd($data);
+                                    //exit();
                                    if(isset($data[0]))
                                    {
                                       $hased_password=$data[0];
@@ -58,13 +60,13 @@ class admin_controller extends Controller
                                         }
                                          else
                                      {
-                                        return  redirect('admin')->with('message','Login Faild ');
+                                        return  redirect('admin')->with('message','Password not currect');
                                      }
                                       }
                                     
                                    else
                                      {
-                                        return  redirect('admin')->with('message','Login Faild ');
+                                        return  redirect('admin')->with('message','is not an admin or admin user ');
                                      }
                               
                                    
@@ -116,11 +118,11 @@ class admin_controller extends Controller
                                         }
 
                               	 Mail::to($email)->send(new approval_mail($content));
-                                 return redirect('adminhome')->with('message','You have approved a new company.');
+                                 return redirect('new_vendor')->with('message','You have approved a new company.');
                       				} 
                       			catch (Exception $e)
                       				{
-                      				  return redirect('adminhome')->with('message','sorry please confirm the email');         		
+                      				  return redirect('new_vendor')->with('message','sorry please confirm the email');         		
               				         }
 
                          }
@@ -269,17 +271,26 @@ class admin_controller extends Controller
                  }
      public function categories_form(Request $request)
                  {
-                  $category=db::table('tbl_categories')->get();
-                  $sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
+                  if($request->session()->has('userid'))
+                   {
+                    $usertype='admin';
+                    $id=$request->session()->get('userid');
+                        $category=db::table('tbl_categories')->get();
+                        $sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
 
-                  $child_category= db::table('tbl_child_category_one')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_one.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_one.category_id')->get();
+                        $child_category= db::table('tbl_child_category_one')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_one.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_one.category_id')->get();
 
-                  $child_category2= db::table('tbl_child_category_two')->join('tbl_child_category_one','tbl_child_category_one.child_category_id','=','tbl_child_category_two.child_category_id')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_two.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_two.category_id')->get();
-                  
+                        $child_category2= db::table('tbl_child_category_two')->join('tbl_child_category_one','tbl_child_category_one.child_category_id','=','tbl_child_category_two.child_category_id')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_two.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_two.category_id')->get();
+                        
+                          $admin_detail=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
+                         
+      //d($child_category2);
+                        return view('Admin.categories_form')->with('detail',$admin_detail)->with('category',$category)->with('sub_category',$sub_category)->with('child_category',$child_category)->with('child_category2',$child_category2);
+                       
 
-//d($child_category2);
-                  return view('Admin.categories_form')->with('category',$category)->with('sub_category',$sub_category)->with('child_category',$child_category)->with('child_category2',$child_category2);
+                    }
                  }
+
      public function add_categories(Request $request)
                {
                  
@@ -366,21 +377,23 @@ class admin_controller extends Controller
 
                             else
                             {
-                                 echo $user['name']=$request->input('admin_user');
+                                 $user['name']=$request->input('admin_user');
                                  $user['email']=$request->input('admin_email');
                                  $user['phone']=$request->input('admin_phone');
-                                 $user['password']=$request->input('admin_password');
-                                 $user['usertype']='admin_user';
-                                   admin_user::add_user($user);
-                                   return back()->with('message','New user added as admin');
+                                 $user['password']=bcrypt($request->input('admin_password'));
+                                 $user['usertype']='admin';
+                                 $user['role']=$request->input('role');
+                                 admin_user::add_user($user);
+                                 return back()->with('message','New user added as admin');
                             }
                      
 
                     }
     public function view_user(Request $request)
                     {
-                     $usertype='admin_user';
-                        $user_detail=db::table('vendor_registration')->where('usertype',$usertype)->get(); 
+                     $usertype='admin';
+                     $user_role='Super_Admin';
+                        $user_detail=db::table('vendor_registration')->where('usertype',$usertype)->whereNotIn('role',[$user_role])->get(); 
                       return view('admin.adminuser_detail')->with('user_detail',$user_detail);
                     }
     
@@ -392,6 +405,13 @@ class admin_controller extends Controller
 
                    // db::table('tbl_categories')->where('category_id',$id)->delete();
 
+                    }
+   public function adminuser_edit(Request $request,$id)
+                    {
+                      $usertype='admin';
+                      $user_detail=db::table('vendor_registration')->where('id',$id)->Where('usertype',$usertype)->get(); 
+                      return view('Admin.admin_user_detail')->with('user_detail',$user_detail);
+                      //dd($user_detail);
                     }
     public function subcategory_select(Request $request)
                     {
@@ -477,13 +497,56 @@ class admin_controller extends Controller
                     }
     public function new_vendor(Request $request)
                     {
+                if($request->session()->has('userid'))
+                   {
                     if($request->session()->has('userid'))
-                        {
-                  $newvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',0)->where('verified',1)->get();
-                  return view('Admin.new_vendor')->with('array',$newvendor);
-                     }
+                        { 
+                        $usertype='admin';
+                        $id=$request->session()->get('userid');
+                        $admin_detail=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
+
+
+
+                          $newvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',0)->where('verified',1)->get();
+                          return view('Admin.new_vendor')->with('detail',$admin_detail)->with('array',$newvendor);
+                        }
+                      }
 
                     }
+    public function rect_vendor(Request $request)
+                  {
+           
+                    if($request->session()->has('userid'))
+                        { 
+                        $usertype='admin';
+                        $id=$request->session()->get('userid');
+                        $admin_detail=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
+                  $recentvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',1)->where('verified',1)->get();
+                  return view('Admin.recent_vendor')->with('detail',$admin_detail)->with('array2',$recentvendor);
+                     }
+
+                  }
+    public function edit_admin_user(Request $request,$id)
+                   {
+                    $validator=validator::make($request->all(),[
+                        'role'=>'required']);
+                    $data['role']=$request->input('role');
+                    try 
+                    {
+                      DB::table('vendor_registration')->where('id',$id)->update($data);
+                      return back()->with('message','Role was changed');
+                    } 
+                    catch (Exception $e) 
+                    {
+                      return back();
+                    }
+                    
+
+
+
+                   }
+
+
   }
    
 
