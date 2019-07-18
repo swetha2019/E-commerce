@@ -54,22 +54,38 @@ Route::get('admin_edit/{id}','admin\admin_controller@admin_edit')->name('admin_e
 Route::post('admin_update/{id}','admin\admin_controller@admin_update');//for update admin detail
 Route::post('admin_change_password/{id}','admin\admin_controller@admin_change_password');
 Route::get('Vendor_Delete/{id}','admin\admin_controller@Vendor_Delete');
-Route::get('categories_form','admin\admin_controller@categories_form');//for display the categories
-Route::post('add_categories','admin\admin_controller@add_categories');//add categories
-Route::post('add_subcategories','admin\admin_controller@add_subcategories');//for adding sub categories
-Route::get('view_categories','admin\admin_controller@view_categories');
-Route::get('Catgory_delete/{id}','admin\admin_controller@Catgory_delete');
-Route::get('Catgory_edit/{id}','admin\admin_controller@Catgory_edit');
-//Route::post('/search','admin\admin_controller@search');
-Route::get('view_subcategory','admin\admin_controller@view_subcategory');
+
+//user edit page-->
 Route::get('adminuser_form','admin\admin_controller@adminuser_form');
 route::post('add_user','admin\admin_controller@add_user');
+Route::get('adminuser_edit/{id}','admin\admin_controller@adminuser_edit');
+Route::post('edit_admin_user/{id}','admin\admin_controller@edit_admin_user');
 Route::get('admin_logout','admin\admin_controller@admin_logout');
 //Route::get('getmsg','controller@getmsg');
 Route::get('view_user','admin\admin_controller@view_user');
-//user edit page-->
-Route::get('subcategory_select','admin\admin_controller@subcategory_select');
 Route::get('adminuser_delete/{id}','admin\admin_controller@adminuser_delete');
+
+//--category---------------------
+Route::get('categories_form','admin\admin_controller@categories_form');//for display the categories
+Route::get('add_category',function()
+{
+	return view('Admin.add_category');
+});
+Route::post('add_categories','admin\admin_controller@add_categories');//add categories
+Route::get('add_subcategory','admin\admin_controller@add_subcategory');
+Route::post('add_subcategories','admin\admin_controller@add_subcategories');//for adding sub categories
+Route::get('Catgory_delete/{id}','admin\admin_controller@Catgory_delete');
+Route::get('Catgory_edit/{id}','admin\admin_controller@Catgory_edit');
+//Route::post('/search','admin\admin_controller@search');
+Route::get('add_Childcategory','admin\admin_controller@add_Childcategory');
+Route::get('add_Childcategory2','admin\admin_controller@add_Childcategory2');
+Route::post('childcategorytwo','admin\admin_controller@childcategorytwo');
+Route::get('back','admin\admin_controller@back');
+Route::get('subcategory_select','admin\admin_controller@subcategory_select');
+Route::post('childcategory','admin\admin_controller@childcategory');
+Route::get('new_vendor','admin\admin_controller@new_vendor');
+Route::get('rect_vendor','admin\admin_controller@rect_vendor');
+Route::get('child_select','admin\admin_controller@child_select');
 
 //vendor routes
 Route::get('/delete','HomeController@delete');
