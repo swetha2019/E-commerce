@@ -350,8 +350,21 @@ class admin_controller extends Controller
                     }
      public function Catgory_edit(Request $request,$id)
                     {
-                      $category=db::table('tbl_categories')->where('category_id',$id)->get();
-                      return view('Category_edit')->with('category',$category);
+                      if($request->session()->has('userid'))
+                        { 
+                          $usertype='admin';
+                          $id=$request->session()->get('userid');
+                          $admin_detail=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
+                        $category=db::table('tbl_categories')->where('category_id',$id)->get();
+                        return view('Admin.Category_edit')->with('category',$category)->with('detail',$admin_detail);
+                    }
+                    }
+      public function update_categories(Request $request,$id)
+                    {
+                      $validator=validator::make($request->all(),['category_name'=>'required']);
+                      $data['category_name']=$request->input("category_name");
+                      $category=db::table('tbl_categories')->where('category_id',$id)->update($data);
+                      return back()->with('message','The category name was chan;ged');
                     }
     /* public function view_subcategory(Request $request)
                     {
@@ -406,6 +419,46 @@ class admin_controller extends Controller
                    // db::table('tbl_categories')->where('category_id',$id)->delete();
 
                     }
+    public function sub_category_delete(Request $request,$id)
+                    {
+                       $sub = DB::table("tbl_sub_category")
+                                   ->where("subcategory_id",$id)
+                                    ->delete();
+                      return back()->with('message','Delete Completed');
+
+                    }
+    public function sub_category_edit(Request $request,$subid)
+                    {
+                      if($request->session()->has('userid'))
+                        { 
+                        $usertype='admin';
+                        $id=$request->session()->get('userid');
+                        $admin_detail=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
+                        $sub_category1= db::table('tbl_sub_category')
+                                          ->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')
+                                          ->where('subcategory_id',$subid)
+                                          ->get();
+ // dd($sub_category1);
+ // exit();
+ //                      // $sub_category=db::table('tbl_sub_category')->where('subcategory_id',$id)->get();
+                     return view('Admin.sub_category_edit')->with('sub_category',$sub_category1)->with('detail',$admin_detail);
+                    }
+                  }
+    public function upadet_subcategories(Request $request,$subid)              
+                    {
+                        $validator=validator::make($request->all(),[
+                            'subcategory_name'=>'required']);
+                        $data['subcategory_name']=$request->input('subcategory_name');
+                        try 
+                        {
+                          DB::table('tbl_sub_category')->where('subcategory_id',$subid)->update($data);
+                          return back()->with('message','Sub category was changed');
+                        } 
+                        catch (Exception $e) 
+                        {
+                          return back();
+                          }
+                    }
    public function adminuser_edit(Request $request,$id)
                     {
                       $usertype='admin';
@@ -452,15 +505,12 @@ class admin_controller extends Controller
      public function add_Childcategory(Request $request)
                  {
                   $childcategory=db::table('tbl_categories')->get();
-                  //$sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
-
                   return view('Admin.add_child_category')->with('category',$childcategory);
                  }
     public function add_Childcategory2(Request $request)
                  {
                   $childcategory=db::table('tbl_categories')->get();
-                  //$sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
-
+                  
                   return view('Admin.add_child_category2')->with('category',$childcategory);
                  }
 
@@ -497,8 +547,7 @@ class admin_controller extends Controller
                     }
     public function new_vendor(Request $request)
                     {
-                if($request->session()->has('userid'))
-                   {
+                
                     if($request->session()->has('userid'))
                         { 
                         $usertype='admin';
@@ -509,7 +558,7 @@ class admin_controller extends Controller
 
                           $newvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',0)->where('verified',1)->get();
                           return view('Admin.new_vendor')->with('detail',$admin_detail)->with('array',$newvendor);
-                        }
+                        
                       }
 
                     }
@@ -540,13 +589,24 @@ class admin_controller extends Controller
                     {
                       return back();
                     }
+                  }
                     
+     public function product(Request $request)
+                     {
+                     $product=DB::table('products')
+                        ->select('vendor_registration.name','vendor_registration.email','vendor_registration.phone','products.*','tbl_categories.*','tbl_sub_category.*')
+                        ->join('vendor_registration','vendor_registration.id','=','products.vendor_id')
+                        ->join('tbl_categories','tbl_categories.category_id','=','products.category')
+                         ->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','products.sub_category')
+                        ->get();
+                     return view('Admin.product_view')->with('product',$product);
 
 
 
-                   }
+                   // $sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
 
 
+                     }
   }
    
 
