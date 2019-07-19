@@ -250,86 +250,40 @@
                   </ul>
                 </div>
                 <div class="inner-bg">
-                  <div class="element-title">
-                    <h4>Edit Vendor profile</h4>
-                    <span>Edit your profile</span> 
-                    
-				  </div>
-				   @if(session()->has('message'))
+                  
+				                    
+                <!--change password -->
+                <div align="centre" id="cnge_pwd">
+                    <div class="element-title" >
+                    <h4>Edit Category</h4>
+                   @if(session()->has('message'))
     <div class="alert alert-success" style="background-color: lightgreen; color: white">
         {{ session()->get('message') }}
     </div>
 @endif
-				 
-@foreach($category as $detail)
-
-				  <form enctype="multipart/form-data"  method="post" action="{{ url('admin_update/'.$detail->id)}}">
-                     {{ csrf_field() }} 
-                     
-               
-
-<div class="col-md-6 col-sm-6 field">
-                        <label>Category <span>*</span> </label>
-                        <input placeholder="Enter Your New Phone Number" value="{{$detail->phone}}" name="nw_phone" type="text">
-                        @if ($errors->has('nw_phone'))
-    					<div class="error">{{ $errors->first('nw_phone') }}</div>
-						@endif
-                      </div>
-
-
-
-
-
-                      	 
-
-                       <button type="submit">Update Now</button>
-                     
-                  </form>
-                  
-                <!--change password -->
-                <div align="centre" id="cnge_pwd">
-                    <div class="element-title" >
-                    <h4>------Password ----</h4>
-                    <span>Change your Password</span> 
   				  </div>
-  				  <form action="{{ url('admin_change_password/'.$detail->id)}}" method="post">  
-  				          {{ csrf_field() }} 
-                    	<div class="row">
-		                       <div class="col-md-6 col-sm-6 field">
-		                        <label>Old Passwod <span>*</span> </label>
-		                        <input placeholder="Enter current Password" name="old_password" type="password">
-		                        @if ($errors->has('old_password'))
-		    					<div class="error">{{ $errors->first('old_password') }}</div>
-								@endif
-		                      </div> 
-		                 </div> 
-                       <div class="row">           	
-			                     <div class="col-md-6 col-sm-6 field">
-			                        <label>New password <span>*</span> </label>
-			                        <input placeholder="Enter Your New Password " value="" name="nw_password" type="password">
-			                        @if ($errors->has('nw_password'))
-			    					<div class="error">{{ $errors->first('nw_password') }}</div>
-									@endif
-			                      </div>
-			             </div>
-			             <div class="row"> 
-		                       <div class="col-md-6 col-sm-6 field">
-		                        <label>Confirm password <span>*</span> </label>
-		                        <input placeholder="Enter Your New Password " value="" name="confirm_password" type="password">
-		                        @if ($errors->has('confirm_password'))
-		    					<div class="error">{{ $errors->first('confirm_password') }}</div>
-								@endif
-		                      </div>
-		                  </div>
-                      <button type="submit">Change Password</button>
-                  
-         </form>              
-</div>
+                  @foreach($category as $category)
+  				 <form action="{{url('update_categories',$category->category_id)}}" method="post">
+                                    {{ csrf_field() }} 
+                                    <label>Edit Categories</label>
+                            <div class="col-md-12 col-sm-12 field">
+                             <input type="text" value="{{$category->category_name}}"  name="category_name">
+                          
+                             </div>
+                           
+                            <div class="col-md-6 col-sm-6 field">
+                              <div class="buttonz">
+                                <button type="submit" name="save" >Update Category</button>
+                                <button name="cancel"><a href="back" title="">BACK</a></button>
+                              </div>
+                            </div>
+                        </form>             
+                        </div>
                
                     
                       
     
-                  </div>
+                  
                     </div>
                   
                     @endforeach

@@ -360,7 +360,7 @@
                                             <h4 align="center">CATEGORIES</h4>
                                              @foreach($detail as $admin)
                                     @if($admin->role!="Editor")
-                                            <a href="add_category" title="" class="btn-st drk-blu-clr">Add category</a>
+                                            <a href="{{url('add_category')}}" title="" class="btn-st drk-blu-clr">Add category</a>
                                             @endif
                                     @endforeach
                                         </div>
@@ -385,8 +385,8 @@
                                                 <td>{{$categry->category_name}}</td>
                                                 <td>
                                                  <ul>
-                                                     <li><a href="Catgory_delete/{{$categry->category_id}}" ><i class="icon-trash"></i></a></li>
-                                                    <!-- <li><a href="Catgory_subcategory/{{$categry->category_id}}" class="edit-btn"><i class="fa fa-forward"></i></a></li>-->
+                                                     <li><a href="{{url('Catgory_delete',$categry->category_id)}}" ><i class="icon-trash"></i></a></li>
+                                                    <li><a href="{{url('catgory_edit',$categry->category_id)}}" class="edit-btn"><i class="fa fa-forward"></i></a></li>
                                                      
                                                      
                                                      
@@ -461,8 +461,8 @@
 
                                         <td>
                                          <ul>
-                                             <li><a href="sub_category/{{$sub_categori->category_id}}" ><i class="icon-trash"></i></a></li>
-                                            <!-- <li><a href="Catgory_subcategory/{{$sub_categori->category_id}}" class="edit-btn"><i class="fa fa-forward"></i></a></li>-->
+                                             <li><a href="{{url('sub_category_delete',$sub_categori->subcategory_id)}}" ><i class="icon-trash"></i></a></li>
+                                             <li><a href="{{url('sub_category_edit',$sub_categori->subcategory_id)}}" class="edit-btn"><i class="fa fa-forward"></i></a></li>
                                              
                                              
                                         </ul>

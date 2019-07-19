@@ -46,21 +46,16 @@
                                             <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
                                                 
                                             </li>
+                                            <li> <a title="" href="{{url('product')}}"><i class="fa fa-laptop"></i><span>Products</span></a>
+                                                
+                                            </li>
                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
                                                     <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
-                                                <ul class="mega">
-                                                    <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-detail.html">product-detail</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
-                                                </ul>
-                                            </li>
+                                            
                                             @if($admin->role=="Super_Admin")
                                              <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
                                              	
@@ -95,14 +90,8 @@
                                                     <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
-                                                <ul class="mega">
-                                                    <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-detail.html">product-detail</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
-                                                </ul>
+                                            <li> <a title="" href="{{url('product')}}"><i class="fa fa-laptop"></i><span>Products</span></a>
+                                                
                                             </li>
                                              
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>

@@ -42,8 +42,10 @@
 			<div class="side-menus">
 				<div class="side-header">
 					<div class="logo"><a title="" href="{{ url('/') }}/template/index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
+					@foreach($detail as $admin)
+					@if($admin->role!="Editor")
 					<nav class="slide-menu">
-                                        <span>Navigation <i class="ti-layout"></i></span>
+                                        <span>{{$admin->role}}<i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
                                             <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
                                                 
@@ -63,13 +65,17 @@
                                                     <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
                                                 </ul>
                                             </li>
+                                            @if($admin->role=="Super_Admin")
                                              <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
+                                             	
                                                 <ul class="mega">
                                                     <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
                                                     <li><a href="{{url('adminuser_form')}}">Add new user</a></li>
                                                     <li><a href="{{ url('view_user') }}">view user detail</a></li>
                                                 </ul>
+                                               
                                             </li>
+                                             @endif
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
                                                 <ul class="mega">
                                                     <li><a href="index-boxed.html" title="">boxed layout</a></li>
@@ -80,6 +86,41 @@
                                             </li>
                                         </ul>
                                     </nav>
+                                    @else
+                                    <nav class="slide-menu">
+                                        <span>{{$admin->role}}<i class="ti-layout"></i></span>
+                                        <ul class="parent-menu">
+                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
+                                                
+                                            </li>
+                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
+                                                    <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-detail.html">product-detail</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
+                                                </ul>
+                                            </li>
+                                             
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="index-boxed.html" title="">boxed layout</a></li>
+                                                    <li><a href="overlap-sidebar.html">overlap sliderbar</a></li>
+                                                </ul>
+                                            </li>
+                                           
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    @endif
+                         @endforeach
                                     				</div>
 			</div>
 		</header>
@@ -364,47 +405,18 @@
 				 
 @foreach($detail as $detail)
 
-				  <form enctype="multipart/form-data"  method="post" action="{{ url('admin_update/'.$detail->id)}}">
-                     {{ csrf_field() }} 
-                     
-                <div class="pnl-bdy billing-sec">
-                    	<div class="row">
-                    	 <div class="col-md-6 col-sm-6 field">
-                        <label>Name<span>*</span> </label>
-                        <input value="{{$detail->name}}" name="name" type="text" placeholder="First Name">
-                         @if ($errors->has('name'))
-    					<div class="error">{{ $errors->first('name') }}</div>
-						@endif
-
-                      </div> 
-                      </div>
-
-
-<div class="col-md-6 col-sm-6 field">
-                        <label>New Phone Number <span>*</span> </label>
-                        <input placeholder="Enter Your New Phone Number" value="{{$detail->phone}}" name="nw_phone" type="text">
-                        @if ($errors->has('nw_phone'))
-    					<div class="error">{{ $errors->first('nw_phone') }}</div>
-						@endif
-                      </div>
-
-<div class="col-md-6 col-sm-6 field">
-                        <label>New Email id <span>*</span> </label>
-                        <input placeholder="Enter Your New Phone Number" value="{{$detail->email}}" name="nw_email" type="text">
-                        @if ($errors->has('nw_email'))
-    					<div class="error">{{ $errors->first('nw_email') }}</div>
-						@endif
-                      </div>
-
-
-
-                      	 
-
- 
-
-                       <button type="submit">Update Now</button>
-                     
-                  </form>
+				  <form action="add_categories" method="post">
+                                    {{ csrf_field() }} 
+                              <label>Categories</label>
+                              <input type="text" placeholder="Category Name" name="category_name" style="border-color: rgb(107, 213, 234)">
+                            <br><br><br><br>
+                            <div class="col-md-12">
+                              <div class="buttonz">
+                                <button type="submit" name="save" >Add Category</button>
+                                <button name="cancel"><a href="back" title="">BACK</a></button>
+                              </div>
+                            </div>
+                        </form>
                   
                 <!--change password -->
                 <div align="centre" id="cnge_pwd">

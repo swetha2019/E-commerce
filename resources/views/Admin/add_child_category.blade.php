@@ -6,20 +6,20 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <title>Web Admin panel</title>
-<link rel="icon" type="template/image/png" href="images/fav.png">
-<link rel="stylesheet" href="template/css/font-awesome.min.css">
-	<link rel="stylesheet" href="template/css/themify-icons.css">
-    <link rel="stylesheet" href="template/css/line-icons.css">
-<link rel="stylesheet" href="template/css/bootstrap.min.css">
-<link rel="stylesheet" href="template/css/animate.min.css">
-<link rel="stylesheet" href="template/css/perfect-scrollbar.min.css">
-<link rel="stylesheet" href="template/css/jquery.datepicker.min.css">
+<link rel="icon" type="{{ url('/') }}/template/image/png" href="images/fav.png">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ url('/') }}/template/css/themify-icons.css">
+    <link rel="stylesheet" href="{{ url('/') }}/template/css/line-icons.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/animate.min.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/jquery.datepicker.min.css">
 <!-- calander -->
-<link rel="stylesheet" href="template/css/flatweather.css">
-<link rel="stylesheet" href="template/css/nice-select.css">
-<link rel="stylesheet" href="template/css/style.css">
-<link rel="stylesheet" href="template/css/color.css">
-<link rel="stylesheet" href="template/css/responsive.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/flatweather.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/nice-select.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/style.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/color.css">
+<link rel="stylesheet" href="{{ url('/') }}/template/css/responsive.css">
 <style type="text/css">
 
 </style>
@@ -39,7 +39,7 @@
           <header>
                             <div class="side-menus">
                                 <div class="side-header">
-                                    <div class="logo"><a title="" href="index-2.html"><img alt="" src="template/images/logo2.png"></a></div>
+                                    <div class="logo"><a title="" href="index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
                                   <nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
@@ -54,16 +54,16 @@
                                             </li>
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-detail.html">product-detail</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
+                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product.html" title="">product</a></li>
+                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product-detail.html">product-detail</a></li>
+                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product-order.html">product-order</a></li>
+                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product-add.html">add product</a></li>
+                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product-cart.html">product cart</a></li>
                                                 </ul>
                                             </li>
                                              <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
+                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product.html" title="">User</a></li>
                                                     <li><a href="{{url('adminuser_form')}}">Add new user</a></li>
                                                     <li><a href="{{ url('view_user') }}">view user detail</a></li>
                                                 </ul>
@@ -86,7 +86,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <div class="logo"><a href="index-2.html" title=""><img src="template/images/logo.png" alt=""></a></div>
+                                        <div class="logo"><a href="index-2.html" title=""><img src="{{ url('/') }}/template/images/logo.png" alt=""></a></div>
                                     </div>
                                     <div class="col-lg-9">
                                         <ul class="notify-area">
@@ -337,10 +337,11 @@
                                                               
                                      <div id="sub"></div>
                                     
-                                     <br>
-                                 <div class="col-md-12 col-sm-12 field">
+                                    
+                                 <div class="col-md-6 col-sm-6 field">
                                 <label>Child Categories <span>*</span> </label>
-                                <input type="text" placeholder="child categories" name="childcategory" style="border-color: rgb(107, 213, 234)">
+                                <input type="text" placeholder="child categories" name="childcategory" >
+                            </div>
                                 @if ($errors->has('childcategory'))
                                 <div class="error">{{ $errors->first('childcategory') }}</div>
                                 @endif
@@ -440,17 +441,17 @@
                 </div>
             </form>
         </div><!-- side panel -->
-<script src="template/js/jquery.js"></script> 
-<script src="template/js/bootstrap.min.js"></script> 
-<script src="template/js/perfect-scrollbar.jquery.min.js"></script> 
-<script src="template/js/chart.min.js"></script> 
-<script src="template/js/echart.min.js"></script> 
-<script src="template/js/jquery.sparkline.min.js"></script> 
-<script src="template/js/nice-select.js"></script> 
-<script src="template/js/custom2.js"></script> 
-<script src="template/js/flatweather.min.js"></script> 
-<script src="template/js/html5lightbox.js"></script> 
-<script src="template/js/custom.js"></script><!-- scripts -->
+<script src="{{ url('/') }}/template/js/jquery.js"></script> 
+<script src="{{ url('/') }}/template/js/bootstrap.min.js"></script> 
+<script src="{{ url('/') }}/template/js/perfect-scrollbar.jquery.min.js"></script> 
+<script src="{{ url('/') }}/template/js/chart.min.js"></script> 
+<script src="{{ url('/') }}/template/js/echart.min.js"></script> 
+<script src="{{ url('/') }}/template/js/jquery.sparkline.min.js"></script> 
+<script src="{{ url('/') }}/template/js/nice-select.js"></script> 
+<script src="{{ url('/') }}/template/js/custom2.js"></script> 
+<script src="{{ url('/') }}/template/js/flatweather.min.js"></script> 
+<script src="{{ url('/') }}/template/js/html5lightbox.js"></script> 
+<script src="{{ url('/') }}/template/js/custom.js"></script><!-- scripts -->
 <script type="text/javascript">
     $('#category').on('change',function()
     {
@@ -469,7 +470,7 @@
                          
                 $('#sub').empty();
                
-                 var toAppend = '<select name="subcategory_id" >';
+                 var toAppend = '<select name="subcategory_id" ><option value"">select</option>';
                     $.each(res, function(key, value)
                     {
                           toAppend += '<option value="'+value.subcategory_id+'">'+value.subcategory_name+'</option>';
