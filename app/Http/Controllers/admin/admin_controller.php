@@ -593,21 +593,77 @@ class admin_controller extends Controller
                     
      public function product(Request $request)
                      {
+                       if($request->session()->has('userid'))
+                        { 
+                        $usertype='admin';
+                        $id=$request->session()->get('userid');
+                        $admin_detail=DB::table('vendor_registration')
+                                        ->where('usertype',$usertype)
+                                        ->Where('id',$id)->get();
                      $product=DB::table('products')
                         ->select('vendor_registration.name','vendor_registration.email','vendor_registration.phone','products.*','tbl_categories.*','tbl_sub_category.*')
                         ->join('vendor_registration','vendor_registration.id','=','products.vendor_id')
                         ->join('tbl_categories','tbl_categories.category_id','=','products.category')
                          ->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','products.sub_category')
                         ->get();
-                     return view('Admin.product_view')->with('product',$product);
+                     return view('Admin.product_view')->with('product',$product)->with('detail',$admin_detail);
 
 
-
+                       }
                    // $sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
 
 
                      }
-  }
+    public function product_delete(Request $request,$pid)
+                    {
+                      if($request->session()->has('userid'))
+                        { 
+                       
+                     $product=DB::table('products')->where('id',$pid)->delete();
+                     return back()->with('message','one product was delete');
+                     }
+
+                    }
+    public function product_detail(Request $request,$pid)
+                    {
+                      if($request->session()->has('userid'))
+                        { 
+                        $usertype='admin';
+                        $id=$request->session()->get('userid');
+                        $admin_detail=DB::table('vendor_registration')
+                                        ->where('usertype',$usertype)
+                                        ->Where('id',$id)->get();
+                     $product_detail=DB::table('products')->where('id',$pid)->get();
+                     return view('Admin.product_detail')->with('product',$product_detail)->with('detail',$admin_detail);
+                      }
+                    }
+    public function subscription(Request $request)
+                     {
+                      if($request->session()->has('userid'))
+                        { 
+                        $usertype='admin';
+                        $id=$request->session()->get('userid');
+                        $admin_detail=DB::table('vendor_registration')
+                                        ->where('usertype',$usertype)
+                                        ->Where('id',$id)->get();
+                       $subscription=DB::table('vendor_subscription')
+                                    ->join('vendor_registration','vendor_subscription.vendor_id','=','vendor_registration.id')
+                                    ->get();
+
+                       return view('Admin.subscription')->with('subscription',$subscription)->with('detail',$admin_detail);
+                       }
+                     }
+    public function subscription_delete(Request $request,$pid)
+                    {
+                      if($request->session()->has('userid'))
+                        { 
+                       
+                     $product=DB::table('vendor_subscription')->where('id',$pid)->delete();
+                     return back()->with('message','one vendor subscription detail was delete');
+                     }
+
+                    }
+    }
    
 
         
