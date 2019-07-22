@@ -229,7 +229,7 @@
                                                     <li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
                                                     <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
                                                 </ul>
-                                                <span class="drop-bottom"><a href="#" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+                                                <span class="drop-bottom"><a href="{{url('admin_logout')}}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -345,7 +345,7 @@
                     <span>Welcome To web Admin Panel!</span>
                   </div>
                   <ul class="bread-crumb">
-                    <li><a href="{{url('adminhome')}}" title="">Home</a></li>
+                    <li><a href="{{url('adminhome')}}" title=""><i class="fa fa-home"></i></a></li>
                     <li>Dashbord</li>
                   </ul>
                 </div>

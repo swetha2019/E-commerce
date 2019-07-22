@@ -242,7 +242,7 @@
                                                 </ul>
                                                 <span class="drop-bottom"><a href="#" title="">View More messages</a></span> </div>
                                         </li>
-                                    </ul>
+                                    </ul>-->
                                     
                                     <div class="user-head">
                                     <div class="admin">
@@ -257,7 +257,7 @@
                                             <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
                                         </ul>
                                        <span class="drop-bottom"><a href="{{ url('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span>  </div>
-                                    </div>-->
+                                    </div>
                                     <ul class="seting-area">
                                     <li class="langages">
                                         <a title="" href="#">Eng</a>

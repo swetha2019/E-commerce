@@ -6,9 +6,9 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <title>Web Admin panel</title>
-<link rel="icon" type="{{ url('/') }}/template/image/png" href="images/fav.png">
+<link rel="icon" type="{{ url('/') }}/template/image/png" href="{{ url('/') }}/template/images/fav.png">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ url('/') }}/template/css/themify-icons.css">
+	<link rel="stylesheet" href="{{ url('/') }}/template/css/themify-icons.css">
     <link rel="stylesheet" href="{{ url('/') }}/template/css/line-icons.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/animate.min.css">
@@ -16,23 +16,26 @@
 <link rel="stylesheet" href="{{ url('/') }}/template/css/jquery.datepicker.min.css">
 <!-- calander -->
 <link rel="stylesheet" href="{{ url('/') }}/template/css/flatweather.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/nice-select.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/style.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/color.css">
 <link rel="stylesheet" href="{{ url('/') }}/template/css/responsive.css">
 <style type="text/css">
-	#lab
-	{
-		color:rgb(15, 13, 13);
-		font-weight: bold;
-		font-size: 14px;
-	}
-	#lab1
-	{
-		color:rgb(38, 35, 35);
+    #slideshow {
+  margin: 80px auto;
+  position: relative;
+    width: inherit;
+    height: 500px;
+  padding: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
 
-		
-	}
+#slideshow > div {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
 </style>
 </head>
 <body>
@@ -50,8 +53,8 @@
           <header>
                             <div class="side-menus">
                                 <div class="side-header">
-                                    <div class="logo"><a title="" href="index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
-                                @foreach($detail as $admin)
+                                    <div class="logo"><a title="" href="index-2.html"><img alt="" src="images/logo2.png"></a></div>
+                                    @foreach($detail as $admin)
                     @if($admin->role!="Editor")
                     <nav class="slide-menu">
                                         <span>{{$admin->role}}<i class="ti-layout"></i></span>
@@ -130,6 +133,8 @@
                                     </nav>
                                     @endif
                          @endforeach
+
+
                                 </div>
                             </div>
                         </header>
@@ -138,15 +143,16 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <div class="logo"><a href="index-2.html" title=""><img src="{{ url('/') }}/template/images/logo.png" alt=""></a></div>
+                                        <div class="logo"><a href="index-2.html" title=""><img src="images/logo.png" alt=""></a></div>
                                     </div>
                                     <div class="col-lg-9">
                                         <ul class="notify-area">
                                             <li>
                                                 <div class="nav-icon3"> <span></span> <span></span> <span></span> <span></span> </div>
-                                                <i class="fa fa-navicon nav-icon3"></i>
+                                               <!--  <i class="fa fa-navicon nav-icon3"></i> -->
                                             </li>
-                                          
+                                            
+                                            
                                             <li class="mega"><a href="#" title="">mega</a>
                                                 <div class="mega-menu">
                                                     <div class="row mega-style1">
@@ -225,13 +231,14 @@
                                                     <li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
                                                     <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
                                                 </ul>
-                                                  <span class="drop-bottom"><a href="{{ url('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span>   </div>
+                                                <span class="drop-bottom"><a href="{{ url('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-          <div class="main-content">            
+          <div class="main-content">
+            
             <div class="responsive-header">
                                 <div class="logo-area">
                                     <ul class="notify-area">
@@ -309,7 +316,7 @@
                                             <li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
                                             <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
                                         </ul>
-                                        <span class="drop-bottom"><a href="#" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+                                        <span class="drop-bottom"><a href="{{ url('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
                                     </div>
                                     <ul class="seting-area">
                                     <li class="langages">
@@ -341,78 +348,93 @@
                     <span>Welcome To web Admin Panel!</span>
                   </div>
                   <ul class="bread-crumb">
-                    <li><a href="{{url('adminhome')}}" title=""><i class="fa fa-home"></i></a></li>
+                   <li><a href="{{url('adminhome')}}" title=""><i class="fa fa-home"></i></a></li>
                     <li>Dashbord</li>
                   </ul>
                 </div>
+                @foreach($product as $pro_detail)
+                 <div class="gap no-gap">
+                  <div class="inner-bg">
+                    <div class="product-details">
+                      <div class="gap no-top">
+                        <div class="product-details-wrapper paddlr70">
+                          <div class="product-detail paddlr100">
+                            <div class="row">
+                              <div class="col-lg-12 col-md-12">
 
-            </div>
-<div class="gap no-gap">
-    <div class="inner-bg">
 
-       <div>
+                                      <?php
+                                       $image=explode("#@#", $pro_detail->image_gallery);                             
+                                        ?>
+                                        <div id="slideshow">
+                                        @foreach ($image as $key => $value)
+                                        <div>
+                                         <img src="{{$value}}">
+                                       </div>
+                                       @endforeach
+                                      </div>
 
-                          <div class="add-prod-from">
 
-                                @if(session()->has('message'))
-                                    <div class="alert alert-success" style="background-color: lightgreen; color: white">
-                                     {{ session()->get('message') }}
-                                    </div>
-                                @endif
-                           @if($errors->any())
-                             <div class="alert alert-danger" style=" color: green; font-weight:bold;">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                          <div class="row">
-                            <div class="col-md-6">
-                               @foreach($sub_category as $sub_category)
-                                     <form action="{{url('upadet_subcategories',$sub_category->subcategory_id)}}" method="post">
-                                     {{ csrf_field() }} 
+                              </div>
+                              <div class="col-lg-7 col-md-7">
+                                <div class="product-detail-info">
+                                  <div class="rating-reviews">
+                                    <div class="starz-rating"> <span class="fa fa-star-o"></span> <span class="fa fa-star-o "></span> <span class="fa fa-star-o "></span> <span class="fa fa-star-o "></span> <span class="fa fa-star-o"></span> </div>
+                                     
 
-                                     <label>Category <span>*</span> </label>
-                                     <div class="col-md-6">
-                                      <label id="lab">{{$sub_category->category_name}}</label>
+                                    <ul>
+                                      <li><a href="#" class="review-btn" title="">(03 Review)</a></li>
+                                    </ul>
                                   </div>
+                                  <h1>{{$pro_detail->product_name}}</h1>
+                                  <p>{{$pro_detail->description}}</p>
+                                  @if($pro_detail->discount!=0)
+                                  <label hidden>{{$_Discont=($pro_detail->discount/100)*$pro_detail->price}}</label>
+                                    <label hidden>{{$_price=$pro_detail->price-$_Discont}}</label>
+                                  <span class="price"> <ins>${{$_price}}</ins> <del>${{$pro_detail->price}}</del> </span>
+                                  @else
+                                  <span class="price"> <ins>${{$pro_detail->price}}</ins></span>
+                                  @endif
+                                  <div class="cart-quantity">
+                                    <form>
+                                      <label>Quantity:</label>
+                                      <input type="text" value="{{$pro_detail->product_quantity}}">
+                                    </form>
+                                    <a class="addcart" href="{{url('product')}}" title="">back</a>
+
 
                                     
-                                     <label>Sub Category <span>*</span> </label>
-                                                              
-                                     <input type="text" placeholder="sub categorycategories" value="{{$sub_category->subcategory_name}}" name="subcategory_name" style="border-color: rgb(107, 213, 234)">
-                                @if ($errors->has('subcategory_name'))
-                                <div class="error">{{ $errors->first('subcategory_name') }}</div>
-                                @endif
+
+                                  </div>
+                                </div>
                               </div>
-                                                                  
-
-                                    <div class="col-md-12">
-                                      <div class="buttonz">
-                                        <button type="submit" name="save" onclick="#link3">update child Category</button>
-                                        <button name="cancel"><a href="back" title="">BACK</a></button>
-                                      </div>
-                                        </div>
-                                      </form>
-                                      @endforeach
+                            </div>
+                          </div>
                         </div>
-                      </div>      
+                      </div>
+
+                      <!-- <div class="gap no-gap">
+                        <div class="single-post-detail paddlr130">
+                          <p>All right. Well, take care yourself. I guess that’s what you’re best, presence old master? A tremor in the Force. The last time felt it was in the presence of my old master. I have traced the Rebel spies to her European languages are members. Maybe only in the aspect that I think that I haven’t seen until now teams much better than Southampton. It (a top-four finish) would be fantastic. But we said before, you live game by game and we have to work hard Lorem ipsum dolor sit amet, adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur elit. Ut elit tellus, nec ullamcorper mattis,leo.consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.consectetur adipiscing elit..</p>
+                          <ul>
+                            <li>number of columns, choose between 8 image sizes</li>
+                            <li>Choose between the simple</li>
+                            <li>mosaic layout, set your number of columns</li>
+                            <li>Tristique pid mus non nec dis turpis odio</li>
+                          </ul>
+                        </div>
+                      </div> -->
+
+
                     </div>
-
-
-
-                       
-
-
-               
-
-               
+                    <!-- Product Details --> 
+                  </div>
+                </div>
+                @endforeach
               </div>
               <div class="bottombar"> 
-                    <span>© 2019. Dewwater. All Rights Reserved.</span>
-                </div>
+					<span>© 2019. Dewwater. All Rights Reserved.</span>
+				</div>
               <!-- bottombar --> 
             </div>
           </div>
@@ -490,99 +512,23 @@
 <script src="{{ url('/') }}/template/js/chart.min.js"></script> 
 <script src="{{ url('/') }}/template/js/echart.min.js"></script> 
 <script src="{{ url('/') }}/template/js/jquery.sparkline.min.js"></script> 
-<script src="{{ url('/') }}/template/js/nice-select.js"></script> 
 <script src="{{ url('/') }}/template/js/custom2.js"></script> 
 <script src="{{ url('/') }}/template/js/flatweather.min.js"></script> 
 <script src="{{ url('/') }}/template/js/html5lightbox.js"></script> 
-<script src="{{ url('/') }}/template/js/custom.js"></script><!-- scripts -->
+<script src="{{ url('/') }}/template/js/touchspin.js"></script><!-- Touch Spin for product plus minus--> 
+<script src="{{ url('/') }}/template/js/custom.js"></script>
 <script type="text/javascript">
-    $('#category').on('change',function()
-    {
-  
-     var category_id = $(this).val();    
-   if(category_id)
-       {    
-       // alert(category_id);
+    $("#slideshow > div:gt(0)").hide();
 
-        $.ajax(
-        {
-           type:"GET",
-           url:"{{url('subcategory_select')}}?category_id="+category_id,
-           success:function(res)
-           {       
-                         
-                $('#sub').empty();
-               
-                 var toAppend = '<select name="subcategory_id" >';
-                    $.each(res, function(key, value)
-                    {
-                          toAppend += '<option value="'+value.subcategory_id+'">'+value.subcategory_name+'</option>';
-                    });
-                    $('#sub').html(toAppend);
-           }
-        });
-    } 
-   });
+setInterval(function() {
+  $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+}, 3000);
+</script><!-- scripts -->
 
-
-
-$('#category1').on('change',function()
-    {
-   
-     var category_id = $(this).val();
-
-   if(category_id)
-       {    
-       // alert(category_id);
-
-        $.ajax(
-        {
-           type:"GET",
-           url:"{{url('subcategory_select')}}?category_id="+category_id,
-           success:function(res)
-           {       
-                         
-                $('#sub1').empty();
-               
-                 var toAppend = '<select name="subcategory_id" ><option value"">select</option>';
-                    $.each(res, function(key, value)
-                    {
-                          toAppend += '<option value="'+value.subcategory_id+'">'+value.subcategory_name+'</option>';
-                    });
-                    $('#sub1').html(toAppend);
-           }
-        });
-    } 
-   });
-$('#sub1').on('change',function()
-    {
-  
-     var subcategory_id1 = $('select[name="subcategory_id"]').val();   
-     //alert(subcategory_id1);
-     if(subcategory_id1)
-         {    
-           alert(subcategory_id1);
-           $.ajax(
-         {
-           type:"GET",
-           url:"{{url('child_select')}}?subcategory_id="+subcategory_id1,
-           success:function(resl)
-           {       
-                         
-                $('#child').empty();
-               
-                 var toAppend = '<select name="subcategory_id" >';
-                    $.each(resl, function(key, value)
-                    {
-                          toAppend += '<option value="'+value.child_category_id+'">'+value.childcategory_name+'</option>';
-                    });
-                    $('#child').html(toAppend);
-           }
-        });
-    } 
-   });
-
-</script>
 </body>
-
 </html>

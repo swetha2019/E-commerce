@@ -38,34 +38,42 @@
                             <div class="side-menus">
                                 <div class="side-header">
                                     <div class="logo"><a title="" href="index.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
-                                  <nav class="slide-menu">
-                                        <span>Navigation <i class="ti-layout"></i></span>
+                                  @foreach($detail as $admin)
+                    @if($admin->role!="Editor")
+                    <nav class="slide-menu">
+                                        <span>{{$admin->role}}<i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
-                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
+                                            <li> <a title="categories_form" href="{{url('adminhome')}}"><i class="fa fa-dashboard"></i><span>Dashbord</span></a>
                                                 
                                             </li>
-                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
+                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-navicon"></i><span>Categories</span></a>
+                                                
+                                            </li>
+
+                                            <li> <a title="" href="{{url('product')}}"><i class="fa fa-shopping-cart"></i><span>Products</span></a>
+                                                
+                                            </li>
+                                             <li> <a title="" href="{{url('subscription')}}"><i class="fa fa-laptop"></i><span>Subscriptions</span></a>
+                                                
+                                            </li>
+                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-user"></i><span>Vendores Details</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
                                                     <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
+                                            
+                                            @if($admin->role=="Super_Admin")
+                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-user"></i><span>New User</span></a>
+                                                
                                                 <ul class="mega">
-                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product.html" title="">product</a></li>
-                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product-detail.html">product-detail</a></li>
-                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product-order.html">product-order</a></li>
-                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product-add.html">add product</a></li>
-                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product-cart.html">product cart</a></li>
-                                                </ul>
-                                            </li>
-                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
-                                                <ul class="mega">
-                                                    <li><a href="{{ url('/') }}/{{ url('/') }}/template/product.html" title="">User</a></li>
+                                                    <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
                                                     <li><a href="{{url('adminuser_form')}}">Add new user</a></li>
                                                     <li><a href="{{ url('view_user') }}">view user detail</a></li>
                                                 </ul>
+                                               
                                             </li>
+                                             @endif
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
                                                 <ul class="mega">
                                                     <li><a href="index-boxed.html" title="">boxed layout</a></li>
@@ -76,6 +84,41 @@
                                             </li>
                                         </ul>
                                     </nav>
+                                    @else
+                                   av class="slide-menu">
+                                        <span>{{$admin->role}}<i class="ti-layout"></i></span>
+                                        <ul class="parent-menu">
+                                            <li> <a title="categories_form" href="{{url('adminhome')}}"><i class="fa fa-dashboard"></i><span>Dashbord</span></a>
+                                                
+                                            </li>
+                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-navicon"></i><span>Categories</span></a>
+                                                
+                                            </li>
+
+                                            <li> <a title="" href="{{url('product')}}"><i class="fa fa-shopping-cart"></i><span>Products</span></a>
+                                                
+                                            </li>
+                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-user"></i><span>Vendores Details</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
+                                                    <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
+                                                </ul>
+                                            </li>
+                                                                                         
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="index-boxed.html" title="">boxed layout</a></li>
+                                                    <li><a href="overlap-sidebar.html">overlap sliderbar</a></li>
+                                                </ul>
+                                            </li>
+                                           
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    @endif
+                         @endforeach
+
+
                                 </div>
                             </div>
                         </header>
@@ -172,7 +215,7 @@
                                                     <li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
                                                     <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
                                                 </ul>
-                                                <span class="drop-bottom"><a href="#" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+                                                <span class="drop-bottom"><a href="{{ url('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -293,6 +336,11 @@
                                     </div>
                                    
                                     <div class="widget">
+                                       @if(session()->has('message'))
+                                        <div class="alert alert-success" style="background-color: lightgreen; color: white">
+                                            {{ session()->get('message') }}
+                                        </div>
+                                    @endif
                                         <div class="gap no-gap">
                   <div class="inner-bg">
                     <div class="element-title">
@@ -313,58 +361,26 @@
                         </thead>
                         <tbody>
                         	@foreach($product as $products)
-                        	<?php
-                        	$image=explode("#@#", $products->image_gallery);
-                        	 
-                              	?>
+                        	
                           <tr>
-                            <td>@foreach ($image as $key => $value)<image src="{{$value}}" height="200px" width="200px"><br>@endforeach</td>
+                            <td><image src="{{$products->product_image}}" height="200px" width="200px"><br></td>
                             <td>{{$products->product_name}}</td>
                             <td>
                             	{{$products->category_name}}<br>
                             	{{$products->subcategory_name}}
                              </td>
-                            <td>{{$products->price}}</td>
-                            <td>$251</td>
+                            <td>${{$products->price}}</td>
+                            <td>{{$products->product_quantity}}</td>
                             <td>{{$products->discount}}%</td>
-                            <td><a href="#" title=""><i class="icon-trash"></i></a>
-							  	<a href="#" title=""><i class="fa fa-navicon"></i></a>
+                            <td><a href="{{url('product_delete',$products->id)}}" title=""><i class="icon-trash"></i></a>
+							  	<a href="{{url('product_detail',$products->id)}}" title=""><i class="fa fa-navicon"></i></a>
 							</td>
                           </tr>
                           @endforeach
                         </tbody>
                       </table>
-                      <div class="gap">
-                        <div class="discount-copon">
-							<div class="row">
-                          <div class="col-md-4"> <span>discount</span>
-                            <p>If you have any discount vouchers/coupans, apply here. If you don't have any, click here to get one.</p>
-                          </div>
-                          <div class="col-md-8">
-                            <form method="post">
-                              <label>Coupan No</label>
-                              <input type="text" placeholder="Coupen No.">
-                              <button type="submit">apply</button>
-                            </form>
-                          </div>
-						  </div>
-                        </div>
-                      </div>
-                      <div class="gap no-gap">
-                        <div class="cart-summary">
-                          <div class="summery-title">
-                            <h3>Cart Summary</h3>
-                          </div>
-                          <ul class="cart-total">
-                            <li>Total:<span>$355</span></li>
-                            <li>Coupan Discount:<span>-$55</span></li>
-                            <li>Delivery Charges:<span>$12</span></li>
-                            <li>Tax:<span>$5</span></li>
-                            <li>Payable Amount:<span>$460</span></li>
-                          </ul>
-                          <div class="total-btns"> <a class="btn-st drk-gry-clr" href="#" title="">Place order</a> <a class="btn-st drk-gry-clr" href="#" title="">Cancel order</a> </div>
-                        </div>
-                      </div>
+                      
+                      
                     </div>
                   </div>
                 </div>
@@ -469,7 +485,6 @@
     <script src="{{ url('/') }}/template/js/jquery.sparkline.min.js"></script>
     <script src="{{ url('/') }}/template/js/custom2.js"></script>
     <script src="{{ url('/') }}/template/js/custom.js"></script>
-    
     <!-- scripts -->
 </body>
 

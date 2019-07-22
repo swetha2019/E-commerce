@@ -40,31 +40,33 @@
                             <div class="side-menus">
                                 <div class="side-header">
                                     <div class="logo"><a title="" href="index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
-                                   @foreach($detail as $admin)
+                     @foreach($detail as $admin)
                     @if($admin->role!="Editor")
                     <nav class="slide-menu">
                                         <span>{{$admin->role}}<i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
-                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
+                                            <li> <a title="categories_form" href="{{url('adminhome')}}"><i class="fa fa-dashboard"></i><span>Dashbord</span></a>
                                                 
                                             </li>
-                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
+                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-navicon"></i><span>Categories</span></a>
+                                                
+                                            </li>
+
+                                            <li> <a title="" href="{{url('product')}}"><i class="fa fa-shopping-cart"></i><span>Products</span></a>
+                                                
+                                            </li>
+                                             <li> <a title="" href="{{url('subscription')}}"><i class="fa fa-laptop"></i><span>Subscriptions</span></a>
+                                                
+                                            </li>
+                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-user"></i><span>Vendores Details</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
                                                     <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
-                                                <ul class="mega">
-                                                    <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-detail.html">product-detail</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
-                                                </ul>
-                                            </li>
+                                            
                                             @if($admin->role=="Super_Admin")
-                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>New User</span></a>
+                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-user"></i><span>New User</span></a>
                                                 
                                                 <ul class="mega">
                                                     <li><a href="{{ url('/') }}/template/product.html" title="">User</a></li>
@@ -85,28 +87,26 @@
                                         </ul>
                                     </nav>
                                     @else
-                                    <nav class="slide-menu">
+                                   av class="slide-menu">
                                         <span>{{$admin->role}}<i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
-                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-dashboard"></i><span>Categories</span></a>
+                                            <li> <a title="categories_form" href="{{url('adminhome')}}"><i class="fa fa-dashboard"></i><span>Dashbord</span></a>
                                                 
                                             </li>
-                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>Vendores Details</span></a>
+                                            <li> <a title="categories_form" href="{{url('categories_form')}}"><i class="fa fa-navicon"></i><span>Categories</span></a>
+                                                
+                                            </li>
+
+                                            <li> <a title="" href="{{url('product')}}"><i class="fa fa-shopping-cart"></i><span>Products</span></a>
+                                                
+                                            </li>
+                                           <li class="menu-item-has-children"> <a title=""><i class="fa fa-user"></i><span>Vendores Details</span></a>
                                                 <ul class="mega">
                                                     <li><a href="{{url('new_vendor')}}" title="">New Vendores</a></li>
                                                     <li><a href="{{url('rect_vendor')}}"> Recently used Vendores</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
-                                                <ul class="mega">
-                                                    <li><a href="{{ url('/') }}/template/product.html" title="">product</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-detail.html">product-detail</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-order.html">product-order</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-add.html">add product</a></li>
-                                                    <li><a href="{{ url('/') }}/template/product-cart.html">product cart</a></li>
-                                                </ul>
-                                            </li>
-                                             
+                                                                                         
                                             <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
                                                 <ul class="mega">
                                                     <li><a href="index-boxed.html" title="">boxed layout</a></li>
@@ -214,7 +214,7 @@
                                                     <li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
                                                     <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
                                                 </ul>
-                                                <span class="drop-bottom"><a href="#" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+                                                <span class="drop-bottom"><a href="{{url('admin_logout')}}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -330,7 +330,7 @@
                     <span>Welcome To web Admin Panel!</span>
                   </div>
                   <ul class="bread-crumb">
-                    <li><a href="{{url('adminhome')}}" title="">Home</a></li>
+                   <li><a href="{{url('adminhome')}}" title=""><i class="fa fa-home"></i></a></li>
                     <li>Dashbord</li>
                   </ul>
                 </div>

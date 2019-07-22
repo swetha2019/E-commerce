@@ -1,57 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<title>Web Admin panel</title>
-<link rel="icon" type="{{ url('/') }}/template/image/png" href="images/fav.png">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Wooble Html5 Admin panel</title>
+    <link rel="icon" type="{{ url('/') }}/template/image/png" href="images/fav.png">
+    <link rel="stylesheet" href="{{ url('/') }}/template/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/template/css/themify-icons.css">
     <link rel="stylesheet" href="{{ url('/') }}/template/css/line-icons.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/bootstrap.min.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/animate.min.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/perfect-scrollbar.min.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/jquery.datepicker.min.css">
-<!-- calander -->
-<link rel="stylesheet" href="{{ url('/') }}/template/css/flatweather.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/nice-select.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/style.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/color.css">
-<link rel="stylesheet" href="{{ url('/') }}/template/css/responsive.css">
-<style type="text/css">
-	#lab
-	{
-		color:rgb(15, 13, 13);
-		font-weight: bold;
-		font-size: 14px;
-	}
-	#lab1
-	{
-		color:rgb(38, 35, 35);
+    <link rel="stylesheet" href="{{ url('/') }}/template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/template/css/animate.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/template/css/perfect-scrollbar.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/template/css/jquery.datepicker.min.css">
+    <!-- calander -->
+    <link rel="stylesheet" href="{{ url('/') }}/template/css/style.css">
+    <link rel="stylesheet" href="{{ url('/') }}/template/css/color.css">
+    <link rel="stylesheet" href="{{ url('/') }}/template/css/responsive.css">
 
-		
-	}
-</style>
 </head>
+
 <body>
-<!-- Start Page Loading -->
+    <!-- Start Page Loading -->
     <div id="loader-wrapper">
-      <div id="loader"></div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
     </div>
-<div class="panel-layout">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="main-page">
-          <header>
+    <div class="panel-layout">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="main-page">
+                        <header>
                             <div class="side-menus">
                                 <div class="side-header">
-                                    <div class="logo"><a title="" href="index-2.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
-                                @foreach($detail as $admin)
+                                    <div class="logo"><a title="" href="index.html"><img alt="" src="{{ url('/') }}/template/images/logo2.png"></a></div>
+                                 @foreach($detail as $admin)
                     @if($admin->role!="Editor")
                     <nav class="slide-menu">
                                         <span>{{$admin->role}}<i class="ti-layout"></i></span>
@@ -130,6 +117,8 @@
                                     </nav>
                                     @endif
                          @endforeach
+
+
                                 </div>
                             </div>
                         </header>
@@ -138,7 +127,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <div class="logo"><a href="index-2.html" title=""><img src="{{ url('/') }}/template/images/logo.png" alt=""></a></div>
+                                        <div class="logo"><a href="index.html" title=""><img src="images/logo.png" alt=""></a></div>
                                     </div>
                                     <div class="col-lg-9">
                                         <ul class="notify-area">
@@ -146,7 +135,8 @@
                                                 <div class="nav-icon3"> <span></span> <span></span> <span></span> <span></span> </div>
                                                 <i class="fa fa-navicon nav-icon3"></i>
                                             </li>
-                                          
+                                            
+                                            
                                             <li class="mega"><a href="#" title="">mega</a>
                                                 <div class="mega-menu">
                                                     <div class="row mega-style1">
@@ -203,10 +193,10 @@
                                             <li class="langages">
                                                 <a href="#" title="">Eng</a>
                                                 <ul class="drop language">
-                                                    <li class="lang-selected"><a href="#"><i class="fa fa-check"></i> Eng</a></li>
-                                                    <li><a href="#">Rus</a></li>
-                                                    <li><a href="#">Jap</a></li>
-                                                    <li><a href="#">Arb</a></li>
+                                                    <li class="lang-selected"><a href=""><i class="fa fa-check"></i> Eng</a></li>
+                                                    <li><a href="">Rus</a></li>
+                                                    <li><a href="">Jap</a></li>
+                                                    <li><a href="">Arb</a></li>
                                                 </ul>
                                             </li>
                                             <li class="setting-panel"><a href="#" title=""><i class="icon-equalizer"></i></a></li>
@@ -215,7 +205,7 @@
                                     <div class="col-lg-1">
                                         <div class="user-head">
                                             <div class="admin">
-                                                <div class="admin-avatar"><img src="images/resources/admin.png" alt=""> <i class="online"></i> </div>
+                                                <div class="admin-avatar"><img src="{{ url('/') }}/template/images/resources/admin.png" alt=""> <i class="online"></i> </div>
                                             </div>
                                             <div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
                                                 <ul class="drop-meta">
@@ -225,21 +215,21 @@
                                                     <li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
                                                     <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
                                                 </ul>
-                                                  <span class="drop-bottom"><a href="{{ url('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span>   </div>
+                                                <span class="drop-bottom"><a href="{{ url('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-          <div class="main-content">            
-            <div class="responsive-header">
+                        <div class="main-content">
+                            <div class="responsive-header">
                                 <div class="logo-area">
                                     <ul class="notify-area">
                                         <li>
                                             <div class="nav-icon3"> <span></span> <span></span> <span></span> <span></span> </div>
                                         </li>
                                         <li class="notifications"><a href="#" title=""><i class="fa fa-bell-o"></i></a><span class="red-bg">02</span>
-                                            <div class="drop notify"> <span class="drop-head">Notifications</span>
+                                           <!-- <div class="drop notify"> <span class="drop-head">Notifications</span>
                                                 <ul class="drop-meta">
                                                     <li> <i class="notifi-icon blue">N</i>
                                                         <div class="notifi-meta">
@@ -299,7 +289,7 @@
                                     
                                     <div class="user-head">
                                     <div class="admin">
-                                        <div class="admin-avatar"> <img src="images/resources/admin.png" alt=""> <i class="online"></i> </div>
+                                        <div class="admin-avatar"> <img src="{{ url('/') }}/template/images/resources/admin.png" alt=""> <i class="online"></i> </div>
                                     </div>
                                     <div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
                                         <ul class="drop-meta">
@@ -309,16 +299,16 @@
                                             <li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
                                             <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
                                         </ul>
-                                        <span class="drop-bottom"><a href="#" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
-                                    </div>
+                                       <span class="drop-bottom"><a href="{{ url('admin_logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span>  </div>
+                                    </div>-->
                                     <ul class="seting-area">
                                     <li class="langages">
                                         <a title="" href="#">Eng</a>
                                         <ul class="drop language">
-                                            <li class="lang-selected"><a href="#"><i class="fa fa-check"></i> Eng</a></li>
-                                            <li><a href="#">Rus</a></li>
-                                            <li><a href="#">Jap</a></li>
-                                            <li><a href="#">Arb</a></li>
+                                            <li class="lang-selected"><a href=""><i class="fa fa-check"></i> Eng</a></li>
+                                            <li><a href="">Rus</a></li>
+                                            <li><a href="">Jap</a></li>
+                                            <li><a href="">Arb</a></li>
                                         </ul>
                                     </li>
                                     <li class="setting-panel"><a title="" href="#"><i class="icon-equalizer"></i></a></li>
@@ -331,97 +321,96 @@
                                     </form>
                                 </div>
                             </div>
-            <!-- responsive header -->
-            <div class="panel-body">
-              
-              <div class="content-area">
-                <div class="sub-bar">
-                  <div class="sub-title">
-                    <h4>Dashboard:</h4>
-                    <span>Welcome To web Admin Panel!</span>
-                  </div>
-                  <ul class="bread-crumb">
-                    <li><a href="{{url('adminhome')}}" title=""><i class="fa fa-home"></i></a></li>
-                    <li>Dashbord</li>
-                  </ul>
-                </div>
-
-            </div>
-<div class="gap no-gap">
-    <div class="inner-bg">
-
-       <div>
-
-                          <div class="add-prod-from">
-
-                                @if(session()->has('message'))
-                                    <div class="alert alert-success" style="background-color: lightgreen; color: white">
-                                     {{ session()->get('message') }}
+                            <!-- responsive header -->
+                            <div class="panel-body">
+                                <div class="content-area">
+                                    <div class="sub-bar">
+                                        <div class="sub-title">
+                                            <h4>Dashboard:</h4>
+                                            <span>Welcome To web Admin Panel!</span>
+                                        </div>
+                                        <ul class="bread-crumb">
+                                            <li><a href="{{url('adminhome')}}" title=""><i class="fa fa-home"></i></a></li>
+                                            <li>Dashbord</li>
+                                        </ul>
                                     </div>
-                                @endif
-                           @if($errors->any())
-                             <div class="alert alert-danger" style=" color: green; font-weight:bold;">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                          <div class="row">
-                            <div class="col-md-6">
-                               @foreach($sub_category as $sub_category)
-                                     <form action="{{url('upadet_subcategories',$sub_category->subcategory_id)}}" method="post">
-                                     {{ csrf_field() }} 
-
-                                     <label>Category <span>*</span> </label>
-                                     <div class="col-md-6">
-                                      <label id="lab">{{$sub_category->category_name}}</label>
-                                  </div>
+                                   
+                                    <div class="widget">
+                                       @if(session()->has('message'))
+                                        <div class="alert alert-success" style="background-color: lightgreen; color: white">
+                                            {{ session()->get('message') }}
+                                        </div>
+                                    @endif
+                                        <div class="gap no-gap">
+                  <div class="inner-bg">
+                    <div class="element-title">
+                      <h4>Subscription Detail</h4>
+                    </div>
+                    <div class="cart-page">
+                      <table class="prj-tbl tbl3 bordered table-responsive">
+                        <thead>
+                          <tr>
+                            <th>Vendor Name</th>
+                            <th>Package</th>
+                            <th>price</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        	@foreach($subscription as $subscription)
+                        	
+                          <tr>
+                            <td>{{$subscription->name}}</td>
+                            <td>{{$subscription->pack_name}}</td>
+                            <td>${{$subscription->pack_amount}}</td>
+                            <td>{{$subscription->email}}</td>
+                            <td>{{$subscription->phone}}</td>
+                            
+                            <td><a href="{{url('subscription_delete',$subscription->id)}}" title=""><i class="icon-trash"></i></a>
+							  	<!-- <a href="{{url('subscription_detail',$subscription->id)}}" title=""><i class="fa fa-navicon"></i></a> -->
+							</td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+                                    <!-- ongoing projects widget -->
 
                                     
-                                     <label>Sub Category <span>*</span> </label>
-                                                              
-                                     <input type="text" placeholder="sub categorycategories" value="{{$sub_category->subcategory_name}}" name="subcategory_name" style="border-color: rgb(107, 213, 234)">
-                                @if ($errors->has('subcategory_name'))
-                                <div class="error">{{ $errors->first('subcategory_name') }}</div>
-                                @endif
-                              </div>
-                                                                  
 
-                                    <div class="col-md-12">
-                                      <div class="buttonz">
-                                        <button type="submit" name="save" onclick="#link3">update child Category</button>
-                                        <button name="cancel"><a href="back" title="">BACK</a></button>
-                                      </div>
-                                        </div>
-                                      </form>
-                                      @endforeach
+
+
+
+
+                                    <!-- three widgets -->
+
+                                   
+                                    <!-- line chart widget full -->
+
+                                    
+                                    <!-- recent invoice widget -->
+
+                                    
+                                    <!-- three widgets with clanader -->
+
+                                </div>
+                                <div class="bottombar"> 
+									<span>© 2019. Dewwater. All Rights Reserved.</span>
+                                </div>
+                            </div>
                         </div>
-                      </div>      
                     </div>
-
-
-
-                       
-
-
-               
-
-               
-              </div>
-              <div class="bottombar"> 
-                    <span>© 2019. Dewwater. All Rights Reserved.</span>
                 </div>
-              <!-- bottombar --> 
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
-<div class="side-panel">
+    <div class="side-panel">
             <h4 class="panel-title">General Setting</h4>
             <form method="post">
                 <div class="setting-row">
@@ -484,105 +473,15 @@
                 </div>
             </form>
         </div><!-- side panel -->
-<script src="{{ url('/') }}/template/js/jquery.js"></script> 
-<script src="{{ url('/') }}/template/js/bootstrap.min.js"></script> 
-<script src="{{ url('/') }}/template/js/perfect-scrollbar.jquery.min.js"></script> 
-<script src="{{ url('/') }}/template/js/chart.min.js"></script> 
-<script src="{{ url('/') }}/template/js/echart.min.js"></script> 
-<script src="{{ url('/') }}/template/js/jquery.sparkline.min.js"></script> 
-<script src="{{ url('/') }}/template/js/nice-select.js"></script> 
-<script src="{{ url('/') }}/template/js/custom2.js"></script> 
-<script src="{{ url('/') }}/template/js/flatweather.min.js"></script> 
-<script src="{{ url('/') }}/template/js/html5lightbox.js"></script> 
-<script src="{{ url('/') }}/template/js/custom.js"></script><!-- scripts -->
-<script type="text/javascript">
-    $('#category').on('change',function()
-    {
-  
-     var category_id = $(this).val();    
-   if(category_id)
-       {    
-       // alert(category_id);
-
-        $.ajax(
-        {
-           type:"GET",
-           url:"{{url('subcategory_select')}}?category_id="+category_id,
-           success:function(res)
-           {       
-                         
-                $('#sub').empty();
-               
-                 var toAppend = '<select name="subcategory_id" >';
-                    $.each(res, function(key, value)
-                    {
-                          toAppend += '<option value="'+value.subcategory_id+'">'+value.subcategory_name+'</option>';
-                    });
-                    $('#sub').html(toAppend);
-           }
-        });
-    } 
-   });
-
-
-
-$('#category1').on('change',function()
-    {
-   
-     var category_id = $(this).val();
-
-   if(category_id)
-       {    
-       // alert(category_id);
-
-        $.ajax(
-        {
-           type:"GET",
-           url:"{{url('subcategory_select')}}?category_id="+category_id,
-           success:function(res)
-           {       
-                         
-                $('#sub1').empty();
-               
-                 var toAppend = '<select name="subcategory_id" ><option value"">select</option>';
-                    $.each(res, function(key, value)
-                    {
-                          toAppend += '<option value="'+value.subcategory_id+'">'+value.subcategory_name+'</option>';
-                    });
-                    $('#sub1').html(toAppend);
-           }
-        });
-    } 
-   });
-$('#sub1').on('change',function()
-    {
-  
-     var subcategory_id1 = $('select[name="subcategory_id"]').val();   
-     //alert(subcategory_id1);
-     if(subcategory_id1)
-         {    
-           alert(subcategory_id1);
-           $.ajax(
-         {
-           type:"GET",
-           url:"{{url('child_select')}}?subcategory_id="+subcategory_id1,
-           success:function(resl)
-           {       
-                         
-                $('#child').empty();
-               
-                 var toAppend = '<select name="subcategory_id" >';
-                    $.each(resl, function(key, value)
-                    {
-                          toAppend += '<option value="'+value.child_category_id+'">'+value.childcategory_name+'</option>';
-                    });
-                    $('#child').html(toAppend);
-           }
-        });
-    } 
-   });
-
-</script>
+    <script src="{{ url('/') }}/template/js/jquery.js"></script>
+    <script src="{{ url('/') }}/template/js/jquery-ui.min.js"></script>
+    <script src="{{ url('/') }}/template/js/bootstrap.min.js"></script>
+    <script src="{{ url('/') }}/template/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="{{ url('/') }}/template/js/chart.min.js"></script>
+    <script src="{{ url('/') }}/template/js/jquery.sparkline.min.js"></script>
+    <script src="{{ url('/') }}/template/js/custom2.js"></script>
+    <script src="{{ url('/') }}/template/js/custom.js"></script>
+    <!-- scripts -->
 </body>
 
 </html>
