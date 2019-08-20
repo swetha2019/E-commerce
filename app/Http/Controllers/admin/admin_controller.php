@@ -39,7 +39,10 @@ class admin_controller extends Controller
                               {
                                   $email=$request->input('email');
                                   $password=$request->input('password');
-                                  $data= db::table('vendor_registration')->where('email',$email)->Where('usertype','admin')->pluck('password');
+                                  $data= db::table('vendor_registration')
+                                                     ->where('email',$email)
+                                                     ->Where('usertype','admin')
+                                                     ->pluck('password');
                                    // dd($data);
                                     //exit();
                                    if(isset($data[0]))
@@ -47,22 +50,25 @@ class admin_controller extends Controller
                                       $hased_password=$data[0];
                                       if(password_verify($password,$hased_password))
                                        {
-                                        $id= db::table('vendor_registration')->where('email',$email)->Where('usertype','admin')->pluck('id');
-                                        if(isset($id[0]))
-                                            {
-                                            $request->session()->put('userid',$id[0]);
-                                            return redirect('adminhome');
+                                        $id= db::table('vendor_registration')
+                                                              ->where('email',$email)
+                                                              ->Where('usertype','admin')
+                                                              ->pluck('id');
+                                         if(isset($id[0]))
+                                           {
+                                                $request->session()->put('userid',$id[0]);
+                                                return redirect('adminhome');                   
                                             }
-                                            else
+                                          else
                                             {
                                             return  redirect('admin')->withErrors($validator);
                                             }
                                         }
-                                         else
-                                     {
-                                        return  redirect('admin')->with('message','Password not currect');
-                                     }
-                                      }
+                                        else
+                                           {
+                                            return  redirect('admin')->with('message','Password not currect');
+                                            }
+                                    }
                                     
                                    else
                                      {
@@ -83,14 +89,33 @@ class admin_controller extends Controller
                             $search = $request->id;
                             $id=$request->session()->get('userid');
                             $usertype="admin";
-                            $admin_detail['detail']=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
+                            $admin_detail['detail']=DB::table('vendor_registration')
+                                                            ->where('usertype',$usertype)
+                                                            ->Where('id',$id)
+                                                            ->get();
 
-                            $newvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',0)->where('verified',1)->get();
-                            $recentvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',1)->where('verified',1)->get();
+                            $newvendor=DB::table('vendor_registration')
+                                                           ->where('usertype','vendor')
+                                                           ->Where('approval_status',0)
+                                                           ->where('verified',1)
+                                                           ->get();
+                            $recentvendor=DB::table('vendor_registration')
+                                                           ->where('usertype','vendor')
+                                                           ->Where('approval_status',1)
+                                                           ->where('verified',1)
+                                                           ->get();
 
-                      $count=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',0)->Where('notification',0)->get();
-
-                          	return view('Admin.admihome',$admin_detail)->with('array',$newvendor)->with('array2',$recentvendor)->with('count',$count);
+                             $count=DB::table('vendor_registration')
+                                                            ->where('usertype','vendor')
+                                                            ->Where('approval_status',0)
+                                                            ->Where('notification',0)
+                                                            ->get();
+                               $product_count=DB::table('products')->get();
+                          	return view('Admin.admihome',$admin_detail)
+                                                     ->with('array',$newvendor)
+                                                     ->with('array2',$recentvendor)
+                                                     ->with('count',$count)
+                                                     ->with('product_count',$product_count);
 
                          } 
                        else
@@ -103,8 +128,13 @@ class admin_controller extends Controller
                      {
                           $usertype="vendor";
                           try {
-                                  db::table('vendor_registration')->where('id',$id)->update(['approval_status'=>'1']);
-                                  $admin_detail=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
+                                  db::table('vendor_registration')
+                                                   ->where('id',$id)
+                                                   ->update(['approval_status'=>'1']);
+                         $admin_detail=DB::table('vendor_registration')
+                                                               ->where('usertype',$usertype)
+                                                               ->Where('id',$id)
+                                                               ->get();
                                    $date=date('Y-m-d H:i:s'); 
                           		 foreach ($admin_detail as $fetch) 
                                         {
@@ -118,18 +148,22 @@ class admin_controller extends Controller
                                         }
 
                               	 Mail::to($email)->send(new approval_mail($content));
-                                 return redirect('new_vendor')->with('message','You have approved a new company.');
+                                 return redirect('new_vendor')
+                                               ->with('message','You have approved a new company.');
                       				} 
                       			catch (Exception $e)
                       				{
-                      				  return redirect('new_vendor')->with('message','sorry please confirm the email');         		
+                      				  return redirect('new_vendor')
+                                                 ->with('message','sorry please confirm the email');         		
               				         }
 
                          }
 
    public function vendor_edit(Request $request,$id)
                         {
-                                 $data['array']=db::table('vendor_registration')->where('id',$id)->get();
+                                 $data['array']=db::table('vendor_registration')
+                                                             ->where('id',$id)
+                                                             ->get();
                                 return view('Admin.vendor_profile',$data);
                         }
 
@@ -138,8 +172,12 @@ class admin_controller extends Controller
 
                                  try {
                                   	
-                                   db::table('vendor_registration')->where('id',$id)->update(['notification'=>'1']);
-                                  $data['array']=db::table('vendor_registration')->where('id',$id)->get();
+                                   db::table('vendor_registration')
+                                                  ->where('id',$id)
+                                                  ->update(['notification'=>'1']);
+                                  $data['array']=db::table('vendor_registration')
+                                                                  ->where('id',$id)
+                                                                  ->get();
                                    return view('Admin.vendor_profile',$data);
                                 }
                                catch (Exception $e) 
@@ -150,7 +188,10 @@ class admin_controller extends Controller
                      }
    public function admin_edit(Request $request,$id)
                     {
-                            $admin_detail['detail']=DB::table('vendor_registration')->where('id',$id)->Where('usertype','admin')->get();
+                            $admin_detail['detail']=DB::table('vendor_registration')
+                                                                   ->where('id',$id)
+                                                                   ->Where('usertype','admin')
+                                                                   ->get();
                             return view('Admin.admin_edit',$admin_detail);
                     }
   public function admin_logout(Request $request)
@@ -183,7 +224,10 @@ class admin_controller extends Controller
 
                               try 
                 						    {
-                						    	 db::table('vendor_registration')->where('id',$id)->Where('usertype','admin')->update($admin_updateDetails);
+                						    	 db::table('vendor_registration')
+                                                      ->where('id',$id)-
+                                                      Where('usertype','admin')
+                                                      ->update($admin_updateDetails);
                 		               return back()->with('message',"Updation is Completed");
                 						    } 
                 						  catch (Exception $e)
@@ -208,12 +252,19 @@ class admin_controller extends Controller
                                    {
                                      $password_detail['password']=$request->input('nw_password');
                                      $current_password=$request->input('old_password');
-                                     $data=db::table('vendor_registration')->Where('id',$id)->Where('usertype','admin')->pluck('password');
+                                     $data=db::table('vendor_registration')
+                                                                ->Where('id',$id)
+                                                                ->Where('usertype','admin')
+                                                                ->pluck('password');
                                          if(isset($data[0]))
                                          {
                 		                      try 
                                             {
-                								    	 db::table('vendor_registration')->where('id',$id)->Where('usertype','admin')->Where('password',$current_password)->update($password_detail);
+                								    	 db::table('vendor_registration')
+                                                              ->where('id',$id)
+                                                              ->Where('usertype','admin')
+                                                              ->Where('password',$current_password)
+                                                              ->update($password_detail);
                                         return back()->with('message','password is changed');
                 								             } 
                 								     catch (Exception $e)
@@ -241,7 +292,10 @@ class admin_controller extends Controller
                              {
                               $output="";
 
-                               $posts = DB::table('vendor_registration')->where('name','LIKE','%'.$id.'%')->orWhere('email','LIKE','%'.$id.'%')->get();
+                               $posts = DB::table('vendor_registration')
+                                                       ->where('name','LIKE','%'.$id.'%')
+                                                       ->orWhere('email','LIKE','%'.$id.'%')
+                                                       ->get();
                                return view('Admin.livesearchajax')->withPosts($posts);
 
                              if($posts)
@@ -271,21 +325,41 @@ class admin_controller extends Controller
                  }
      public function categories_form(Request $request)
                  {
+                   $id=$request->session()->get('userid');
                   if($request->session()->has('userid'))
                    {
+                   
                     $usertype='admin';
                     $id=$request->session()->get('userid');
-                        $category=db::table('tbl_categories')->get();
-                        $sub_category= db::table('tbl_sub_category')->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')->get();
+                    $category=db::table('tbl_categories')
+                                                  ->get();
+                    $sub_category= db::table('tbl_sub_category')
+                                        ->join('tbl_categories','tbl_categories.category_id','=','tbl_sub_category.category_id')
+                                        ->get();
 
-                        $child_category= db::table('tbl_child_category_one')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_one.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_one.category_id')->get();
+                    $child_category= db::table('tbl_child_category_one')
+                                      ->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_one.subcategory_id')
+                                      ->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_one.category_id')
+                                      ->get();
 
-                        $child_category2= db::table('tbl_child_category_two')->join('tbl_child_category_one','tbl_child_category_one.child_category_id','=','tbl_child_category_two.child_category_id')->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_two.subcategory_id')->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_two.category_id')->get();
+                   $child_category2= db::table('tbl_child_category_two')
+                        ->join('tbl_child_category_one','tbl_child_category_one.child_category_id','=','tbl_child_category_two.child_category_id')
+                        ->join('tbl_sub_category','tbl_sub_category.subcategory_id','=','tbl_child_category_two.subcategory_id')
+                        ->join('tbl_categories','tbl_categories.category_id','=','tbl_child_category_two.category_id')
+                        ->get();
                         
-                          $admin_detail=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
+                    $admin_detail=DB::table('vendor_registration')
+                                                        ->where('usertype',$usertype)
+                                                        ->Where('id',$id)
+                                                        ->get();
                          
       //d($child_category2);
-                        return view('Admin.categories_form')->with('detail',$admin_detail)->with('category',$category)->with('sub_category',$sub_category)->with('child_category',$child_category)->with('child_category2',$child_category2);
+                  return view('Admin.categories_form')
+                                           ->with('detail',$admin_detail)
+                                           ->with('category',$category)
+                                           ->with('sub_category',$sub_category)
+                                           ->with('child_category',$child_category)
+                                           ->with('child_category2',$child_category2);
                        
 
                     }
@@ -326,15 +400,15 @@ class admin_controller extends Controller
                               if($validator->fails())
                                     {
                                       return  back()->withErrors($validator);
-                                     }
-                                else
-                                     {
-                                      echo $data['category_id']=$request->input('category_id');
-                                       echo $data['subcategory_name']=$request->input('subcategory_name');
-                                       db::table('tbl_sub_category')->insert($data);
-                                       return back()->with('message','New Sub Category was added');
+                                    }
+                              else
+                                  {
+                                    echo $data['category_id']=$request->input('category_id');
+                                    echo $data['subcategory_name']=$request->input('subcategory_name');
+                                    db::table('tbl_sub_category')->insert($data);
+                                    return back()->with('message','New Sub Category was added');
                                      //  $data=db::table('tbl_categories')->get();
-                                     }
+                                  }
 
                            }
       /*public function view_categories(Request $request)
@@ -354,10 +428,17 @@ class admin_controller extends Controller
                         { 
                           $usertype='admin';
                           $id=$request->session()->get('userid');
-                          $admin_detail=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
-                        $category=db::table('tbl_categories')->where('category_id',$id)->get();
-                        return view('Admin.Category_edit')->with('category',$category)->with('detail',$admin_detail);
-                    }
+                          $admin_detail=DB::table('vendor_registration')
+                                                    ->where('usertype',$usertype)
+                                                    ->Where('id',$id)
+                                                    ->get();
+                        $category=db::table('tbl_categories')
+                                                    ->where('category_id',$id)
+                                                    ->get();
+                        return view('Admin.Category_edit')
+                                                    ->with('category',$category)
+                                                    ->with('detail',$admin_detail);
+                       }
                     }
       public function update_categories(Request $request,$id)
                     {
@@ -406,7 +487,10 @@ class admin_controller extends Controller
                     {
                      $usertype='admin';
                      $user_role='Super_Admin';
-                        $user_detail=db::table('vendor_registration')->where('usertype',$usertype)->whereNotIn('role',[$user_role])->get(); 
+                    $user_detail=db::table('vendor_registration')
+                                             ->where('usertype',$usertype)
+                                             ->whereNotIn('role',[$user_role])
+                                             ->get(); 
                       return view('admin.adminuser_detail')->with('user_detail',$user_detail);
                     }
     
@@ -462,8 +546,12 @@ class admin_controller extends Controller
    public function adminuser_edit(Request $request,$id)
                     {
                       $usertype='admin';
-                      $user_detail=db::table('vendor_registration')->where('id',$id)->Where('usertype',$usertype)->get(); 
-                      return view('Admin.admin_user_detail')->with('user_detail',$user_detail);
+                      $user_detail=db::table('vendor_registration')
+                                              ->where('id',$id)
+                                              ->Where('usertype',$usertype)
+                                              ->get(); 
+                      return view('Admin.admin_user_detail')
+                                              ->with('user_detail',$user_detail);
                       //dd($user_detail);
                     }
     public function subcategory_select(Request $request)
@@ -552,12 +640,19 @@ class admin_controller extends Controller
                         { 
                         $usertype='admin';
                         $id=$request->session()->get('userid');
-                        $admin_detail=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
+                        $admin_detail=DB::table('vendor_registration')
+                                                   ->where('usertype',$usertype)
+                                                   ->Where('id',$id)
+                                                   ->get();
 
-
-
-                          $newvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',0)->where('verified',1)->get();
-                          return view('Admin.new_vendor')->with('detail',$admin_detail)->with('array',$newvendor);
+                          $newvendor=DB::table('vendor_registration')
+                                                     ->where('usertype','vendor')
+                                                     ->Where('approval_status',0)
+                                                     ->where('verified',1)
+                                                     ->get();
+                          return view('Admin.new_vendor')
+                                                ->with('detail',$admin_detail)
+                                                ->with('array',$newvendor);
                         
                       }
 
@@ -569,9 +664,18 @@ class admin_controller extends Controller
                         { 
                         $usertype='admin';
                         $id=$request->session()->get('userid');
-                        $admin_detail=DB::table('vendor_registration')->where('usertype',$usertype)->Where('id',$id)->get();
-                  $recentvendor=DB::table('vendor_registration')->where('usertype','vendor')->Where('approval_status',1)->where('verified',1)->get();
-                  return view('Admin.recent_vendor')->with('detail',$admin_detail)->with('array2',$recentvendor);
+                        $admin_detail=DB::table('vendor_registration')
+                                                   ->where('usertype',$usertype)
+                                                   ->Where('id',$id)
+                                                   ->get();
+                        $recentvendor=DB::table('vendor_registration')
+                                                  ->where('usertype','vendor')
+                                                  ->Where('approval_status',1)
+                                                  ->where('verified',1)
+                                                  ->get();
+                  return view('Admin.recent_vendor')
+                                                 ->with('detail',$admin_detail)
+                                                 ->with('array2',$recentvendor);
                      }
 
                   }
@@ -658,7 +762,9 @@ class admin_controller extends Controller
                       if($request->session()->has('userid'))
                         { 
                        
-                     $product=DB::table('vendor_subscription')->where('id',$pid)->delete();
+                     $product=DB::table('vendor_subscription')
+                                           ->where('id',$pid)
+                                           ->delete();
                      return back()->with('message','one vendor subscription detail was delete');
                      }
 

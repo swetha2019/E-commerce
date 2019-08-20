@@ -68,5 +68,16 @@ class Controller extends BaseController
                echo $ke;
               }
             }
+        public function pro_edit(Request $request,$id)
+        {
+          if($request->hasfile('img'))
+          {
+            foreach($request->file('img') as $image)
+                    {
+          $img=$image->getClientOriginalName();
+          dd($img);
+        }
+        }
+        }    
 
 }
