@@ -253,7 +253,7 @@
 									<button type="submit"><i class="fa fa-search"></i></button>
 								</form>
 							</div>
-							<!-- <ul class="seting-area">
+							<ul class="seting-area">
 								<li class="langages">
 									<a href="#" title="">Eng</a>
 									<ul class="drop language">
@@ -264,12 +264,12 @@
 									</ul>
 								</li>
 								<li class="setting-panel"><a href="#" title=""><i class="icon-equalizer"></i></a></li>
-							</ul> -->
+							</ul>
 						</div>
 						<div class="col-lg-1">
 							<div class="user-head">
 								<div class="admin">
-								 @foreach($detail as $admin)	<div class="admin-avatar"><img src="{{url('site_logo',$admin->logo)}}" alt="" height="40px" width="40px"> <!-- <i class="online"></i> --> </div>@endforeach
+								 @foreach($detail as $admin)	<div class="admin-avatar"><img src="template/images/resources/admin.png" alt="" height="40px" width="40px">  <i class="online"></i> </div>@endforeach
 								</div>
 								<div class="drop setting"> <span class="drop-head"><i>30 days trial</i></span>
 									<ul class="drop-meta">
@@ -463,56 +463,43 @@
 								<h4>This admin page </h4>
 							  </div>
 							</div>
-							<div class="col-md-6">
-							  <ul class="vlaue-show">
-								<li> <span>37</span> <a href="#" title="">Products</a> </li>
-								<li> <span>59</span> <a href="#" title="">New Orders</a> </li>
-								<li> <span>60</span> <a href="#" title="">Customers</a> </li>
-							  </ul>
-							</div>
+							
 						</div> 
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="info-section">
-                                        <div class="panel-widget style2">
-                                            <div class="b-meta">
-                                                <img src="images/icon-5.png" alt="">
-                                                <div class="info-meta">
-                                                    <span>Sales Earnings</span>
-                                                    <h4><ins>$</ins>0.00</h4>
-                                                    <i>10%</i>
-                                                </div>
-                                                <div class="spark">
-                                                    <div class="sparkline_line"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel-widget style2">
-                                            <div class="b-meta"> <img src="{{ url('/') }}/template/images/icon-6.png" alt="">
-                                                <div class="info-meta">
-                                                    <span>total sales</span>
-                                                    <h4>4512</h4>
-                                                    <i>20%</i>
-                                                </div>
-                                                <div class="spark">
-                                                    <div class="sparkline_three"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel-widget style2">
-                                            <div class="b-meta"> <img src="{{ url('/') }}/template/images/icon-8.png" alt="">
-                                                <div class="info-meta">
-                                                    <span>Today's Visits</span>
-                                                    <h4>158</h4>
-                                                    <i>30%</i>
-                                                </div>
-                                                <div class="spark">
-                                                    <div class="sparkline22"></div>
-                                                </div>
-                                            </div>
-                                        </div>
+
+                 <div class="info-section">
+										<div class="panel-widget">
+											<div class="b-meta"> 
+												<i class="icon-people"></i>
+												<div class="info-meta">
+													<h4>{{count($array)}}</h4>
+													<p></p>
+													<span>New Vendores Count</span> 
+												</div>
+												<span class="seventy green"></span> 
+											</div>
+										</div>
+										<div class="panel-widget">
+												<div class="b-meta">
+													<i class="icon-login"></i>
+													<div class="info-meta">
+														<h4>{{count($product_count)}}</h4>
+														<p></p>
+														<span>New Product count </span> </div>
+													<span class="fifty purpal"></span></div>
+											</div>
+										<div class="panel-widget">
+												<div class="b-meta">
+													<i class="icon-like"></i>
+													<div class="info-meta">
+														<h4>8289</h4>
+														<p>40%</p>
+														<span>Email Enquiries </span> </div>
+													<span class="fourty green"></span> </div>
+											</div>
                                     </div>
                <div class="widget">
                                         <div class="widget-title no-margin">

@@ -387,7 +387,7 @@
                     <span>Welcome To web Admin Panel!</span>
                   </div>
                   <ul class="bread-crumb">
-                    <li><a href="{{url('adminhome')}}" title=""><i class="fa fa-home"></i></a></li>
+                    <li><a href="{{url('adminhome')}}" title="">Home</a></li>
                     <li>Dashbord</li>
                   </ul>
                 </div>
@@ -405,18 +405,47 @@
 				 
 @foreach($detail as $detail)
 
-				  <form action="add_categories" method="post">
-                                    {{ csrf_field() }} 
-                              <label>Categories</label>
-                              <input type="text" placeholder="Category Name" name="category_name" style="border-color: rgb(107, 213, 234)">
-                            <br><br><br><br>
-                            <div class="col-md-12">
-                              <div class="buttonz">
-                                <button type="submit" name="save" >Add Category</button>
-                                <button name="cancel"><a href="back" title="">BACK</a></button>
-                              </div>
-                            </div>
-                        </form>
+				  <form enctype="multipart/form-data"  method="post" action="{{ url('admin_update/'.$detail->id)}}">
+                     {{ csrf_field() }} 
+                     
+                <div class="pnl-bdy billing-sec">
+                    	<div class="row">
+                    	 <div class="col-md-6 col-sm-6 field">
+                        <label>Name<span>*</span> </label>
+                        <input value="{{$detail->name}}" name="name" type="text" placeholder="First Name">
+                         @if ($errors->has('name'))
+    					<div class="error">{{ $errors->first('name') }}</div>
+						@endif
+
+                      </div> 
+                      </div>
+
+
+<div class="col-md-6 col-sm-6 field">
+                        <label>New Phone Number <span>*</span> </label>
+                        <input placeholder="Enter Your New Phone Number" value="{{$detail->phone}}" name="nw_phone" type="text">
+                        @if ($errors->has('nw_phone'))
+    					<div class="error">{{ $errors->first('nw_phone') }}</div>
+						@endif
+                      </div>
+
+<div class="col-md-6 col-sm-6 field">
+                        <label>New Email id <span>*</span> </label>
+                        <input placeholder="Enter Your New Phone Number" value="{{$detail->email}}" name="nw_email" type="text">
+                        @if ($errors->has('nw_email'))
+    					<div class="error">{{ $errors->first('nw_email') }}</div>
+						@endif
+                      </div>
+
+
+
+                      	 
+
+ 
+
+                       <button type="submit">Update Now</button>
+                     
+                  </form>
                   
                 <!--change password -->
                 <div align="centre" id="cnge_pwd">

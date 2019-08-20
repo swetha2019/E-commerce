@@ -1,3 +1,3 @@
 <?php echo "your transaction is successfull";?>
 <br>
-<!--<a href="{{ url('home')}}">Back to Dashboard</a>-->
+<a href="{{ url('paytm_redirect')}}">Back to Login</a>

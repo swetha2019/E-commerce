@@ -597,14 +597,7 @@
                                             </div>
                                           </div>
                                         </div>
-                                        <div class="toggle-item brd-5">
-                                          <h3 class=""><i class="fa fa-leaf"></i>Business Niche Or Creative Style?</h3>
-                                          <div class="content">
-                                            <div class="simple-text">
-                                              <p>Suspendisse potenti. Maecenas dapibus ac tellus sed pulvinar estibulum bib volutpat. Sociis, eget mollis, exercitationem fames.High lorm ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad</p>
-                                            </div>
-                                          </div>
-                                        </div>
+                                        
                                       </div>
                                     </div>
                                   </div>

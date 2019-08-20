@@ -364,8 +364,18 @@
 
 
                                       <?php
-                                       $image=explode("#@#", $pro_detail->image_gallery);                             
+                                       $image=explode("#@#", $pro_detail->image_gallery);
+
                                         ?>
+                    <!-- <form action="{{url('pro_edit',$pro_detail->id)}}" method="post" enctype="multipart/form-data">
+                         {{ csrf_field() }}
+                                         @foreach ($image as $key => $value)
+                                        
+                                         <img src="{{$value}}">
+                                         <input type="file" name="img[]" value="{{$value}}">
+                                       @endforeach
+                                       <button type="submit" name="save" >Update Category</button>
+                                   </form> -->
                                         <div id="slideshow">
                                         @foreach ($image as $key => $value)
                                         <div>

@@ -39,43 +39,82 @@
       <div class="col-sm-12">
         <div class="main-page">
           <header>
-                            <div class="side-menus">
-                                <div class="side-header">
-                  <div class="logo"><a title="" href="index-2.html"><img alt="" src="template/images/logo2.png"></a></div>
-                                    <nav class="slide-menu">
+      <div class="side-menus">
+        <div class="side-header">
+          <div class="logo"><a title="" href="template/index-2.html"><img alt="" src="template/images/logo2.png"></a></div>
+          <nav class="slide-menu">
                                         <span>Navigation <i class="ti-layout"></i></span>
                                         <ul class="parent-menu">
                                             <li class="menu-item-has-children"> <a title="#"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
                                                 <ul>
-                                                    <li><a href="index-2.html" title="">Dashboard 1</a></li>
-                                                    
+                                                    <li><a href="template/index-2.html" title="">Home</a></li>
+                                                    <!-- <li><a href="template/index2.html" title="">Dashboard 2</a></li>
+                                                    <li><a href="template/index3.html" title="">Dashboard 3</a></li>
+                                                    <li><a href="template/index4.html" title="">Dashboard 4</a></li>
+                                                    <li><a href="template/index5.html" title="">Dashboard 5</a></li> -->
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>layouts</span></a>
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-shopping-cart"></i><span>New Orders</span></a>
                                                 <ul class="mega">
-                                                    <li><a href="index-boxed.html" title="">boxed layout</a></li>
-                                                    
+                                                    <li><a href="template/index-boxed.html" title="">New Products</a></li>
+                                                    <li><a href="template/overlap-sidebar.html">All Products</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children active"> <a title=""><i class="fa fa-shopping-cart"></i><span>WooCommercee</span></a>
-                                                <ul class="mega" style="display: block;">
-                                                    <li><a href="product.html" title="">product</a></li>
-                                                    
+                                            <li class="menu-item-has-children"> <a title=""><i class="fa fa-laptop"></i><span>Products</span></a>
+                                                <ul class="mega">
+                                                    <!-- <li><a href="template/product.html" title="">product</a></li>
+                                                    <li><a href="template/product-detail.html">product-detail</a></li>
+                                                    <li><a href="template/product-order.html">product-order</a></li> -->
+                                                    <li><a href="{{ url('add_redirect')}}">Add product</a></li>
+                                                    <li><a href="{{ url('view_product')}}">View Product</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-bookmark-o"></i><span>UI Elements</span></a>
+                                            <li class="menu-item-has-children"> <a title="#"><i class="fa fa-bookmark-o"></i><span>Previous Orders</span></a>
                                                 <ul>
-                                                    <li><a href="accordion-n-tabs.html">accordions & tabs</a></li>
-                                                    
-                          <li><a href="calendar.html">event calendar</a></li>
+                                                    <!-- <li><a href="template/accordion-n-tabs.html">accordions & tabs</a></li>
+                                                    <li><a href="template/elements.html">elements</a></li>
+                                                    <li><a href="template/invoices.html">invoices</a></li>
+                                                    <li><a href="template/tabels.html">tabels styles</a></li>
+                                                    <li><a href="typography.html">typography</a></li>
+                                                    <li><a href="template/megamenu.html">mega menu styles</a></li>
+                                                    <li><a href="template/socials-btns.html">social buttons</a></li>
+                                                    <li><a href="template/testimonials.html">testimonials styles</a></li>
+                          <li><a href="template/calendar.html">event calendar</a></li> -->
                                                 </ul>
                                             </li>
-                      
+                      <!-- <li><a href="template/inbox.html" title=""><i class="fa fa-inbox"></i><span>inbox</span><ins>5</ins></a></li>
+                                            <li><a href="template/charts.html" title=""><i class="fa fa-bar-chart"></i><span>charts</span></a></li>
+                                            <li> <a href="template/maps.html" title=""><i class="fa fa-globe"></i><span>Google maps</span></a> </li>
+                      <li class="menu-item-has-children"> 
+                        <a title=""><i class="fa fa-flag"></i><span>Icons</span></a>
+                                                <ul>
+                                                    <li><a href="template/icons.html">Font Awesome</a></li>
+                                                    <li><a href="template/icons2.html">Themify Icons</a></li>
+                                                </ul>
+                                            </li> -->
+                      <!-- <li class="menu-item-has-children active"> <a title=""><i class="fa fa-inbox"></i><span>Pages</span></a>
+                                                <ul class="mega" style="display: block;">
+                                                    <li><a class="active" href="template/profile.html">profile</a></li>
+                                                    <li><a href="template/edit-profile.html">edit profile</a></li>
+                                                    <li><a href="template/login.html">login</a></li>
+                                                    <li><a href="template/register.html">register</a></li>
+                                                    <li><a href="template/forgot-pass.html">forgot password</a></li>
+                                                </ul>
+                                            </li> -->
+                                            <!-- <li class="menu-item-has-children"> <a title=""><i class="fa fa-external-link"></i><span>extras</span></a>
+                                                <ul class="mega">
+                                                    <li><a href="template/404.html">404 error page</a></li>
+                                                    <li><a href="template/505.html">505 error page</a></li>
+                                                    <li><a href="template/maintenance.html">maintenance</a></li>
+                                                    <li><a href="template/coming-soon.html">coming soon </a></li>
+                                                    
+                                                </ul>
+                                            </li> -->
                                         </ul>
                                     </nav>
-                                </div>
-                            </div>
-                        </header>
+        </div>
+      </div>
+    </header>
     <!-- side header -->
     <div class="topbar">
       <div class="container-fluid">
@@ -214,7 +253,7 @@
           <div class="col-lg-1">
             <div class="user-head">
               <div class="admin">
-                <div class="admin-avatar"><img src="images/resources/admin.png" alt=""> <i class="online"></i> </div>
+                <div class="admin-avatar"><img src="<?php echo Auth::user()->logo;?>" style="height: 40px;width: 40px" alt=""></div>
               </div>
               <div class="drop setting"> <span class="drop-head">stifen Doe <i>30 days trial</i></span>
                 <ul class="drop-meta">
@@ -224,7 +263,7 @@
                   <li> <a href="#" title=""><i class="fa fa-calendar"></i>Calender</a> </li>
                   <li> <a href="#" title=""><i class="fa fa-align-right"></i>Balance Report</a> </li>
                 </ul>
-                <span class="drop-bottom"><a href="#" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
+                <span class="drop-bottom"><a href="{{ route('logout') }}" title=""><i class="fa fa-sign-out"></i>log Out</a></span> </div>
             </div>
           </div>
         </div>
@@ -357,8 +396,8 @@
                     </div>
                     <div class="cart-page">
                       
-                    <!--   <?php //if (isset($frst_pack_data)) {
-                       ?> -->
+                       <?php if (isset($frst_pack_data)) {
+                       ?>
                       
                       <div class="gap no-gap">
                         <div class="cart-summary">
@@ -380,7 +419,7 @@
                             <?php $user=Auth::user()->id;?>
                              <input type="hidden" name="cust_id" value="<?php echo $user;?>">
                                               </ul>
-                        <?php// } ?>
+                        <?php } ?>
                           <div class="total-btns"> <button type="submit" class="btn-st drk-gry-clr" href="#" title="">Place order</button> <a class="btn-st drk-gry-clr" href="{{ route('home') }}" title="">Cancel order</a> </div>
                         </div>
                       </div>
@@ -452,7 +491,7 @@
                     <span>Welcome To web Admin Panel!</span>
                   </div>
                   <ul class="bread-crumb">
-                    <li><a href="#" title="">Home</a></li>
+                    <li><a href="{{ url('/home')}}" title="">Home</a></li>
                     <li>Dashbord</li>
                   </ul>
                 </div>
